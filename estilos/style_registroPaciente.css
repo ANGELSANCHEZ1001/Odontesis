@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 *{
     margin: 0;
@@ -112,7 +112,7 @@ body{
 
 ::placeholder {
     color: #4a605d;
-  }
+}
 
 .form_antec{
     width: 100%;
@@ -163,3 +163,170 @@ body{
 }
 
 
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e6fbf9;
+    background-image: radial-gradient(#3ce7d4 1.05px, transparent 1.05px), radial-gradient(#3ce7d4 1.05px, #e6fbf9 1.05px);
+    background-size: 42px 42px;
+    background-position: 0 0, 21px 21px;
+    display: flex;
+    flex-direction: column; /* Cambio a disposición vertical */
+    align-items: center; /* Centrar contenido verticalmente */
+}
+
+.form {
+    background-color: #fff;
+    width: 100%; /* Ancho completo en dispositivos móviles */
+    max-width: 600px;
+    padding: 2em; /* Reducción del relleno */
+    margin-top: 20px; /* Reducción del margen superior */
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+    text-align: center;
+}
+
+.form_title {
+    font-size: 1.5rem; /* Reducción del tamaño del título */
+    margin-bottom: 1em; /* Reducción del margen inferior */
+}
+
+.form_group {
+    margin-bottom: 2em; /* Espacio entre grupos de campos */
+}
+
+.form_input {
+    width: 100%;
+    font-size: 1rem;
+    padding: .5em;
+}
+
+.form_label {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.form_submit {
+    font-size: 1rem;
+    padding: .8em 0.5em; /* Reducción del relleno */
+    margin-top: 20px;
+    border-radius: .5em;
+    width: 100%;
+}
+
+/* Estilo para el contenedor de cada par de checkbox y label */
+.checkbox_label {
+    margin-bottom: 1em; /* Espacio entre grupos de checkbox */
+}
+
+/* Estilo para los inputs de checkbox */
+.checkbox_label input {
+    margin-right: 5px;
+}
+
+.form_antec {
+    width: 100%;
+    font-size: 1rem;
+    padding: .5em;
+}
+
+
+
+
+/* Estilos específicos para la página */
+.barramenu {
+background-color: #3ce7d4;
+width: 100%;
+position: fixed;
+height: 50px;
+z-index: 1000;
+}
+
+.barramenu ul {
+list-style-type: none;
+display: flex;
+padding: 0;
+margin: 0;
+}
+
+.barramenu ul li {
+margin-left: 40px;
+}
+
+.barramenu a {
+float: left;
+display: block;
+color: #fff;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+.barramenu a:hover {
+background-color: #1c8d85;
+}
+
+.lout {
+float: left;
+display: block;
+color: #fff;
+text-align: right;
+padding: 14px 16px;
+margin-right: 40px;
+text-decoration: none;
+}
+
+.tabla {
+background-color: #fff;
+width: 100%;
+max-width: 600px;
+padding: 2em;
+margin-top: 70px;
+border-radius: 10px;
+box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+text-align: center;
+}
+
+.titulomuestralist {
+font-size: 1.5rem;
+margin-bottom: 1em;
+}
+
+.col1,
+.col2,
+.col7 {
+margin-bottom: 2em;
+}
+
+.col1,
+.col2 {
+text-align: left;
+font-size: 1rem;
+}
+
+.col7 {
+font-size: 1rem;
+margin-top: 20px;
+border-radius: .5em;
+width: 100%;
+}
+
+
+#ttlt{
+color: #3ce7d4;
+}
+
+.Alta{
+background-color: #3ce7d4;
+border: black 1px solid;
+border-radius: 10px;
+height: 60px;
+width: 150px;
+margin-top: 80px;
+text-align: center;
+float: left;
+
+}
+.Alta a{
+color: #fff;
+}

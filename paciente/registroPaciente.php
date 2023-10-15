@@ -1,0 +1,161 @@
+<?php
+session_start();
+error_reporting(0);
+
+if (!isset($_SESSION['correo'])) {
+  header('Location: login.php');
+  exit;
+}
+
+$correo = $_SESSION['correo'];
+$contrasena = $_SESSION['contrasena'];
+
+$pos = strpos($correo, '@');
+if ($pos !== false) {
+  $nomb = substr($correo, 0, $pos);
+  $_SESSION['nomb'] = $nomb;
+} else {
+  $nomb = $correo;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos/style_registroPaciente.css">
+    <title>Nuevo Paciente</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../usuarios/welcome.php">Inicio</a>
+        <a href="registroPaciente.php">Pacientes</a>
+        <a href="../usuarios/usuarios.php">Usuarios</a>
+        <a href="../usuarios/logout.php" class="cerrarsesion">Cerrar Sesión</a>
+        
+    </div>
+    
+    <form class="form">
+        <h2 class="form_title">Nuevo paciente</h2><br>
+        <div class="form_containers">
+            <div class="form_group">
+                    <h2 class="form_antec">Datos generales</h2><br>
+               
+                    <input type="text" id="name" class="form_input" placeholder="Nombre "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Apellido paterno "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Apellido materno "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Correo "><br><br> 
+                    <input type="password" id="pass" class="form_input" placeholder="Contraseña "><br><br><br><br> 
+                    <label class="form_label">Fecha de nacimiento</label> <br>
+                    <input type="date" id="name" class="form_input" placeholder="Fecha de nacimiento "><br><br> <br>
+                    <input type="text" id="name" class="form_input" placeholder="LugarNacimiento "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Edad "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Sexo "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Calle "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Municipio "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Colonia "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Estado "><br><br><br>
+                    <label class="form_label">Escolaridad</label> <br>
+                    <select name="" id="" class="form_input">
+                        <option value="1">Primaria</option>
+                        <option value="1">Secundaria</option>
+                        <option value="1">Bachillerato</option>
+                        <option value="1">Licenciatura o superior</option>
+                    </select><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Celular "><br><br>
+                    <input type="text" id="name" class="form_input" placeholder="Ocupacion "><br><br> <br> <br>
+                    <label class="form_label">Ultima cita</label> 
+                    <input type="date" id="name" class="form_input" placeholder="Ultima cita dental "><br><br> <br>
+                    <label class="form_label">Motivo de consulta</label> 
+                    <textarea class="form_input" name="" id="" cols="30" rows="6" ></textarea><br><br>
+                    
+                    <input type="text" id="name" class="form_input" placeholder="Escolaridad "><br><br>
+                    <br>
+                    
+                <h2 class="form_antec">Antecedentes heredofamiliares</h2><br>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="Diabetes" name="Diabetes" value=""/>
+                    <label class="checkAntecedentes">Diabetes</label>
+                    
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="Fibrosis" name="Fibrosis" value="0" />
+                    <label class="checkAntecedentes">Fibrosis quística</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="Anemia" name="Anemia" value="0"/>
+                    <label class="checkAntecedentes">Anemia falciforme</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="cancer" name="cancer" value="0"/>
+                    <label class="checkAntecedentes">Cáncer</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="hemofila" name="hemofila" value="0" />
+                    <label class="checkAntecedentes">Hemofilia</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="hipertension" name="hipertension" value="0"/>
+                    <label class="checkAntecedentes">Hipertensión</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="hipertensiont" name="hipertensiont" value="0"/>
+                    <label class="checkAntecedentes">Hipertensión terolemia</label>
+                </div>
+                <br>    
+                    
+            </div>
+            <h2 class="form_antec">Antecedentes personales patologicos</h2><br>
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Sida" name="Sida" value="0" />
+                <label class="checkAntecedentes">Sida</label>
+            </div>
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Diabetes" name="Diabetes" value=""/>
+                <label class="checkAntecedentes">Diabetes</label>
+                
+            </div>
+            
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Prediabetes" name="Prediabetes" value="0"/>
+                <label class="checkAntecedentes">Prediabetes</label>
+            </div>
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Cardiovasculares" name="Cardiovasculares" value="0"/>
+                <label class="checkAntecedentes">Cardiovasculares</label>
+            </div>
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Hepatitis" name="Hepatitis" value="0" />
+                <label class="checkAntecedentes">Hepatitis</label>
+            </div>
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Osteoartritis" name="Osteoartritis" value="0"/>
+                <label class="checkAntecedentes">Osteoartritis</label>
+            </div>
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Osteoporosis" name="Osteoporosis" value="0"/>
+                <label class="checkAntecedentes">Osteoporosis</label>
+            </div>
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Herpes" name="Herpes" value="0" />
+                <label class="checkAntecedentes">Herpes</label>
+            </div>
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Cardiopatias" name="Cardiopatias" value="0"/>
+                <label class="checkAntecedentes">Cardiopatias</label>
+            </div>
+            <div class="checkbox_label">
+                <input type="checkbox" class="checkAntecedentes" id="Cancer" name="Cancer" value="0"/>
+                <label class="checkAntecedentes">Cancer</label>
+            </div>
+            <br>
+            <br>    
+            <div class="form_group">
+                <button class="form_submit" onclick="" >Finalizar</button>
+            </div>
+        </div>
+    </form>
+    <script src="login.js"></script>
+</body>
+</html>
