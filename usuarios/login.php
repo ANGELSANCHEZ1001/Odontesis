@@ -1,4 +1,7 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php
 session_start();
 $error_message = '';
 
@@ -14,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $correo = $_POST['correo'];
   $contrasena = $_POST['contrasena'];
 
-  $query = "SELECT * FROM usuarios WHERE correo='$correo' AND contrasena='$contrasena'";
+  $query = "SELECT * FROM empleados WHERE Correo='$correo' AND Pass='$contrasena'";
   $result = mysqli_query($con, $query);
 
   if (mysqli_num_rows($result) == 1) {
@@ -29,9 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_login.css">
