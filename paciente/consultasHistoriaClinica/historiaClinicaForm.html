@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Historia Clinica</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Agregar jQuery (puedes usar otra librería si lo prefieres) -->
+</head>
+<body>
+    <h1>Formulario de Historia Clinica</h1>
+    <form id="historiaClinicaForm" method="post">
+        <label for="noExpediente">Número de Expediente:</label>
+        <input type="text" name="noExpediente" required><br><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha"><br><br>
+
+        <label for "folio">Folio:</label>
+        <input type="text" name="folio"><br><br>
+
+        <label for="idUsuarioCreador">ID del Usuario Creador:</label>
+        <input type="text" name="idUsuarioCreador"><br><br>
+
+        <input type="button" value="Enviar" id="submitBtn">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#submitBtn").click(function() {
+                // Obtener los datos del formulario
+                var formData = $("#historiaClinicaForm").serialize();
+                
+                // Realizar una solicitud AJAX
+                $.ajax({
+                    type: "POST",
+                    url: "postHistoriaClinica.php",
+                    data: formData,
+                    success: function(response) {
+                        // Manejar la respuesta aquí (puedes mostrar un mensaje de éxito o hacer otras acciones)
+                        console.log("holaaaaaaa");
+                        console.log("Respuesta del servidor: " + response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

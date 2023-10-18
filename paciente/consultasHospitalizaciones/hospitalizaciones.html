@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Hospitalizaciones</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Formulario de Hospitalizaciones</h2>
+    <form id="hospitalizacionesForm" method="POST">
+        <label for="NoExpediente">No. de Expediente:</label>
+        <input type="int" name="NoExpediente" required><br><br>
+
+        <label for="fechaHospitalizacion">Fecha de Hospitalización:</label>
+        <input type="date" name="fechaHospitalizacion"><br><br>
+
+        <label for="motivo">Motivo de Hospitalización:</label>
+        <input type="text" name="motivo"><br><br>
+
+        <input type="submit" value="Guardar Datos" id="submitBtn">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#submitBtn").click(function() {
+                var formData = $("#hospitalizacionesForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "PostHospitalizaciones.php",
+                    data: formData,
+                    success: function(response) {
+                        console.log("Respuesta del servidor: " + response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

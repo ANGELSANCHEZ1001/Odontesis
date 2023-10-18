@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Antecedentes HeredoFamiliares</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Formulario de Antecedentes HeredoFamiliares</h2>
+    <form id="antecedentesHeredoFamiliaresForm" method="POST">
+        <label for="noExpediente">No. de Expediente:</label>
+        <input type="int" name="noExpediente" required><br><br>
+
+        <label for="diabetes">Diabetes:</label>
+        <select name="diabetes">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="fibrosisQuistica">Fibrosis Quística:</label>
+        <select name="fibrosisQuistica">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="anemiaFalciforme">Anemia Falciforme:</label>
+        <select name="anemiaFalciforme">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="cancer">Cáncer:</label>
+        <select name="cancer">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="hemofilia">Hemofilia:</label>
+        <select name="hemofilia">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="hipertencion">Hipertensión:</label>
+        <select name="hipertencion">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="hipercolesterolemia">Hipercolesterolemia:</label>
+        <select name="hipercolesterolemia">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <input type="submit" value="Guardar Datos" id="submitBtn">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#submitBtn").click(function() {
+                var formData = $("#antecedentesHeredoFamiliaresForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "PostAntecedentesHeredoFamiliares.php",
+                    data: formData,
+                    success: function(response) {
+                        console.log("Respuesta del servidor: " + response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

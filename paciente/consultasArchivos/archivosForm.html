@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subir Archivos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Subir Archivos</h2>
+    <form id="archivosForm" method="POST" enctype="multipart/form-data">
+        <label for="noExpediente">No. de Expediente:</label>
+        <input type="int" name="noExpediente" required><br><br>
+
+        <label for="archivo">Seleccionar Archivo:</label>
+        <input type="file" name="archivo" id="archivo" accept=".pdf, .doc, .docx, .jpg, .png"><br><br>
+
+        <input type="submit" value="Subir Archivo" id="submitBtn">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#submitBtn").click(function() {
+                var formData = new FormData($("#archivosForm")[0]);
+                $.ajax({
+                    type: "POST",
+                    url: "PostArchivos.php",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log("Respuesta del servidor: " + response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

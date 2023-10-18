@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Antecedentes Personales Patológicos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Formulario de Antecedentes Personales Patológicos</h2>
+    <form id="antecedentesPersonalesPatologicosForm" method="POST">
+        <label for="noExpediente">No. de Expediente:</label>
+        <input type="int" name="noExpediente" required><br><br>
+
+        <label for="sida">SIDA:</label>
+        <select name="sida">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="diabetes">Diabetes:</label>
+        <select name="diabetes">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="prediabetes">Prediabetes:</label>
+        <select name="prediabetes">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="carebrovasculares">Accidentes Cerebrovasculares:</label>
+        <select name="carebrovasculares">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="hepatitis">Hepatitis:</label>
+        <select name="hepatitis">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="osteoartritis">Osteoartritis:</label>
+        <select name="osteoartritis">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="osteorporosis">Osteoporosis:</label>
+        <select name="osteorporosis">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="herpes">Herpes:</label>
+        <select name="herpes">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="cardiopatias">Cardiopatías:</label>
+        <select name="cardiopatias">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="cancer">Cáncer:</label>
+        <select name="cancer">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <input type="submit" value="Guardar Datos" id="submitBtn">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#submitBtn").click(function() {
+                var formData = $("#antecedentesPersonalesPatologicosForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "PostAntecedentesPersonalesPatologicos.php",
+                    data: formData,
+                    success: function(response) {
+                        console.log("Respuesta del servidor: " + response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

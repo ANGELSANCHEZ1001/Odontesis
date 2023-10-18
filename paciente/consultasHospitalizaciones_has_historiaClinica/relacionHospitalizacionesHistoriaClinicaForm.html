@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relación entre Hospitalizaciones y Historia Clínica</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Relación entre Hospitalizaciones y Historia Clínica</h2>
+    <form id="relacionHospitalizacionesHistoriaClinicaForm" method="POST">
+        <label for="hospitalizacionesNoExpediente">No. de Expediente de Hospitalización:</label>
+        <input type="int" name="hospitalizacionesNoExpediente" required><br><br>
+
+        <label for="historiaClinicaNoExpediente">No. de Expediente de Historia Clínica:</label>
+        <input type="int" name="historiaClinicaNoExpediente" required><br><br>
+
+        <input type="submit" value="Relacionar Hospitalización y Historia Clínica" id="submitBtn">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#submitBtn").click(function() {
+                var formData = $("#relacionHospitalizacionesHistoriaClinicaForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "PostRelacionHospitalizacionesHistoriaClinica.php",
+                    data: formData,
+                    success: function(response) {
+                        console.log("Respuesta del servidor: " + response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

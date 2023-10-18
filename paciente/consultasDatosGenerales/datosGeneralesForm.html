@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Datos Generales</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Agregar jQuery (puedes usar otra librería si lo prefieres) -->
+</head>
+<body>
+    <h2>Formulario de Datos Generales</h2>
+    <form id="datosGeneralesForm" method="POST">
+        <label for="noExpediente">No. de Expediente:</label>
+        <input type="int" name="noExpediente" required><br><br>
+        
+        <label for="nombre">Nombre:</label>
+        <input type="number" name="nombre"><br><br>
+        
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" name="fechaNacimiento"><br><br>
+        
+        <label for="lugarNacimiento">Lugar de Nacimiento:</label>
+        <input type="text" name="lugarNacimiento"><br><br>
+        
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad"><br><br>
+        
+        <label for="sexo">Sexo:</label>
+        <select name="sexo">
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
+        </select><br><br>
+        
+        <label for="domicilioCalle">Calle de Domicilio:</label>
+        <input type="text" name="domicilioCalle"><br><br>
+        
+        <label for="domicilioMunicipio">Municipio de Domicilio:</label>
+        <input type="text" name="domicilioMunicipio"><br><br>
+        
+        <label for="noDomicilio">Número de Domicilio:</label>
+        <input type="text" name="noDomicilio"><br><br>
+        
+        <label for="domicilioColonia">Colonia:</label>
+        <input type="text" name="domicilioColonia"><br><br>
+        
+        <label for="domicilioEstado">Estado:</label>
+        <input type="text" name="domicilioEstado"><br><br>
+        
+        <label for="datosGeneralescol">Campo de Datos Generales:</label>
+        <input type="text" name="datosGeneralescol"><br><br>
+        
+        <label for="celular">Celular:</label>
+        <input type="text" name="celular"><br><br>
+        
+        <label for="ocupacion">Ocupación:</label>
+        <input type="text" name="ocupacion"><br><br>
+        
+        <label for="fechaUltimacitadental">Fecha de la Última Cita Dental:</label>
+        <input type="date" name="fechaUltimacitadental"><br><br>
+        
+        <label for="motivoConsulta">Motivo de Consulta:</label>
+        <textarea name="motivoConsulta" rows="4" cols="50"></textarea><br><br>
+        
+        <input type="submit" value="Guardar Datos" id="submitBtn">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#submitBtn").click(function() {
+                // Obtener los datos del formulario
+                var formData = $("#datosGeneralesForm").serialize();
+                
+                // Realizar una solicitud AJAX
+                $.ajax({
+                    type: "POST",
+                    url: "postDatosGenerales.php",
+                    data: formData,
+                    success: function(response) {
+                        // Manejar la respuesta aquí (puedes mostrar un mensaje de éxito o hacer otras acciones)
+                        console.log("Respuesta del servidor: " + response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

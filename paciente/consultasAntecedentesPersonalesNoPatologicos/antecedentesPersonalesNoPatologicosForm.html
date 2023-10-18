@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Antecedentes Personales No Patológicos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Formulario de Antecedentes Personales No Patológicos</h2>
+    <form id="antecedentesPersonalesNoPatologicosForm" method="POST">
+        <label for="NoExpediente">No. de Expediente:</label>
+        <input type="int" name="NoExpediente" required><br><br>
+
+        <label for="antecedentesPersonalesNoPatologicoscol1">Campo 1:</label>
+        <input type="text" name="antecedentesPersonalesNoPatologicoscol1"><br><br>
+
+        <label for="adiccionTabaco">Adicción al Tabaco:</label>
+        <select name="adiccionTabaco">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="adiccionAlcohol">Adicción al Alcohol:</label>
+        <select name="adiccionAlcohol">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="alergias">Alergias:</label>
+        <select name="alergias">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="alergiasCuales">Alergias (cuales):</label>
+        <input type="text" name="alergiasCuales"><br><br>
+
+        <label for="antecedentesPersonalesNoPatologicoscol">Campo 2:</label>
+        <input type="text" name="antecedentesPersonalesNoPatologicoscol"><br><br>
+
+        <label for="primeraMestruacion">Fecha de la Primera Menstruación:</label>
+        <input type="date" name="primeraMestruacion"><br><br>
+
+        <label for="embarazo">Embarazo:</label>
+        <select name="embarazo">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br><br>
+
+        <label for="mesesEmbarazo">Meses de Embarazo:</label>
+        <input type="number" name="mesesEmbarazo"><br><br>
+
+        <input type="submit" value="Guardar Datos" id="submitBtn">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#submitBtn").click(function() {
+                var formData = $("#antecedentesPersonalesNoPatologicosForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "PostAntecedentesPersonalesNoPatologicos.php",
+                    data: formData,
+                    success: function(response) {
+                        console.log("Respuesta del servidor: " + response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
