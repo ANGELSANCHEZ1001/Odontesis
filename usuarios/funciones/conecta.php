@@ -1,8 +1,8 @@
  <?php 
 define("HOST", 'localhost');
-define("BD", 'mydb'); 
+define("BD", 'empresa'); 
 define("USER_BD", 'root');
-define("PASS_BD", '');
+define("PASS_BD", 'lm10yas10');
 
 
 function conecta(){

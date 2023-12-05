@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
+<?php
+/*
 session_start();
 $error_message = '';
 
@@ -28,8 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $error_message = 'Correo o contraseña incorrectos';
   }
 }
-?>
-  
+*/?>  
 
 
 

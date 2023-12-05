@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-
+/*
 if (!isset($_SESSION['correo'])) {
   header('Location: login.php');
   exit;
@@ -16,7 +16,7 @@ if ($pos !== false) {
   $_SESSION['nomb'] = $nomb;
 } else {
   $nomb = $correo;
-}
+}*/
 ?>
 
 <!DOCTYPE html>
