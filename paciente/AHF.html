@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css">
+    <title>Nuevo Paciente</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Inicio</a>
+        <a href="#">Pacientes</a>
+        <a href="#">Usuarios</a>
+        <a href="#" class="cerrarsesion">Cerrar Sesión</a>
+    </div>
+    <br><br>
+    <form class="form">
+        <h2 class="form_title">Nuevo paciente</h2><br>
+        <div class="form_containers">
+            <div class="form_group">
+                <h2 class="form_antec">Antecedentes heredofamiliares</h2><br>
+
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="anemia_falciforme" name="anemia_falciforme" value="0"/>
+                    <label class="checkAntecedentes">Anemia falciforme</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="cancer" name="cancer" value="0"/>
+                    <label class="checkAntecedentes">Cáncer</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="diabetes" name="diabetes" value="0"/>
+                    <label class="checkAntecedentes">Diabetes</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="fibrosis_quistica" name="fibrosis_quistica" value="0" />
+                    <label class="checkAntecedentes">Fibrosis quística</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="hemofila" name="hemofila" value="0" />
+                    <label class="checkAntecedentes">Hemofilia</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="hipercolesterolemia" name="hipercolesterolemia" value="0"/>
+                    <label class="checkAntecedentes">Hipertensión colesterolemia</label>
+                </div>
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="hipertension" name="hipertension" value="0"/>
+                    <label class="checkAntecedentes">Hipertensión</label>
+                </div>
+                <button class="form_submit" id="submitButton">Siguiente</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
+
+            // Define el valor de no_expediente
+            const no_expediente = 23;
+
+            // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
+            const checkboxes = document.querySelectorAll('.checkAntecedentes');
+
+            // Crea un objeto para almacenar los datos
+            const formData = { no_expediente };
+
+            checkboxes.forEach(checkbox => {
+                // Usa el nombre del atributo de la casilla de verificación como clave y
+                // el valor de 1 o 0 según si está marcada o no
+                formData[checkbox.name] = checkbox.checked ? 1 : 0;
+            });
+
+            // Muestra los datos en la consola (puedes eliminar esto en producción)
+            console.log(JSON.stringify(formData));
+
+            // Realiza la solicitud POST a la URL deseada (reemplaza la URL con la correcta)
+            fetch('http://64.227.5.83:8080/odontesis/AHF', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => console.log(response))
+            .then(data => {
+                console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
+            })
+            .catch(error => console.error(error));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css"> <!-- Agrega aquí tu archivo de estilo -->
+    <title>Listado de Datos Generales</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            
+        }
+
+        
+        th, td {
+            padding: 8px;
+            text-align: center; /* Añadido para centrar el texto */
+        }
+        .titulomuestralist{
+            background-color: #3ce7d4;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .col1, .col2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../usuarios/welcome.html">Inicio</a>
+        <a href="../paciente/listado.html">Pacientes</a>
+        <a href="../usuarios/usuarios2.html">Usuarios</a>
+        <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
+        <a href="pruebacombi2.html" class="agregar-btn">Agregar</a> 
+    </div>
+    
+    <table class="tabla">
+        <tr>
+            <th colspan="3" class="titulomuestralist"><p>Datos Generales</p></th>
+        </tr>
+        <tr>
+            <td id="ttlt" class="col1">No. Expediente</td>
+            <td id="ttlt" class="col2">Nombre</td>
+            <td id="ttlt" class="col1">Correo</td>
+        </tr>
+        <tbody id="data"></tbody>
+    </table>
+
+    <script>
+        // URL del JSON
+        const url = 'http://64.227.5.83:8080/odontesis/datosgenerales';
+
+        // Obtener la tabla donde se mostrarán los datos
+        const table = document.querySelector('table');
+
+        // Realizar una solicitud GET a la URL JSON
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                mostrardata(data); // Llama a mostrardata aquí
+            })
+            .catch(error => console.error("Error al realizar la solicitud:", error));
+
+        const mostrardata = (data) => {
+            let body = '';
+            for (let i = 0; i < data.length; i++) {
+                body += `<tr><td>${data[i].no_expediente}</td><td>${data[i].nombre}</td><td>${data[i].tel}</td></tr>`;
+            }
+            document.getElementById('data').innerHTML = body;
+        }
+    </script>
+</body>
+</html>

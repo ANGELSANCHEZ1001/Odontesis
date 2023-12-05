@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css">
+    <title>Nuevo Paciente</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Inicio</a>
+        <a href="#">Pacientes</a>
+        <a href="#">Usuarios</a>
+        <a href="#" class="cerrarsesion">Cerrar Sesión</a>
+    </div>
+
+    <form class="form">
+        <h2 class="form_title">Nuevo paciente</h2><br>
+        <div class="form_containers">
+            <div class="form_group">
+                <h2 class="form_antec">Datos generales</h2><br>
+
+                <input type="text" name="nombre" id="nombre" class="form_input" placeholder="Nombre completo"><br><br>
+                <!-- Agrega aquí los campos de datos generales existentes -->
+
+                <h2 class="form_antec">Antecedentes personales patológicos</h2><br>
+
+                <input type="checkbox" class="checkAntecedentes" id="no_expediente_ant" name="no_expediente_ant" value="88" />
+                <label class="check">Número expediente</label>
+                <!-- Agrega aquí los campos de antecedentes personales patológicos existentes -->
+
+                <button class="form_submit" id="submitButton">Siguiente</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
+
+            const no_expediente = 989;
+            const nombre = document.getElementById('nombre').value;
+
+            // Datos generales
+            const datosGenerales = {
+                no_expediente,
+                nombre,
+                // Agrega aquí los demás campos de datos generales
+            };
+
+            // Antecedentes personales patológicos
+            const checkboxes = document.querySelectorAll('.checkAntecedentes');
+            const antecedentesPatologicos = {};
+
+            checkboxes.forEach(checkbox => {
+                antecedentesPatologicos[checkbox.name] = checkbox.checked ? 1 : 0;
+            });
+            antecedentesPatologicos["no_expediente"] = 23;
+
+            // Muestra los datos en la consola (puedes eliminar esto en producción)
+            console.log(JSON.stringify(datosGenerales, null, 2));
+            console.log(JSON.stringify(antecedentesPatologicos, null, 2));
+
+            // Realiza la solicitud POST a las URL respectivas
+            fetch('http://64.227.5.83:8080/odontesis/datosgenerales', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datosGenerales)
+            })
+            .then(response => console.log(response))
+            .catch(error => console.error(error));
+
+            fetch('http://64.227.5.83:8080/odontesis/APP', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(antecedentesPatologicos)
+            })
+            .then(response => console.log(response))
+            .catch(error => console.error(error));
+        });
+    </script>
+</body>
+</html>
