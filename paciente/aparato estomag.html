@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css">
+    <title>Nuevo Paciente</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../usuarios/welcome.html">Inicio</a>
+        <a href="../paciente/listado.html">Pacientes</a>
+        <a href="../usuarios/usuarios2.html">Usuarios</a>
+        <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
+        <a href="registro_usuario.html" class="agregar-btn">Agregar</a> 
+    </div>
+    <br><br>
+    <form class="form">
+        <h2 class="form_title">Aparato estomatognatico</h2><br>
+        <div class="form_containers">
+            <div class="form_group">
+                <h4 class="">Articulacion temporomandibular</h4>
+                <br><br><h2 class="form_antec">Ruidos</h2><br>
+                <select class="selectAE" id="Ruidos" name="Ruidos">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </select>
+                <h2 class="form_antec"></h2><br>
+                <br><br><h2 class="form_antec">Lateralidad</h2><br>
+                <select class="selectAE" id="Lateralidad" name="Lateralidad">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </select>
+                <h2 class="form_antec"></h2><br>
+
+                <br><br><h2 class="form_antec">Chasquido</h2><br>
+                <select class="selectAE" id="Chasquido" name="Chasquido">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                    
+                </select>
+                <h2 class="form_antec"></h2><br>
+
+                <br><br><h2 class="form_antec">Crepitacion</h2><br>
+                <select class="selectAE" id="Crepitacion" name="Crepitacion">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </select>
+                <h2 class="form_antec"></h2><br>
+
+                <br><br><h2 class="form_antec">Difciultad abrir la boca</h2><br>
+                <select class="selectAE" id="AbrirBoca" name="AbrirBoca">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </select>
+                <h2 class="form_antec"></h2><br>
+
+                <br><br><h2 class="form_antec">Dolor al abrir lateralidad</h2><br>
+                <select class="selectAE" id="AbrirLateralidad" name="AbrirLateralidad">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                    
+                </select>
+                <h2 class="form_antec"></h2><br>
+
+                <br><br><h2 class="form_antec">Fatiga o dolor muscular</h2><br>
+                <select class="selectAE" id="FatigaMuscular" name="FatigaMuscular">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </select>
+                <h2 class="form_antec"></h2><br>
+
+
+                <br><br><h2 class="form_antec">Disminución de la abertura</h2><br>
+                <select class="selectAE" id="FatigaMuscular" name="FatigaMuscular">
+                    <option value="1">Si</option>
+                    <option value="0">No</option><br>
+                </select>
+                <h2 class="form_antec"></h2><br>
+
+                <br><br><h2 class="form_antec">Desviacion</h2>
+                <br>
+                    <input type="checkbox" class="checkAntecedentes" id="cancer" name="cancer" value="0"/>
+                    <label class="checkAntecedentes">Abertura</label>
+                    <br>
+                    <br>
+                    <input type="checkbox" class="checkAntecedentes" id="cancer" name="cancer" value="0"/>
+                    <label class="checkAntecedentes">Cierre</label>
+                    <br>
+                <h2 class="form_antec"></h2><br><br>
+
+                <input type="text" id="nombre" class="form_input" placeholder="Tejidos blandos"><br><br>
+                <input type="text" id="nombre" class="form_input" placeholder="Ganglios"><br><br>
+                <input type="text" id="nombre" class="form_input" placeholder="Glandulas salivales"><br><br>
+        
+                <input type="text" id="nombre" class="form_input" placeholder="Labios"><br><br>
+                <input type="text" id="nombre" class="form_input" placeholder="Cigarrillos"><br><br>
+                <input type="text" id="nombre" class="form_input" placeholder="Lengua"><br><br>
+
+                <input type="text" id="nombre" class="form_input" placeholder="Frenillos"><br><br>
+                <input type="text" id="nombre" class="form_input" placeholder="Paladar"><br><br>
+                <input type="text" id="nombre" class="form_input" placeholder="Piso de la boca"><br><br>
+                <input type="text" id="nombre" class="form_input" placeholder="Dientes"><br><br>
+                <input type="text" id="nombre" class="form_input" placeholder="Encía"><br><br>
+          
+            </div>
+
+        </div>
+    </form>
+    <br>
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
+
+            // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
+            const checkboxes = document.querySelectorAll('.checkAntecedentes');
+
+            // Crea un objeto para almacenar los datos
+            const formData = {};
+
+            checkboxes.forEach(checkbox => {
+                // Usa el nombre del atributo de la casilla de verificación como clave y
+                // el valor de 1 o 0 según si está marcada o no
+                formData[checkbox.name] = checkbox.checked ? 1 : 0;
+            });
+            formData["no_expediente"] = 23;
+            // Muestra los datos en la consola (puedes eliminar esto en producción)
+            console.log(JSON.stringify(formData));
+
+            // Realiza la solicitud POST a tu API con los datos
+            fetch('http://64.227.5.83:8080/odontesis/ECC', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => console.log(response))
+            .then(data => {
+                console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
+            })
+            .catch(error => console.error(error));
+        });
+    </script>
+</body>
+</html>

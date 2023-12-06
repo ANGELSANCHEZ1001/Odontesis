@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css">
+    <title>Nuevo Paciente</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Inicio</a>
+        <a href="#">Pacientes</a>
+        <a href="#">Usuarios</a>
+        <a href="#" class="cerrarsesion">Cerrar Sesión</a>
+    </div>
+    <br><br>
+    <form class="form">
+        <h2 class="form_title">Exploracion cabeza y cuello</h2><br>
+        <div class="form_containers">
+            <div class="form_group">
+                
+                <h2 class="form_antec">Cabeza</h2><br>
+                <select id="cabeza" name="cabeza">
+                    <option value="usa">Exostosis</option>
+                    <option value="canada">Endostosis</option>
+                </select>
+                <h2 class="form_antec"></h2><br><br><br>
+                <h2 class="form_antec">Craneo</h2><br>
+                <select id="craneo" name="craneo">
+                    <option value="male">Mesocéfalico</option>
+                    <option value="female">Braquicéfalico</option>
+                    <option value="other">Dolicocefalico</option>
+                </select><h2 class="form_antec"></h2><br><br><br>
+
+                <h2 class="form_antec">Cara</h2><br>
+                <select id="cara" name="cara">
+                    <option value="tech">Asimetricas </option>
+                    <option value="sports">Transversales</option>
+                    <option value="food">Longitudinales</option>
+                    
+                </select><h2 class="form_antec"></h2><br><br><br>
+
+                <h2 class="form_antec">Perfil</h2><br>
+                <select id="perfil" name="perfil">
+                    <option value="single">Concavo</option>
+                    <option value="married">Recto</option>
+                    <option value="divorced">Convexo</option>
+                </select><h2 class="form_antec"></h2><br><br><br>
+
+               
+                <h2 class="form_antec">Piel</h2><br>
+                <select id="piel" name="piel">
+                    <option value="highschool">Normal</option>
+                    <option value="undergraduate">Palida</option>
+                    <option value="graduate">Cianótica</option>
+                    <option value="doctorate">Enrojecida</option>
+                </select><h2 class="form_antec"></h2><br><br><br>
+
+                <h2 class="form_antec">Musculos</h2><br>
+                <select id="musculos" name="musculos">
+                    <option value="highschool">Hipertónicos</option>
+                    <option value="undergraduate">Espásticos</option>
+                    <option value="graduate">Hipotónicos</option>
+                </select><h2 class="form_antec"></h2><br><br><br>
+
+                <h2 class="form_antec">Cuello<br>¿Se palpa cadena ganglionar?</h2><br>
+                <select id="cuello" name="cuello">
+                    <option value="highschool">Si</option>
+                    <option value="undergraduate">No</option>
+                </select><h2 class="form_antec"></h2><br><br><br>
+
+
+                <h2 class="form_antec">Otros</h2><br>
+                <textarea name="otros" id="otros" cols="50" rows="5"></textarea>
+                <div class="form_group">
+                    <button class="form_submit" id="submitButton">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
+
+            // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
+            const checkboxes = document.querySelectorAll('.checkAntecedentes');
+
+            // Crea un objeto para almacenar los datos
+            const formData = {};
+
+            checkboxes.forEach(checkbox => {
+                // Usa el nombre del atributo de la casilla de verificación como clave y
+                // el valor de 1 o 0 según si está marcada o no
+                formData[checkbox.name] = checkbox.checked ? 1 : 0;
+            });
+            formData["no_expediente"] = 23;
+            // Muestra los datos en la consola (puedes eliminar esto en producción)
+            console.log(JSON.stringify(formData));
+
+            // Realiza la solicitud POST a tu API con los datos
+            fetch('http://64.227.5.83:8080/odontesis/APP', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => console.log(response))
+            .then(data => {
+                console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
+            })
+            .catch(error => console.error(error));
+        });
+    </script>
+</body>
+</html>

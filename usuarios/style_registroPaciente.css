@@ -285,9 +285,12 @@
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
     text-align: center;
-  }
+    border-collapse: collapse;
+}
   
   .titulomuestralist {
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 1.5rem;
     margin-bottom: 1em;
   }
@@ -312,8 +315,9 @@
   }
   
 
-  #ttlt{
+  .titulotabla{
    color: #3ce7d4;
+   size: 0ch;
   }
 
   .Alta{
@@ -330,3 +334,40 @@
   .Alta a{
     color: #fff;
   }
+
+
+  /* Estilo para las celdas de la tabla */
+.table_cell {
+  
+
+    /* Borde de 1 píxel y color negro */
+    padding: 10px; /* Ajusta el relleno según sea necesario */
+}
+
+/* Estilo para el encabezado de la tabla si lo tienes */
+.table_header {
+    border: 1px solid 3ce7d4(0, 0, 0); /* Borde de 1 píxel y color negro */
+    padding: 10px; /* Ajusta el relleno según sea necesario */
+    background-color: #3ce7d4; /* Color de fondo opcional para el encabezado */
+    color: white; /* Color del texto opcional para el encabezado */
+}
+
+
+.table_reng:hover {
+    background-color: #d2e0df; /* Cambia el color de fondo al pasar el cursor */
+}
+
+
+.titlForm{
+    width: 100%;
+    background: none;
+    color: #3ce7d4;
+    --colorR: #3ce7d4  ;
+    font-size: 1.5rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--colorR);
+    font-family: 'Roboto', sans-serif;
+}
+

@@ -235,12 +235,7 @@
         <button class="form_submit" id="submitButton">Finalizar</button>
 
     </form>
-
-
     
-
-
-
     <!--
 
         scripts APP
@@ -387,48 +382,7 @@
         });
     </script>
 
-    <!--
-
-        scripts AHF     
-    -->
-
-    <script>
-        document.getElementById('submitButton').addEventListener('click', function(event) {
-            event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-
-            // Define el valor de no_expediente
-            const no_expediente = expRand;
-
-         // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
-            const checkboxes = document.querySelectorAll('.checkAntecedentes');
-
-            // Crea un objeto para almacenar los datos
-            const formData = { no_expediente };
-
-            checkboxes.forEach(checkbox => {
-                // Usa el nombre del atributo de la casilla de verificación como clave y
-                // el valor de 1 o 0 según si está marcada o no
-                formData[checkbox.name] = checkbox.checked ? 1 : 0;
-            });
-
-            // Muestra los datos en la consola (puedes eliminar esto en producción)
-            console.log(JSON.stringify(formData));
-
-            // Realiza la solicitud POST a la URL deseada (reemplaza la URL con la correcta)
-            fetch('http://64.227.5.83:8080/odontesis/AHF', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => console.log(response))
-            .then(data => {
-                console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
-            })
-            .catch(error => console.error(error));
-        });
-    </script>
+   
 
 
     <!--
@@ -513,5 +467,51 @@
         });
     </script>
 
+
+
+     <!--
+
+        scripts AHF     
+    -->
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
+
+            // Define el valor de no_expediente
+            const no_expediente = expRand;
+
+         // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
+            const checkboxes = document.querySelectorAll('.checkAntecedentes');
+
+            // Crea un objeto para almacenar los datos
+            const formData = { no_expediente };
+
+            checkboxes.forEach(checkbox => {
+                // Usa el nombre del atributo de la casilla de verificación como clave y
+                // el valor de 1 o 0 según si está marcada o no
+                formData[checkbox.name] = checkbox.checked ? 1 : 0;
+            });
+
+            // Muestra los datos en la consola (puedes eliminar esto en producción)
+            console.log(JSON.stringify(formData));
+
+            // Realiza la solicitud POST a la URL deseada (reemplaza la URL con la correcta)
+            fetch('http://64.227.5.83:8080/odontesis/AHF', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => console.log(response))
+            .then(data => {
+                console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
+            })
+            .catch(error => console.error(error));
+            window.location.href = 'listado.html';
+        });
+        
+    </script>
 </body>
 </html>

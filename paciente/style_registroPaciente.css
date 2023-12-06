@@ -330,3 +330,12 @@
   .Alta a{
     color: #fff;
   }
+
+
+  .btnLink{
+    width: 90%;
+  }
+
+  .form_input::placeholder {
+    text-align: center;
+}

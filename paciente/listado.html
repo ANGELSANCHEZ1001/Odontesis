@@ -41,12 +41,16 @@
     
     <table class="tabla">
         <tr>
-            <th colspan="3" class="titulomuestralist"><p>Datos Generales</p></th>
+            <th colspan="7" class="titulomuestralist"><p>Datos Generales</p></th>
         </tr>
         <tr>
             <td id="ttlt" class="col1">No. Expediente</td>
             <td id="ttlt" class="col2">Nombre</td>
-            <td id="ttlt" class="col1">Correo</td>
+            <td id="ttlt" class="col1">Telefono</td>
+            <td id="ttlt" class="col1">Historia general</td>
+            <td id="ttlt" class="col2">Historia Ortodoncia</td>
+            <td id="ttlt" class="col1">Nota evolucion</td>
+            <td id="ttlt" class="col1">Archivos</td>
         </tr>
         <tbody id="data"></tbody>
     </table>
@@ -69,10 +73,28 @@
         const mostrardata = (data) => {
             let body = '';
             for (let i = 0; i < data.length; i++) {
-                body += `<tr><td>${data[i].no_expediente}</td><td>${data[i].nombre}</td><td>${data[i].tel}</td></tr>`;
+                body += `<tr><td>${data[i].no_expediente}</td><td>${data[i].nombre}</td><td>${data[i].tel}</td><td><button class="btnLink" onclick="general('${data[i].no_expediente}')">🏥</button></td><td><button class="btnLink" onclick="ortodoncia('${data[i].no_expediente}')">🦷</button></td><td><button class="btnLink" onclick="evolucion('${data[i].no_expediente}')">📜</button></td><td><button class="btnLink" onclick="archivos('${data[i].no_expediente}')">📚</button></td></tr>`;
             }
             document.getElementById('data').innerHTML = body;
         }
+function general(noExpediente) {
+    // Redirigir a la página usuarios2.html en el sitio Odontesis
+    window.location.href = `http://odontesis.ingecei.digital/Odontesis/OdontesisAvance/paciente/Histo_general.html?no_expediente=${noExpediente}`;
+}
+
+function ortodoncia(noExpediente) {
+    // Redirigir a la página usuarios2.html en el sitio Odontesis
+    window.location.href = `http://odontesis.ingecei.digital/Odontesis/OdontesisAvance/usuarios/Histo_ortodoncia.html?no_expediente=${noExpediente}`;
+}
+function evolucion(noExpediente) {
+    // Redirigir a la página usuarios2.html en el sitio Odontesis
+    window.location.href = `http://odontesis.ingecei.digital/Odontesis/OdontesisAvance/usuarios/evolucion.html?no_expediente=${noExpediente}`;
+}
+function archivos(noExpediente) {
+    // Redirigir a la página usuarios2.html en el sitio Odontesis
+    window.location.href = `http://odontesis.ingecei.digital/Odontesis/OdontesisAvance/usuarios/archivos.html?no_expediente=${noExpediente}`;
+}
+
     </script>
 </body>
 </html>
