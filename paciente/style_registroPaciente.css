@@ -98,17 +98,21 @@
 
 
     /* Estilo para el contenedor de cada par de checkbox y label */
+    /* Estilo para el contenedor de cada par de checkbox y label */
+    /* Estilo para el contenedor de cada par de checkbox y label */
     .checkbox_label {
         display: flex;
         align-items: center;
-        margin-bottom: 5px; /* Espacio entre cada par de checkbox y label */
-        text-align: left;
+        justify-content: center; /* Alinea el texto al centro horizontalmente */
+        margin-bottom: 5px;/* Alinea el texto al centro verticalmente */
     }
 
     /* Estilo para los inputs de checkbox */
     .checkbox_label input {
-        margin-right: 5px; /* Espacio entre el checkbox y el label */
+        margin-left: 0; /* Centra el checkbox horizontalmente */
     }
+
+
 
     ::placeholder {
         color: #4a605d;
