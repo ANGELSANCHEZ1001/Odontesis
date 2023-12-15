@@ -16,7 +16,9 @@
         display: flex;
         min-height: 100vh;    
     }
-
+    body a{
+        color: #3ce7d4;
+    }
     .form{
         background-color: #fff;
         margin: auto;
@@ -57,6 +59,7 @@
         outline: none;
         border-bottom: 1px solid var(--color);
         font-family: 'Roboto', sans-serif;
+        text-align: center; 
 
     }
 
