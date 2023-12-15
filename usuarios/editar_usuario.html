@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css">
+    <title>Editar Usuario</title>
+    <style>
+         .form_input.match {
+            border-bottom: 1px solid #247a31; /* Verde */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../usuarios/welcome.html">Inicio</a>
+        <a href="../paciente/listado.html">Pacientes</a>
+        <a href="../usuarios/usuarios2.html">Usuarios</a>
+        <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
+        <a href="registro_usuario.html" class="agregar-btn">Agregar</a> 
+    </div>
+    
+    <br><br><br><br>
+    
+    <form class="form">
+        <h2 class="form_title">Editar usuario  <span id="userId"></span></h2><br>
+        <div class="form_containers">
+            <div class="form_group">
+                <input type="text" id="nombre" class="form_input" placeholder="Nombre"> <br><br>
+                <input type="text" id="correo" class="form_input" placeholder="Correo"><br><br> 
+                <input type="password" id="pass" class="form_input" placeholder="Contraseña"><br><br> 
+                <input type="password" id="passV" class="form_input" placeholder="Verificar contraseña" onblur="validarContraseña()"><br><br><br><br> 
+                <label class="form_label">Fecha de nacimiento</label> <br>
+                <input type="date" id="fechaNacimiento" class="form_input"><br><br> <br>
+                <label class="form_label">Rol</label> <br>
+                <select id="rol" class="form_input">
+                    <option value="1">Administrador</option>
+                    <option value="2">Maestro</option>
+                    <option value="3">Estudiante</option>
+                </select><br><br>
+            </div>
+            <br>
+            <br>    
+            <div class="form_group">
+                <button class="form_submit" id="submitButton" onclick="validarFormulario()">Finalizar</button>
+            </div>
+        </div>
+    </form>
+    <!-- Aquí puedes agregar más contenido de la página de edición -->
+    <br><br>
+
+    <script>
+        // Obtener el ID de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id');
+
+        // Mostrar el ID en el elemento span
+        document.getElementById('userId').innerText = userId;
+
+        // Modificar la URL de la solicitud para obtener solo el registro con el ID específico
+        let url = `http://64.227.5.83:8080/odontesis/usuarios/${userId}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                mostrardata(data); // Llama a mostrardata aquí
+            })
+            .catch(error => console.error("Error al realizar la solicitud:", error));
+
+        const mostrardata = (data) => {
+            console.log(data);
+
+            // Mostrar la información del usuario en la página de edición
+            document.getElementById('nombre').value = data.nombre;
+            document.getElementById('correo').value = data.correo;
+            document.getElementById('rol').value = data.rol;
+            document.getElementById('fechaNacimiento').value = data.fechaNacimiento;
+
+            // Aquí puedes agregar más manipulación del DOM según la información que necesitas mostrar/editar
+        }
+
+        // Función de validación de contraseña al hacer clic en el botón "Finalizar"
+        const validarContraseña = () => {
+            const pass = document.getElementById('pass').value;
+            const passV = document.getElementById('passV').value;
+            const passInput = document.getElementById('passV');
+            
+            const pasInput = document.getElementById('pass');
+            // Comparar las contraseñas
+            if (pass !== passV) {
+                alert('Las contraseñas no coinciden. Por favor, verifíquelas.');
+                // Limpiar el campo de verificar contraseña
+                passInput.value = '';
+                passInput.classList.remove('match'); // Remover la clase de coincidencia
+            } else {
+                // Agregar la clase de coincidencia
+                passInput.classList.add('match');
+                pasInput.classList.add('match');
+            }
+        }
+
+        // Función de validación antes de enviar el formulario
+        const validarFormulario = () => {
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const pass = document.getElementById('pass').value;
+            const passV = document.getElementById('passV').value;
+            const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            const rol = document.getElementById('rol').value;
+
+            // Verificar que todos los campos estén completados
+            if (!nombre || !correo || !pass || !passV || !fechaNacimiento || !rol) {
+                alert('Por favor, complete todos los campos del formulario.');
+                return false; // Evitar que se envíe el formulario
+            }
+
+            // Comparar las contraseñas
+            if (pass !== passV) {
+                alert('Las contraseñas no coinciden. Por favor, verifíquelas.');
+                // Limpiar el campo de verificar contraseña y quitar la clase de coincidencia
+                document.getElementById('passV').value = '';
+                
+                
+                return false; // Evitar que se envíe el formulario
+            }
+
+            // Si todos los campos están completados y las contraseñas coinciden, puedes enviar el formulario
+            return true;
+        }
+    </script>
+
+    <script>
+        //enviar update
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
+
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const contrasena = document.getElementById('pass').value;
+            const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            const rol = document.getElementById('rol').value;
+            // Genera un número aleatorio entre 0 y 999
+            const id_usuario = userId;
+
+
+            const userData = {
+                id_usuario,
+                nombre,
+                correo,
+                contrasena,
+                fechaNacimiento,
+                rol
+            };
+
+            // Convierte el objeto userData a JSON y lo muestra en la consola
+            console.log(JSON.stringify(userData, null, 2));
+
+            // Realiza la solicitud POST a tu API
+            fetch('http://64.227.5.83:8080/odontesis/editarUsu', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
+            })
+            .catch(error => console.error(error));
+            window.location.href = 'usuarios2.html';
+        });
+    </script>
+</body>
+</html>

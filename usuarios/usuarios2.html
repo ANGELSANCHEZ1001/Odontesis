@@ -16,16 +16,16 @@
     </div>
     <table class="tabla">
         <tr>
-            <td class="titulomuestralist" colspan="4">Usuarios</td>
+            <td class="titulomuestralist" colspan="6">Usuarios</td>
         </tr>
         <tr>
-        
-        
         <tr class="titulotabla">
             <td class="titulotabla">ID</td>
             <td class="titulotabla">Nombre</td>
             <td class="titulotabla">Correo</td>
             <td class="titulotabla">Rol</td>
+            <td class="titulotabla">Editar</td>
+            <td class="titulotabla">Eliminar</td>
         </tr>
         <tbody id="data"></tbody>
         
@@ -41,16 +41,44 @@
             })
             .catch(error => console.error("Error al realizar la solicitud:", error));
 
-
-            const mostrardata = (data) => {
-                console.log(data);
-                let body = '';
-                for (let i = 0; i < data.length; i++) {
-                    body += `<tr class="table_reng"><td class="table_cell">${data[i].id_usuario}</td><td class="table_cell">${data[i].nombre}</td><td class="table_cell">${data[i].correo}</td><td class="table_cell">${data[i].rol}</td></tr>`;
-                }
-                document.getElementById('data').innerHTML = body;
+        const mostrardata = (data) => {
+            console.log(data);
+            let body = '';
+            for (let i = 0; i < data.length; i++) {
+                body += `<tr class="table_reng"><td class="table_cell">${data[i].id_usuario}</td><td class="table_cell">${data[i].nombre}</td><td class="table_cell">${data[i].correo}</td><td class="table_cell">${data[i].rol}</td><td class="table_cell"><a href="editar_usuario.html?id=${data[i].id_usuario}">✏️</a></td><td class="table_cell"><a href="#" onclick="eliminarUsuario(${data[i].id_usuario})"> 🗑️ </a></td></tr>`;
             }
+            document.getElementById('data').innerHTML = body;
+        }
+    </script>
 
+    <script>
+        const baseUrl = 'http://64.227.5.83:8080/odontesis/usuarios';
+
+        const eliminarUsuario = (id) => {
+            const url = `http://64.227.5.83:8080/odontesis/eliminar_usuarios/${id}`;
+
+            fetch(url, {
+                method: 'DELETE'
+            })
+            alert("ELIM1")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Puedes manejar la respuesta si es necesario
+                // Recargar la página o realizar otras acciones después de eliminar
+                cargarDatos();
+            })
+            .catch(error => console.error('Error al realizar la solicitud:', error));
+            
+        };
+
+        const cargarDatos = () => {
+            fetch(baseUrl)
+                .then(response => response.json())
+                .then(data => {
+                    mostrardata(data);
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        };
     </script>
 </body>
 </html>
