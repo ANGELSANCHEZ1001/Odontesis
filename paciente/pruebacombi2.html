@@ -161,12 +161,22 @@
     </form>
 
 
-
+    <form class="form" name="hospitalizaciones">
+      
+        
+        <div class="form_containers">
+            <div class="form_group">
+                <h2 class="form_antec">Hospitalizaciones</h2><br><br><br>
+                <input type="date" name="fecha_hospitalizacion" id="fecha_hospitalizacion" class="form_input" placeholder="fecha_hospitalizacion completo"><br><br>
+                <input type="text" name="motivo_hospitalizacion" id="motivo_hospitalizacion" class="form_input" placeholder="motivo_hospitalizacion"><br><br>
+            </div>
+        </div>
+    </form>
     <form class="form">
         
         <div class="form_containers">
             <div class="form_group">
-                <h2 class="form_antec">Exploracion fisica</h2><br>
+                <h2 class="form_antec">Exploracion fisica</h2><br><br><br>
 
                 <input type="number" name="frecuencia_cardiaca" id="frecuencia_cardiaca" class="form_input" placeholder="frecuencia_cardiaca"><br><br>
                 <input type="number" name="frecuencia_respiratoria" id="frecuencia_respiratoria" class="form_input" placeholder="frecuencia_respiratoria"><br><br>
@@ -183,74 +193,64 @@
     </form>
     
 
-    <form class="form" name="hospitalizaciones">
-      
-        
-        <div class="form_containers">
-            <div class="form_group">
-                <h2 class="form_antec">Hospitalizaciones</h2><br>
-
-                <input type="date" name="fecha_hospitalizacion" id="fecha_hospitalizacion" class="form_input" placeholder="fecha_hospitalizacion completo"><br><br>
-                <input type="text" name="motivo_hospitalizacion" id="motivo_hospitalizacion" class="form_input" placeholder="motivo_hospitalizacion"><br><br>
-            </div>
-        </div>
-    </form>
+    
 
 
     <br><br>
     <form class="form">
-        <h2 class="form_title">Exploracion cabeza y cuello</h2><br>
         <div class="form_containers">
             <div class="form_group">
+                <h2 class="form_antec">Exploracion cabeza y cuello</h2><br><br><br><br>
+
                 
                 <h2 class="form_antec">Cabeza</h2><br>
                 <select id="cabeza" name="cabeza">
-                    <option value="usa">Exostosis</option>
-                    <option value="canada">Endostosis</option>
+                    <option value="Exostosis">Exostosis</option>
+                    <option value="Endostosis">Endostosis</option>
                 </select>
                 <h2 class="form_antec"></h2><br><br><br>
                 <h2 class="form_antec">Craneo</h2><br>
                 <select id="craneo" name="craneo">
-                    <option value="male">Mesocéfalico</option>
-                    <option value="female">Braquicéfalico</option>
-                    <option value="other">Dolicocefalico</option>
+                    <option value="Mesocéfalico">Mesocéfalico</option>
+                    <option value="Braquicéfalico">Braquicéfalico</option>
+                    <option value="Dolicocefalico">Dolicocefalico</option>
                 </select><h2 class="form_antec"></h2><br><br><br>
 
                 <h2 class="form_antec">Cara</h2><br>
                 <select id="cara" name="cara">
-                    <option value="tech">Asimetricas </option>
-                    <option value="sports">Transversales</option>
-                    <option value="food">Longitudinales</option>
+                    <option value="Asimetricas">Asimetricas </option>
+                    <option value="Transversales">Transversales</option>
+                    <option value="Longitudinales">Longitudinales</option>
                     
                 </select><h2 class="form_antec"></h2><br><br><br>
 
                 <h2 class="form_antec">Perfil</h2><br>
                 <select id="perfil" name="perfil">
-                    <option value="single">Concavo</option>
-                    <option value="married">Recto</option>
-                    <option value="divorced">Convexo</option>
+                    <option value="Concavo">Concavo</option>
+                    <option value="Recto">Recto</option>
+                    <option value="Convexo">Convexo</option>
                 </select><h2 class="form_antec"></h2><br><br><br>
 
                
                 <h2 class="form_antec">Piel</h2><br>
                 <select id="piel" name="piel">
-                    <option value="highschool">Normal</option>
-                    <option value="undergraduate">Palida</option>
-                    <option value="graduate">Cianótica</option>
-                    <option value="doctorate">Enrojecida</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Palida">Palida</option>
+                    <option value="Cianótica">Cianótica</option>
+                    <option value="Enrojecida">Enrojecida</option>
                 </select><h2 class="form_antec"></h2><br><br><br>
 
                 <h2 class="form_antec">Musculos</h2><br>
                 <select id="musculos" name="musculos">
-                    <option value="highschool">Hipertónicos</option>
-                    <option value="undergraduate">Espásticos</option>
-                    <option value="graduate">Hipotónicos</option>
+                    <option value="Hipertónicos">Hipertónicos</option>
+                    <option value="Espásticos">Espásticos</option>
+                    <option value="Hipotónicos">Hipotónicos</option>
                 </select><h2 class="form_antec"></h2><br><br><br>
 
                 <h2 class="form_antec">Cuello<br>¿Se palpa cadena ganglionar?</h2><br>
                 <select id="cuello" name="cuello">
-                    <option value="highschool">Si</option>
-                    <option value="undergraduate">No</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
                 </select><h2 class="form_antec"></h2><br><br><br>
 
 
@@ -261,9 +261,10 @@
     </form>
 
     <form class="form">
-        <h2 class="form_title">Aparato estomatognatico</h2><br>
+        
         <div class="form_containers">
             <div class="form_group">
+                <h2 class="form_antec">Aparato estomatognatico</h2><br><br><br><br>
                 <h4 class="">Articulacion temporomandibular</h4>
                 <br><br><h2 class="form_antec">Ruidos</h2><br>
                 <select class="selectAE" id="Ruidos" name="Ruidos">
@@ -317,7 +318,7 @@
 
 
                 <br><br><h2 class="form_antec">Disminución de la abertura</h2><br>
-                <select class="selectAE" id="FatigaMuscular" name="FatigaMuscular">
+                <select class="selectAE" id="DisminucionAbertura" name="DisminucionAbertura">
                     <option value="1">Si</option>
                     <option value="0">No</option><br>
                 </select>
@@ -325,28 +326,28 @@
 
                 <br><br><h2 class="form_antec">Desviacion</h2>
                 <br>
-                    <input type="checkbox" class="checkAntecedentes" id="cancer" name="cancer" value="0"/>
-                    <label class="checkAntecedentes">Abertura</label>
+                    <input type="checkbox" class="checkAparatoE" id="AberturaDes" name="AberturaDes" value="0"/>
+                    <label class="checkAparatoE">Abertura</label>
                     <br>
                     <br>
-                    <input type="checkbox" class="checkAntecedentes" id="cancer" name="cancer" value="0"/>
-                    <label class="checkAntecedentes">Cierre</label>
+                    <input type="checkbox" class="checkAparatoE" id="cierreDes" name="cierreDes" value="0"/>
+                    <label class="checkAparatoE">Cierre</label>
                     <br>
                 <h2 class="form_antec"></h2><br><br>
 
-                <input type="text" id="nombre" class="form_input" placeholder="Tejidos blandos"><br><br>
-                <input type="text" id="nombre" class="form_input" placeholder="Ganglios"><br><br>
-                <input type="text" id="nombre" class="form_input" placeholder="Glandulas salivales"><br><br>
+                <input type="text" id="tejidosBlandos" name="tejidosBlandos" class="form_input" placeholder="Tejidos blandos"><br><br>
+                <input type="text" id="Ganglios" name="Ganglios" class="form_input" placeholder="Ganglios"><br><br>
+                <input type="text" id="GlandulasS" name="GlandulasS" class="form_input" placeholder="Glandulas salivales"><br><br>
         
-                <input type="text" id="nombre" class="form_input" placeholder="Labios"><br><br>
-                <input type="text" id="nombre" class="form_input" placeholder="Cigarrillos"><br><br>
-                <input type="text" id="nombre" class="form_input" placeholder="Lengua"><br><br>
+                <input type="text" id="labios" name="labios" class="form_input" placeholder="Labios"><br><br>
+                <input type="text" id="cigarrillos" name="cigarrillos" class="form_input" placeholder="Cigarrillos"><br><br>
+                <input type="text" id="lengua" name="lengua" class="form_input" placeholder="Lengua"><br><br>
 
-                <input type="text" id="nombre" class="form_input" placeholder="Frenillos"><br><br>
-                <input type="text" id="nombre" class="form_input" placeholder="Paladar"><br><br>
-                <input type="text" id="nombre" class="form_input" placeholder="Piso de la boca"><br><br>
-                <input type="text" id="nombre" class="form_input" placeholder="Dientes"><br><br>
-                <input type="text" id="nombre" class="form_input" placeholder="Encía"><br><br>
+                <input type="text" id="frenillos" name="frenillos" class="form_input" placeholder="Frenillos"><br><br>
+                <input type="text" id="paladar" name="paladar" class="form_input" placeholder="Paladar"><br><br>
+                <input type="text" id="pisoBoca" name="pisoBoca" class="form_input" placeholder="Piso de la boca"><br><br>
+                <input type="text" id="Dientes" name="Dientes" class="form_input" placeholder="Dientes"><br><br>
+                <input type="text" id="Encia" name="Encia" class="form_input" placeholder="Encía"><br><br>
                 <div class="form_group">
                 </div>
             </div>
@@ -397,8 +398,44 @@
     
 
 
+    <!--
 
-    
+        Obtener id
+    -->
+    const ultimoElemento = data[data.length - 1];
+
+      // Obtén el id del último elemento
+      const ultimoId = ultimoElemento.id;
+
+
+
+    <script>
+        const apiUrl = 'http://64.227.5.83:8080/odontesis/datosgenerales';
+
+        fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Suponiendo que tu JSON es un array
+            if (Array.isArray(data) && data.length > 0) {
+            // Obtén el último elemento del array
+            const ultimoElemento = data[data.length - 1];
+
+            // Obtén el id del último elemento
+            const ultimoId = ultimoElemento.no_expediente;
+
+            // Calcula el nuevo id sumando 1 al último id
+            const nuevoId = ultimoId + 1;
+
+            // Puedes utilizar el nuevoId al registrar tu nuevo elemento
+            } else {
+            nuevoId=1
+            }
+        })
+        .catch(error => console.error('Error al realizar la solicitud:', error));
+
+
+
+    </script>
 
 
     <!--
@@ -407,7 +444,6 @@
     -->
 
     <script>
-        const expRand = Math.floor(Math.random() * 1000);
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
 
@@ -422,7 +458,7 @@
                 // el valor de 1 o 0 según si está marcada o no
                 formData[checkbox.name] = checkbox.checked ? 1 : 0;
             });
-            formData["no_expediente"] = expRand;
+            formData["no_expediente"] = nuevoId;
             // Muestra los datos en la consola (puedes eliminar esto en producción)
             console.log(JSON.stringify(formData));
 
@@ -446,7 +482,7 @@
 
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-            const no_expediente = expRand
+            const no_expediente = nuevoId
             const nombre = document.getElementById('nombre').value;
             const correo = document.getElementById('correo').value;
             const fecha_de_nacimiento = document.getElementById('fecha_de_nacimiento').value;
@@ -526,7 +562,7 @@
             formData["meses_embarazo"] = document.getElementById('meses_embarazo').value;
             formData["primera_mestruacion"] = document.getElementById('primera_mestruacion').value;
 
-            formData["no_expediente"] = expRand;
+            formData["no_expediente"] = nuevoId;
 
             // Muestra los datos en la consola (puedes eliminar esto en producción)
             console.log(JSON.stringify(formData));
@@ -559,7 +595,7 @@
     <script>
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-            const no_expediente=expRand;
+            const no_expediente=nuevoId;
             const frecuencia_cardiaca = document.getElementById('frecuencia_cardiaca').value;
             const frecuencia_respiratoria = document.getElementById('frecuencia_respiratoria').value;
             const peso = document.getElementById('peso').value;
@@ -603,7 +639,7 @@
     <script>
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-            const no_expediente=expRand;
+            const no_expediente=nuevoId;
             const fecha_hospitalizacion = document.getElementById('fecha_hospitalizacion').value;
             const motivo_hospitalizacion = document.getElementById('motivo_hospitalizacion').value;
         
@@ -644,7 +680,7 @@
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
 
             // Define el valor de no_expediente
-            const no_expediente = expRand;
+            const no_expediente = nuevoId;
 
          // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
             const checkboxes = document.querySelectorAll('.checkAntecedentes');
@@ -731,7 +767,7 @@
     <script>
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-            alert("aparato")
+            
             // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
             const checkboxes = document.querySelectorAll('.checkAntecedentes');
 
@@ -748,7 +784,7 @@
             console.log(JSON.stringify(formData));
 
             // Realiza la solicitud POST a tu API con los datos
-            fetch('http://64.227.5.83:8080/odontesis/APP', {
+            fetch('http://64.227.5.83:8080/odontesis/AE', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
