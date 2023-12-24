@@ -59,6 +59,9 @@
         font-family: 'Roboto', sans-serif;
 
     }
+    .form_table{
+        width: 500px;
+    }
 
 
     .form_label
@@ -343,3 +346,46 @@
   .form_input::placeholder {
     text-align: center;
 }
+
+/* Estilo para las etiquetas select */
+.form_group select {
+    width: 100%;
+    background: none;
+    color: #706c6c;
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color);
+    font-family: 'Roboto', sans-serif;
+    appearance: none; /* Elimina la apariencia por defecto del navegador */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23706c6c" width="18px" height="18px"><path d="M7 10l5 5 5-5z" /></svg>'); /* Agrega una flecha personalizada */
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Añadir un estilo cuando el select está enfocado */
+.form_group select:focus {
+    border-bottom: 1px solid #3ce7d4; /* Cambia el color del borde al enfocar */
+}
+
+/* Añadir un estilo cuando el select está abierto */
+.form_group select:active,
+.form_group select:hover {
+    border-bottom: 1px solid #3ce7d4; /* Cambia el color del borde al pasar el ratón */
+}
+#fecha_de_nacimiento {
+    text-align: center;
+}
+
+
+
+
+
+/* Estilo para centrar el texto en el campo de fecha */
+.form_input[type="date"] {
+    text-align: center;
+}
+

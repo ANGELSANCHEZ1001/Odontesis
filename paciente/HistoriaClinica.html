@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css">
+    <title>Detalles del Paciente</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../usuarios/welcome.html">Inicio</a>
+        <a href="../paciente/listado.html">Pacientes</a>
+        <a href="../usuarios/usuarios2.html">Usuarios</a>
+        <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
+    </div>
+    
+    <br><br><br><br><br>
+
+    <div class="form_containers">
+        <div class="form_group">
+            <h2 class="form_antec">Datos personales</h2><br>
+
+            <table class="form_table">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label">Campo</th>
+                    <th class="form_input">Valor</th>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="form_group">
+            <h2 class="form_antec">Datos de salud</h2><br>
+
+            <table class="form_table_health">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label">Campo</th>
+                    <th class="form_input">Valor</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form_group">
+            <h2 class="form_antec">Antecedentes patológicos personales</h2><br>
+
+            <table class="form_table_antecedentes">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label">Campo</th>
+                    <th class="form_input">Valor</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form_group">
+            <h2 class="form_antec">Hospitalizaciones</h2><br>
+
+            <table class="form_table_hospitalizaciones">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label">Fecha</th>
+                    <th class="form_label">Motivo</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form_group">
+            <h2 class="form_antec">Antecedentes heredofamiliares</h2><br>
+
+            <table class="form_table_antecedentes_heredofamiliares">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label">Campo</th>
+                    <th class="form_input">Valor</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form_group">
+            <h2 class="form_antec">Exploración cabeza y cuello</h2><br>
+
+            <table class="form_table_exploracion_cabeza_cuello">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label">Campo</th>
+                    <th class="form_input">Valor</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form_group">
+            <h2 class="form_antec">Exploración Física</h2><br>
+
+            <table class="form_table_exploracion_fisica">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label">Campo</th>
+                    <th class="form_input">Valor</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const idFromURL = urlParams.get('no_expediente');
+        const apiUrlDatosPersonales = `http://64.227.5.83:8080/odontesis/datosgenerales/${idFromURL}`;
+
+        // Datos personales
+        // Obtener los datos personales del paciente de la API
+        fetch(apiUrlDatosPersonales)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los detalles personales del paciente
+                const table = document.querySelector('.form_table');
+
+                const variablesMostrar = [
+                    'no_expediente',
+                    'nombre',
+                    'correo',
+                    'fecha_de_nacimiento',
+                    'lugar_de_nacimiento',
+                    'edad',
+                    'sexo',
+                    'domicilio_calle',
+                    'domicilio_municipio',
+                    'domicilio_estado',
+                    'domicilio_colonia',
+                    'no_domicilio',
+                    'tel',
+                    'ocupacion',
+                    'fecha_ultima_consulta',
+                    'motivo_de_consulta'
+                ];
+
+                variablesMostrar.forEach(variable => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
+                        <td class="form_input">${data[variable]}</td>
+                    `;
+                    table.appendChild(row);
+                });
+            })
+            .catch(error => console.error(error));
+
+        // Datos de salud
+        const apiUrlDatosSalud = `http://64.227.5.83:8080/odontesis/APP/${idFromURL}`;
+        // Obtener los datos de salud del paciente de la API
+        fetch(apiUrlDatosSalud)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los detalles de salud del paciente
+                const tableHealth = document.querySelector('.form_table_health');
+
+                const variablesSaludMostrar = [
+                    'sida',
+                    'diabetes',
+                    'prediabetes',
+                    'carebrovasculares',
+                    'hepatitis',
+                    'osteoartritis',
+                    'osteorporosis',
+                    'herpes',
+                    'cardiopatias',
+                    'cancer'
+                ];
+
+                variablesSaludMostrar.forEach(variable => {
+                    const row = document.createElement('tr');
+                    const value = data[variable] === '1' ? 'Sí' : 'No'; // Conversión
+                    row.innerHTML = `
+                        <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
+                        <td class="form_input">${value}</td>
+                    `;
+                    tableHealth.appendChild(row);
+                });
+            })
+            .catch(error => console.error(error));
+
+        // Antecedentes patológicos personales
+        const apiUrlAntecedentes = `http://64.227.5.83:8080/odontesis/APNP/${idFromURL}`;
+        // Obtener los antecedentes patológicos personales del paciente de la API
+        fetch(apiUrlAntecedentes)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los antecedentes patológicos personales del paciente
+                const tableAntecedentes = document.querySelector('.form_table_antecedentes');
+
+                const variablesAntecedentesMostrar = [
+                    'adiccion_alcohol',
+                    'adiccion_tabaco',
+                    'alergias',
+                    'alergias_cuales',
+                    'embarazo',
+                    'meses_embarazo',
+                    'primera_mestruacion'
+                ];
+
+                variablesAntecedentesMostrar.forEach(variable => {
+                    const row = document.createElement('tr');
+                    const value = (data[variable] === '1' || data[variable] === 1) ? 'Sí' : 'No'; // Conversión
+                    row.innerHTML = `
+                        <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
+                        <td class="form_input">${value}</td>
+                    `;
+                    tableAntecedentes.appendChild(row);
+                });
+            })
+            .catch(error => console.error(error));
+
+        // Hospitalizaciones
+        const apiUrlHospitalizaciones = `http://64.227.5.83:8080/odontesis/hospitalizaciones/${idFromURL}`;
+        // Obtener las hospitalizaciones del paciente de la API
+        fetch(apiUrlHospitalizaciones)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar las hospitalizaciones del paciente
+                const tableHospitalizaciones = document.querySelector('.form_table_hospitalizaciones');
+
+                data.forEach(hospitalizacion => {
+                    const row = document.createElement('tr');
+                    const fecha = hospitalizacion.fecha_hospitalizacion ? hospitalizacion.fecha_hospitalizacion : 'N/A';
+                    const motivo = hospitalizacion.motivo_hospitalizacion ? hospitalizacion.motivo_hospitalizacion : 'N/A';
+                    row.innerHTML = `
+                        <td class="form_input">${fecha}</td>
+                        <td class="form_input">${motivo}</td>
+                    `;
+                    tableHospitalizaciones.appendChild(row);
+                });
+            })
+            .catch(error => console.error(error));
+
+        // Antecedentes heredofamiliares
+        const apiUrlAntecedentesHeredofamiliares = `http://64.227.5.83:8080/odontesis/AHF/${idFromURL}`;
+        // Obtener los antecedentes heredofamiliares del paciente de la API
+        fetch(apiUrlAntecedentesHeredofamiliares)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los antecedentes heredofamiliares del paciente
+                const tableAntecedentesHeredofamiliares = document.querySelector('.form_table_antecedentes_heredofamiliares');
+
+                const variablesAntecedentesHeredofamiliaresMostrar = [
+                    'anemia_falciforme',
+                    'cancer',
+                    'diabetes',
+                    'fibrosis_quistica',
+                    'hemofila',
+                    'hipercolesterolemia',
+                    'hipertension'
+                ];
+
+                variablesAntecedentesHeredofamiliaresMostrar.forEach(variable => {
+                    const row = document.createElement('tr');
+                    const value = (data[variable] === '1' || data[variable] === 1) ? 'Sí' : 'No'; // Conversión
+                    row.innerHTML = `
+                        <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
+                        <td class="form_input">${value}</td>
+                    `;
+                    tableAntecedentesHeredofamiliares.appendChild(row);
+                });
+            })
+            .catch(error => console.error(error));
+
+        // Exploracion cabeza y cuello
+        const apiUrlExploracionCabezaCuello = `http://64.227.5.83:8080/odontesis/ECC/${idFromURL}`;
+        // Obtener la exploracion cabeza y cuello del paciente de la API
+        fetch(apiUrlExploracionCabezaCuello)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar la exploracion cabeza y cuello del paciente
+                const tableExploracionCabezaCuello = document.querySelector('.form_table_exploracion_cabeza_cuello');
+
+                const variablesExploracionCabezaCuelloMostrar = [
+                    'cabeza',
+                    'craneo',
+                    'cara',
+                    'perfil',
+                    'piel',
+                    'musculos',
+                    'cuello',
+                    'otros'
+                ];
+
+                variablesExploracionCabezaCuelloMostrar.forEach(variable => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
+                        <td class="form_input">${data[variable]}</td>
+                    `;
+                    tableExploracionCabezaCuello.appendChild(row);
+                });
+            })
+            .catch(error => console.error(error));
+
+        // Exploracion Física
+        const apiUrlExploracionFisica = `http://64.227.5.83:8080/odontesis/EF/${idFromURL}`;
+        // Obtener la exploracion fisica del paciente de la API
+        fetch(apiUrlExploracionFisica)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar la exploracion fisica del paciente
+                const tableExploracionFisica = document.querySelector('.form_table_exploracion_fisica');
+
+                const variablesExploracionFisicaMostrar = [
+                    'frecuencia_cardiaca',
+                    'frecuencia_respiratoria',
+                    'peso',
+                    'presion_arterial',
+                    'talla',
+                    'temperatura'
+                ];
+
+                variablesExploracionFisicaMostrar.forEach(variable => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
+                        <td class="form_input">${data[variable]}</td>
+                    `;
+                    tableExploracionFisica.appendChild(row);
+                });
+            })
+            .catch(error => console.error(error));
+    </script>
+</body>
+</html>
