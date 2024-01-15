@@ -45,11 +45,12 @@
         position: relative;
         --color: #5757577e
     }
+    
 
     .form_input
     {
         width: 100%;
-        background: none;
+
         color: #706c6c ;
         font-size: 1rem;
         padding: .6em .3em;
@@ -58,6 +59,12 @@
         border-bottom: 1px solid var(--color);
         font-family: 'Roboto', sans-serif;
 
+    }
+
+
+    .tableinput{
+        border-bottom: solid 1px #3ce7d4;
+        text-align: center;
     }
     .form_table{
         width: 500px;
@@ -389,3 +396,108 @@
     text-align: center;
 }
 
+
+
+
+/* Estilos para el formulario de números */
+.form_numbers {
+    background-color: #fff;
+    width: 100%;
+    max-width: 600px;
+    padding: 2em;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_numbers_title {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+}
+
+.form_numbers_group {
+    margin-bottom: 2em;
+}
+
+.form_numbers_label {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.form_numbers_input {
+    width: 100%;
+    font-size: 1rem;
+    padding: .5em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color);
+    text-align: center;
+}
+
+.form_numbers_submit {
+    font-size: 1rem;
+    padding: .8em 0.5em;
+    margin-top: 20px;
+    border-radius: .5em;
+    width: 100%;
+    background-color: #3ce7d4;
+    color: #fff;
+}
+
+/* Estilo para el contenedor de cada par de número y label */
+.form_numbers_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+/* Estilo para los números */
+.form_numbers_container span {
+    font-size: 1rem;
+    color: #3ce7d4;
+}
+
+
+.form_image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Estilos para centrar la tabla dentro de un div */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura según tus necesidades */
+}
+
+.table {
+    width: 80%; /* Ajusta el ancho de la tabla según tus necesidades */
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd; /* Añade bordes a las celdas para mejorar la visualización */
+    padding: 8px;
+    text-align: center;
+}
+
+/* Agrega fondo oscuro a los inputs en la segunda columna */
+.table td input {
+    background-color: #3ce7d4;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Ajusta otros estilos según tus necesidades */
+.tabla_dientes{
+    margin: auto;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css">
+    <title>Nuevo Paciente</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../usuarios/welcome.html">Inicio</a>
+        <a href="../paciente/listado.html">Pacientes</a>
+        <a href="../usuarios/usuarios2.html">Usuarios</a>
+        <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
+    </div>
+    
+    <form class="form">
+        <h2 class="form_title">Añadir nota evolución <span id="nombre_paciente"></span></h2><br>
+        <div class="form_containers">
+            <div class="form_group">
+                <input type="date" id="fecha" class="form_input" placeholder="fecha"><br><br>
+                <input type="text" id="etapa_tratamiento" class="form_input" placeholder="Etapa tratamiento"><br><br>
+                <input type="text" id="procedimientoRealizado" class="form_input" placeholder="Procedimiento realizado"><br><br>
+                <input type="text" id="objetivoProximaFecha" class="form_input" placeholder="Objetivo proxima fecha"><br><br> 
+                <input type="text" id="doctor_atendio" class="form_input" placeholder="Doctor que atendio"><br><br> 
+                
+            </div>
+            <br>
+            <br>    
+            <div class="form_group">
+                <button class="form_submit" id="submitButton">Finalizar</button>
+            </div>
+        </div>
+    </form>
+
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const fechaDeNotaDeEvolucion = document.getElementById('fecha').value;
+            const etapaDeTratamiento = document.getElementById('etapa_tratamiento').value;
+            const procedimientoRealizado = document.getElementById('procedimientoRealizado').value;
+            const objetivoProximaFecha = document.getElementById('objetivoProximaFecha').value;
+            const nombreDelDoctorQueAtendio = document.getElementById('doctor_atendio').value;
+            const noNotaDeEvolucion = 2;
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const nombre_de_paciente = urlParams.get('nombre');
+            document.getElementById('nombre_paciente').innerText = nombre_de_paciente;
+
+            const userData = {
+                nombre_de_paciente,
+                noNotaDeEvolucion,
+                fechaDeNotaDeEvolucion,
+                etapaDeTratamiento,
+                procedimientoRealizado,
+                objetivoProximaFecha,
+                nombreDelDoctorQueAtendio,
+            };
+
+            console.log(JSON.stringify(userData, null, 2));
+
+            fetch('http://64.227.5.83:8080/odontesis/notadeevolucion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                window.location.href = 'https://www.facebook.com/';
+})
+            })
+            .catch(error => console.error(error));
+        
+    </script>
+</body>
+</html>

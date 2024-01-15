@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <?php
-/*
+
 session_start();
 $error_message = '';
 
 if (isset($_SESSION['correo'])) {
-  header('Location: welcome.php');
+  header('Location: welcome.html');
   exit;
 }
 
@@ -23,13 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if (mysqli_num_rows($result) == 1) {
     $_SESSION['correo'] = $correo;
-    header('Location: welcome.php');
+    header('Location: welcome.html');
     exit;
   } else {
     $error_message = 'Correo o contraseña incorrectos';
   }
 }
-*/?>  
+?>  
 
 
 

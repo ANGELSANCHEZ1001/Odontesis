@@ -36,12 +36,12 @@
         <a href="../paciente/listado.html">Pacientes</a>
         <a href="../usuarios/usuarios2.html">Usuarios</a>
         <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
-        <a href="pruebacombi2.html" class="agregar-btn">Agregar</a> 
+        <a href="regPaciente.html" class="agregar-btn">Agregar</a> 
     </div>
     
     <table class="tabla">
         <tr>
-            <th colspan="7" class="titulomuestralist"><p>Datos Generales</p></th>
+            <th colspan="9" class="titulomuestralist"><p>Datos Generales</p></th>
         </tr>
         <tr>
             <td id="ttlt" class="col1">No. Expediente</td>
@@ -50,30 +50,29 @@
             <td id="ttlt" class="col1">Historia general</td>
             <td id="ttlt" class="col2">Historia Ortodoncia</td>
             <td id="ttlt" class="col1">Nota evolucion</td>
-            <td id="ttlt" class="col1">Archivos</td>
+            <td id="ttlt" class="col2">Archivos</td>
+            <td id="ttlt" class="col1">Editar</td>
+            <td id="ttlt" class="col2">Eliminar</td>
+            
         </tr>
         <tbody id="data"></tbody>
     </table>
 
     <script>
-        // URL del JSON
+        
         const url = 'http://64.227.5.83:8080/odontesis/datosgenerales';
-
-        // Obtener la tabla donde se mostrarán los datos
         const table = document.querySelector('table');
-
-        // Realizar una solicitud GET a la URL JSON
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                mostrardata(data); // Llama a mostrardata aquí
+                mostrardata(data); //  aquí
             })
             .catch(error => console.error("Error al realizar la solicitud:", error));
 
         const mostrardata = (data) => {
             let body = '';
             for (let i = 0; i < data.length; i++) {
-                body += `<tr><td>${data[i].no_expediente}</td><td>${data[i].nombre}</td><td>${data[i].tel}</td><td><button class="btnLink" onclick="general('${data[i].no_expediente}')">🏥</button></td><td><button class="btnLink" onclick="ortodoncia('${data[i].no_expediente}')">🦷</button></td><td><button class="btnLink" onclick="evolucion('${data[i].no_expediente}')">📜</button></td><td><button class="btnLink" onclick="archivos('${data[i].no_expediente}')">📚</button></td></tr>`;
+                body += `<tr><td>${data[i].no_expediente}</td><td>${data[i].nombre}</td><td>${data[i].tel}</td><td><button class="btnLink" onclick="general('${data[i].no_expediente}')">🏥</button></td><td><button class="btnLink" onclick="ortodoncia('${data[i].no_expediente}')">🦷</button></td><td><button class="btnLink" onclick="evolucion('${data[i].no_expediente}')">📜</button></td><td><button class="btnLink" onclick="archivos('${data[i].no_expediente}')">📚</button></td><td><button class="btnLink" onclick="editar('${data[i].no_expediente}')">✏️</button></td><td><button class="btnLink" onclick="eliminar('${data[i].no_expediente}')">🗑️</button></td></tr></tr>`;
             }
             document.getElementById('data').innerHTML = body;
         }
@@ -88,7 +87,7 @@ function ortodoncia(noExpediente) {
 }
 function evolucion(noExpediente) {
     // Redirigir a la página usuarios2.html en el sitio Odontesis
-    window.location.href = `http://odontesis.ingecei.digital/Odontesis/OdontesisAvance/usuarios/evolucion.html?no_expediente=${noExpediente}`;
+    window.location.href = `nota_evolucion.html?no_expediente=${noExpediente}`;
 }
 function archivos(noExpediente) {
     // Redirigir a la página usuarios2.html en el sitio Odontesis

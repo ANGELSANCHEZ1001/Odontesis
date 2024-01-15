@@ -293,9 +293,10 @@
   
   .titulomuestralist {
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     font-size: 1.5rem;
     margin-bottom: 1em;
+    background-color: #3ce7d4;
   }
   
   .col1,

@@ -40,6 +40,43 @@
         </div>
     </form>
 
+
+
+
+    
+    <!--
+
+        Obtener id
+    -->
+    
+
+
+    <script>
+        let nuevoID; // Declarar nuevoID fuera de cualquier función para hacerlo global
+    
+        let url = 'http://64.227.5.83:8080/odontesis/usuarios';
+    
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                mostrardata(data); // Llama a mostrardata aquí
+            })
+            .catch(error => console.error("Error al realizar la solicitud:", error));
+    
+        const mostrardata = (data) => {
+            console.log(data);
+    
+            // Verifica si la respuesta de la API está vacía
+            nuevoID = data.length > 0 ? data[data.length - 1].id_usuario +1: 1;
+    
+            // Resto de tu código aquí usando nuevoID
+            console.log("Nuevo ID:", nuevoID);
+        }
+    </script>
+    
+    
+
+
     <script>
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
@@ -52,9 +89,8 @@
             const fechaNacimiento = document.getElementById('fechaNacimiento').value;
             const rol = document.getElementById('rol').value;
             // Genera un número aleatorio entre 0 y 999
-            const id_usuario = Math.floor(Math.random() * 1000);
-
-
+            const id_usuario = nuevoID;
+            
             const userData = {
                 id_usuario,
                 nombre,
@@ -80,7 +116,7 @@
                 console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
             })
             .catch(error => console.error(error));
-            window.location.href = 'usuarios2.html';
+            //window.location.href = 'usuarios2.html';
         });
     </script>
 </body>

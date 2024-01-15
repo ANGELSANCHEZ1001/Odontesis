@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style_registroPaciente.css"> <!-- Agrega aquí tu archivo de estilo -->
+
+  <title>Nota evolución</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    table {
+      margin-top: 10px;
+      border-collapse: collapse;
+      width: 80%;
+    }
+
+    th, td {
+      border: 1px solid #3ce7d4;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+    td{
+      background-color: #fff;
+    }
+
+    .titulo_paciente {
+      height: 50px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center; /* Centrar verticalmente */
+      justify-content: center; /* Centrar horizontalmente */
+      margin-top: 80px;
+    }
+    .nombre_tabla {
+      margin-top: 10px;
+      border-collapse: collapse;
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+<div class="navbar">
+  <a href="../usuarios/welcome.html">Inicio</a>
+  <a href="../paciente/listado.html">Pacientes</a>
+  <a href="../usuarios/usuarios2.html">Usuarios</a>
+  <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
+  <a href="agregar_nota_evolucion.html?nombre=" class="agregar-btn" id="agregarLink">Agregar</a>
+</div>
+
+<div class="titulo_paciente">
+  <h2>Nota evolución </h2>
+</div>
+<table class="Nombre_tabla">
+  <tr>
+    <th>Nombre del paciente : </th>
+    <td>
+      <span class="nombre_paciente" id="nombre_paciente"></span>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <thead>
+  <tr class="renglones">
+    <th>Fecha</th>
+    <th>Etapa del Tratamiento</th>
+    <th>Procedimiento Realizado</th>
+    <th>Objetivo de la Próxima Fecha</th>
+    <th>Doctor que atendio</th>
+  </tr>
+  </thead>
+  <tbody id="data"></tbody>
+  
+  <!-- Puedes agregar más filas según sea necesario -->
+  </tbody>
+</table>
+
+<script>
+  // Obtener el parámetro de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('no_expediente');
+
+  // Variable global para almacenar el nombre del paciente
+  let nombrePaciente;
+
+  // Mostrar el ID en el elemento span
+  let url = `http://64.227.5.83:8080/odontesis/datosgenerales/${userId}`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      mostrardata(data);
+    })
+    .catch(error => console.error("Error al realizar la solicitud:", error));
+
+  const mostrardata = (data) => {
+    console.log(data);
+
+    // Asignar el valor del atributo "nombre" a la variable global
+    nombrePaciente = data.nombre;
+
+    // Mostrar la información del usuario en la página de edición
+    document.getElementById('nombre_paciente').innerText = nombrePaciente;
+
+
+
+    
+    // Actualizar el enlace del navbar con el nombre del paciente
+    const agregarLink = document.getElementById('agregarLink');
+    agregarLink.href += nombrePaciente;
+  }
+
+
+  const url2 = 'http://64.227.5.83:8080/odontesis/notadeevolucion';
+  
+        const table = document.querySelector('table');
+        fetch(url2)
+            .then(response => response.json())
+            .then(data => {
+                mostrardata2(data); //  aquí
+            })
+            .catch(error => console.error("Error al realizar la solicitud:", error));
+        console.log(data);
+        const mostrardata2 = (data) => {
+            let body = '';
+            for (let i = 0; i < data.length; i++) {
+                body += `<tr><td>${data[i].fechaDeNotaDeEvolucion}</td><td>${data[i].etapaDeTratamiento}</td><td>${data[i].procedimientoRealizado}</td><td>${data[i]. objetivoProximaFecha}</td><td>${data[i].nombreDelDoctorQueAtendio}</td></tr>`;
+            }
+            document.getElementById('data').innerHTML = body;
+            console.log(data);
+        }
+</script>
+</body>
+</html>

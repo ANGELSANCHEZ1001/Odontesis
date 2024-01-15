@@ -100,6 +100,19 @@
                 </tr>
             </table>
         </div>
+
+
+        <div class="form_group">
+            <h2 class="form_antec">Aparato estomag</h2><br>
+
+            <table class="form_table_aparato_ae">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label">Campo</th>
+                    <th class="form_input">Valor</th>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <script>
@@ -118,7 +131,6 @@
                 const variablesMostrar = [
                     'no_expediente',
                     'nombre',
-                    'correo',
                     'fecha_de_nacimiento',
                     'lugar_de_nacimiento',
                     'edad',
@@ -169,7 +181,7 @@
 
                 variablesSaludMostrar.forEach(variable => {
                     const row = document.createElement('tr');
-                    const value = data[variable] === '1' ? 'Sí' : 'No'; // Conversión
+                    const value = data[variable] == '1' ? 'Sí' : 'No'; // Conversión
                     row.innerHTML = `
                         <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
                         <td class="form_input">${value}</td>
@@ -221,8 +233,8 @@
 
                 data.forEach(hospitalizacion => {
                     const row = document.createElement('tr');
-                    const fecha = hospitalizacion.fecha_hospitalizacion ? hospitalizacion.fecha_hospitalizacion : 'N/A';
-                    const motivo = hospitalizacion.motivo_hospitalizacion ? hospitalizacion.motivo_hospitalizacion : 'N/A';
+                    const fecha = hospitalizacion.fecha_hospitalizacion;
+                    const motivo = hospitalizacion.motivo_hospitalizacion ;
                     row.innerHTML = `
                         <td class="form_input">${fecha}</td>
                         <td class="form_input">${motivo}</td>
@@ -264,7 +276,7 @@
             .catch(error => console.error(error));
 
         // Exploracion cabeza y cuello
-        const apiUrlExploracionCabezaCuello = `http://64.227.5.83:8080/odontesis/ECC/${idFromURL}`;
+        const apiUrlExploracionCabezaCuello = `http://64.227.5.83:8080/odontesis/ecc/${idFromURL}`;
         // Obtener la exploracion cabeza y cuello del paciente de la API
         fetch(apiUrlExploracionCabezaCuello)
             .then(response => response.json())
@@ -304,7 +316,7 @@
                 const tableExploracionFisica = document.querySelector('.form_table_exploracion_fisica');
 
                 const variablesExploracionFisicaMostrar = [
-                    'frecuencia_cardiaca',
+                    'frecuenciaCardiaca',
                     'frecuencia_respiratoria',
                     'peso',
                     'presion_arterial',
@@ -322,6 +334,43 @@
                 });
             })
             .catch(error => console.error(error));
+
+
+
+
+
+            //Aparato estomag
+            const apiUrlAparatoEstomag = `http://64.227.5.83:8080/odontesis/ae/${idFromURL}`;
+        // Obtener la exploracion fisica del paciente de la API
+            fetch(apiUrlAparatoEstomag)
+                .then(response => response.json())
+                .then(data => {
+                    // Crear una tabla para mostrar la exploracion fisica del paciente
+                    const tableAparatoE = document.querySelector('.form_table_aparato_ae');
+
+                    const variablesExploracionFisicaMostrar = [
+                        'frecuenciaCardiaca',
+                        'frecuencia_respiratoria',
+                        'peso',
+                        'presion_arterial',
+                        'talla',
+                        'temperatura'
+                    ];
+
+                    variablesExploracionFisicaMostrar.forEach(variable => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
+                            <td class="form_input">${data[variable]}</td>
+                        `;
+                        tableAparatoE.appendChild(row);
+                    });
+            })
+            .catch(error => console.error(error));
+
+
+
+
     </script>
 </body>
 </html>

@@ -113,39 +113,47 @@
             <div class="form_group">
                 <h2 class="form_antec">Antecedentes personales no patológicos</h2><br>
                 
-                <label class="check">Alcohol</label>
+                
                 <div class="checkbox_label">
                     <input type="checkbox" class="checkAntecedentes" id="adiccion_alcohol" name="adiccion_alcohol" value="0" />
+                    <label class="check">Alcohol</label>
                 </div>
                 
-                <label class="check">Tabaco</label>
+               <br>
                 <div class ="checkbox_label">
+                    
                     <input type="checkbox" class="checkAntecedentes" id="adiccion_tabaco" name="adiccion_tabaco" value="0" />
+                    <label class="check">Tabaco</label>
                 </div>
                 
-                <label class="check">Alergias</label>
+                <br>
                 <div class="checkbox_label">
+                    
                     <input type="checkbox" class="checkAntecedentes" id="alergias" name="alergias" value="0" />
+                    <label class="check">Alergias</label>
                 </div>
                 
-                <label class="check">Cuales?</label>
+                <br>
                 <div class="checkbox_label">
-                    <input type="text" class="checkAntecedentes form_input" id="alergias_cuales" name="alergias_cuales" />
+                    <input type="text" class="checkAntecedentes form_input" id="alergias_cuales" name="alergias_cuales" placeholder="Cuales?" />
+                    
+                </div>
+                <br>
+                
+                <div class="checkbox_label">
+                    <input type="checkbox" class="checkAntecedentes" id="embarazo" name="embarazo" value="0" />
+                    <label class="check">Embarazo</label>
                 </div>
                 
-                <label class="check">Embarazo</label>
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes form_input" id="embarazo" name="embarazo" value="0" />
-                </div>
                 
-                <label class="text">Meses de embarazo</label>
                 <div class="checkbox_label">
-                    <input type="text" class="checkAntecedentes form_input" id="meses_embarazo" name="meses_embarazo" />
+                    <input type="text" class="checkAntecedentes form_input" id="meses_embarazo" name="meses_embarazo" placeholder="Meses de embarazo" />
                 </div>
+                <br>
                 
-                <label class="check">Edad de primera menstruacion</label>
                 <div class="checkbox_label">
-                    <input type="text" class="checkAntecedentes form_input" id="primera_mestruacion" name="primera_mestruacion" />
+                    <input type="text" class="checkAntecedentes form_input" id="primera_mestruacion" name="primera_mestruacion" placeholder="Edad de primera menstruacion"/>
+                    
                 </div>
                 
                 <br>
@@ -250,7 +258,7 @@
 
 
                 <h2 class="form_antec">Otros</h2><br>
-                <textarea name="otros_ecc" id="otros_ecc" cols="50" rows="5"></textarea>
+                <textarea class="form_input" name="otros_ecc" id="otros_ecc" cols="50" rows="5"></textarea>
             </div>
         </div>
     </form>
@@ -356,45 +364,289 @@
     <br>
 
 
-    <form class="form">
-        <br>
-        <div class="form_containers">
-            <div class="form_group">
-                <h2 class="form_antec">Antecedentes heredofamiliares</h2><br>
+    
+    
 
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="anemia_falciforme" name="anemia_falciforme" value="0"/>
-                    <label class="checkAntecedentes">Anemia falciforme</label>
-                </div>
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="cancer" name="cancer" value="0"/>
-                    <label class="checkAntecedentes">Cáncer</label>
-                </div>
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="diabetes" name="diabetes" value="0"/>
-                    <label class="checkAntecedentes">Diabetes</label>
-                </div>
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="fibrosis_quistica" name="fibrosis_quistica" value="0" />
-                    <label class="checkAntecedentes">Fibrosis quística</label>
-                </div>
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="hemofila" name="hemofila" value="0" />
-                    <label class="checkAntecedentes">Hemofilia</label>
-                </div>
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="hipercolesterolemia" name="hipercolesterolemia" value="0"/>
-                    <label class="checkAntecedentes">Hipertensión colesterolemia</label>
-                </div>
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="hipertension" name="hipertension" value="0"/>
-                    <label class="checkAntecedentes">Hipertensión</label>
-                
+
+
+
+    <!-- Formulario odontograma-->
+
+
+   
+
+    <form class="form" action="#">
+
+        <h1 >Odontograma</h1><br><br>
+
+        <div>
+            
+            <h2 class="form_antec">Estado dental</h2><br>
+            <table class="tabla_dientes">
+                <tr><th class="column1Table">0:</th> <th class="column2Table">Sano</th></tr>
+                <tr><th class="column1Table">1:</th> <th class="column2Table">Caries</th></tr>
+                <tr><th class="column1Table">2:</th> <th class="column2Table">Obturado</th></tr>
+                <tr><th class="column1Table">3:</th> <th class="column2Table">Perdido</th></tr>
+                <tr><th class="column1Table">4:</th> <th class="column2Table">Prótesis Fija</th></tr>
+                <tr><th class="column1Table">8:</th> <th class="column2Table">Impactado</th></tr>
+                <tr><th class="column1Table">9:</th> <th class="column2Table">Fracturado</th></tr>
+                <tr><th class="columna1Tale">10:</th> <th class="column2Table">Recesión</th></tr>
+                <tr><th class="columna1Tale">11:</th> <th class="column2Table">Endodoncia</th></tr>
+                <tr><th class="columna1Tale">12:</th> <th class="column2Table">Lesión Endoperiodontal</th></tr>
+                <tr><th class="columna1Tale">13:</th> <th class="column2Table">Diente no erupcionado</th></tr>
+                <tr><th class="columna1Tale">14:</th> <th class="column2Table">Alteraciones de forma, número, tamaño</th></tr>
+            </table>
+            <br><br>
+
         </div>
-        <button class="form_submit" id="submitButton">Finalizar</button>
+        <div>
+            <img src="dientes1.png" alt="Imagen de Dientes" class="form_image">
+        </div>
+        <br>
+
+        <div>
+            <table class="tabla_dientes">
+                <tr>
+                    <th>Diente</th>
+                    <th>Ponderacion</th>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_11" /></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_12" /></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_13" /></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_14" /></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_15" /></td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_16" /></td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_17" /></td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_18" /></td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_21" /></td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_22" /></td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_23" /></td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_24" /></td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_25" /></td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_26" /></td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_27" /></td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_28" /></td>
+                </tr>
+
+
+                <tr>
+                    <td>31</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_31" /></td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_33" /></td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_33" /></td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_34" /></td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_35" /></td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_36" /></td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_37" /></td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_38" /></td>
+                </tr>
+
+
+                <tr>
+                    <td>41</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_41" /></td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_44" /></td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_43" /></td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_44" /></td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_45" /></td>
+                </tr>
+                <tr>
+                    <td>46</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_46" /></td>
+                </tr>
+                <tr>
+                    <td>47</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_47" /></td>
+                </tr>
+                <tr>
+                    <td>48</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_48" /></td>
+                </tr>
+                <!-- Repite lo anterior para los demás números -->
+               
+            </table>
+
+
+            <div>
+                 <img src="dientes2.png" alt="Imagen 2" clase="form_image">
+            </div>
+
+
+            <table class="tabla_dientes">
+                <tr>
+                    <td>51</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_51" /></td>
+                </tr>
+                <tr>
+                    <td>52</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_52" /></td>
+                </tr>
+                <tr>
+                    <td>53</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_53" /></td>
+                </tr>
+                <tr>
+                    <td>54</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_54" /></td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_55" /></td>
+                </tr>
+
+                <tr>
+                    <td>61</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_61" /></td>
+                </tr>
+                <tr>
+                    <td>62</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_62" /></td>
+                </tr>
+                <tr>
+                    <td>63</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_63" /></td>
+                </tr>
+                <tr>
+                    <td>64</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_64" /></td>
+                </tr>
+                <tr>
+                    <td>65</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_65" /></td>
+                </tr>
+
+                <tr>
+                    <td>71</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_71" /></td>
+                </tr>
+                <tr>
+                    <td>72</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_72" /></td>
+                </tr>
+                <tr>
+                    <td>73</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_73" /></td>
+                </tr>
+                <tr>
+                    <td>74</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_74" /></td>
+                </tr>
+                <tr>
+                    <td>75</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_75" /></td>
+                </tr>
+
+                <tr>
+                    <td>81</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_81" /></td>
+                </tr>
+                <tr>
+                    <td>82</td> 
+                    <td><input type="number" class="form_input tableinput" name="diente_82" /></td>
+                </tr>
+                <tr>
+                    <td>83</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_83" /></td>
+                </tr>
+                <tr>
+                    <td>84</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_84" /></td>
+                </tr>
+                <tr>
+                    <td>85</td>
+                    <td><input type="number" class="form_input tableinput" name="diente_85" /></td>
+                </tr>
+            </table>
+
+        </div>
 
     </form>
+
+
     
+
+<br><br><br>
+
 
 
     <!--
@@ -414,7 +666,7 @@
             .then(data => {
                 console.log(data);
                 if (Array.isArray(data) && data.length > 0) {
-                         = data.length+1;
+                         nuevoId= data.length+1;
                 } else {
                     nuevoId = 1;
                 }
@@ -769,7 +1021,7 @@
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
             
             // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
-            const no_expediente =  nuevoId; 
+            const no_expediente =   nuevoId;
             const Ruidos = document.getElementById('Ruidos').value;
             const Lateralidad = document.getElementById('Lateralidad').value;
             const Chasquido = document.getElementById('Chasquido').value;
