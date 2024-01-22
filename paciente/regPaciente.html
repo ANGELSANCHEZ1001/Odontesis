@@ -164,6 +164,75 @@
     </form>
 
 
+
+
+
+
+
+
+    <form class="form">
+        
+        <div class="form_containers">
+            <div class="form_group">
+                <h2 class="form_antec">Antecedentes Heredofamiliares</h2><br>
+                
+                
+                <div class="checkbox_label_ahf">
+                    <input type="checkbox" class="checkAntecedentesHF" id="diabetes" name="diabetes" value="0" />
+                    <label class="check">Diabetes</label>
+                </div>
+                
+               <br>
+                <div class ="checkbox_label_ahf">
+                    
+                    <input type="checkbox" class="checkAntecedentesHF" id="cancer" name="cancer" value="0" />
+                    <label class="check">Cancer</label>
+                </div>
+                
+                <br>
+                <div class="checkbox_label_ahf">
+                    
+                    <input type="checkbox" class="checkAntecedentesHF" id="hipertencion" name="hipertencion" value="0" />
+                    <label class="check">Hipertensión </label>
+                </div>
+                
+                <br>
+                <div class ="checkbox_label_ahf">
+                    
+                    <input type="checkbox" class="checkAntecedentesHF" id="fibrosis_quisitica" name="fibrosis_quisitica" value="0" />
+                    <label class="check">Fibrosis quistica</label>
+                </div>
+                
+                <br>
+                <div class="checkbox_label_ahf">
+                    
+                    <input type="checkbox" class="checkAntecedentesHF" id="anemia_falciforme" name="anemia_falciforme" value="0" />
+                    <label class="check">Anemia falciforme</label>
+                </div>
+                
+                <br>
+                <br>
+                
+                <div class="checkbox_label_ahf">
+                    <input type="checkbox" class="checkAntecedentesHF" id="hemofilia" name="hemofilia" value="0" />
+                    <label class="check">Hemofilia</label>
+                </div>
+                
+                
+                <div class="checkbox_label_ahf">
+                    <input type="checkbox" class="checkAntecedentesHF" id="hipercolesterolemia" name="hipercolesterolemia" value="0" />
+                    <label class="check">Hipercolesterolemia</label>   
+                </div>
+                <br>
+             
+                <br>
+                <br>
+               
+            </div>
+        </div>
+    </form>
+
+
     <form class="form" name="hospitalizaciones">
       
         
@@ -639,6 +708,9 @@
             </table>
 
         </div>
+        <div class="form_group">
+            <button class="form_submit" id="submitButton">Finalizar</button>
+        </div>
 
     </form>
 
@@ -657,9 +729,10 @@
 
 
     <script>
+        /*
         const apiUrl = 'http://64.227.5.83:8080/odontesis/datosgenerales';
     
-        let     ; // Declarar la variable fuera del bloque then
+        let  nuevoId ; // Declarar la variable fuera del bloque then
     
         fetch(apiUrl)
             .then(response => response.json())
@@ -674,6 +747,7 @@
                
             })
             .catch(error => console.error('Error al realizar la solicitud:', error));
+            */
     </script>
     
     <!--
@@ -694,8 +768,7 @@
                 // el valor de 1 o 0 según si está marcada o no
                 formData[checkbox.name] = checkbox.checked ? 1 : 0;
             });
-            formData["no_expediente"] = nuevoId;
-            formData['alergias_cuales'] = document.getElementById('alergias_cuales').value;
+            
             // Muestra los datos en la consola (puedes eliminar esto en producción)
             console.log(JSON.stringify(formData));
 
@@ -719,7 +792,7 @@
 
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-            const no_expediente = nuevoId
+         
             const nombre = document.getElementById('nombre').value;
             const fecha_de_nacimiento = document.getElementById('fecha_de_nacimiento').value;
             const lugar_de_nacimiento = document.getElementById('lugar_de_nacimiento').value;
@@ -736,7 +809,6 @@
             const motivo_de_consulta = document.getElementById('motivo_de_consulta').value;
 
             const pacienteData = {
-                no_expediente,
                 nombre,
                 fecha_de_nacimiento,
                 lugar_de_nacimiento,
@@ -797,8 +869,6 @@
             formData["meses_embarazo"] = document.getElementById('meses_embarazo').value;
             formData["primera_mestruacion"] = document.getElementById('primera_mestruacion').value;
 
-            formData["no_expediente"] = nuevoId;
-
             // Muestra los datos en la consola (puedes eliminar esto en producción)
             console.log(JSON.stringify(formData));
 
@@ -830,7 +900,6 @@
     <script>
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-            const no_expediente=nuevoId;
             const frecuenciaCardiaca = document.getElementById('frecuencia_cardiaca').value;
             const frecuencia_respiratoria = document.getElementById('frecuencia_respiratoria').value;
             const peso = document.getElementById('peso').value;
@@ -839,7 +908,6 @@
             const temperatura = document.getElementById('temperatura').value;
           
             const exploracionF = {
-                no_expediente,
                 frecuenciaCardiaca,
                 frecuencia_respiratoria,
                 peso,
@@ -874,12 +942,10 @@
     <script>
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-            const no_expediente=nuevoId;
             const fecha_hospitalizacion = document.getElementById('fecha_hospitalizacion').value;
             const motivo_hospitalizacion = document.getElementById('motivo_hospitalizacion').value;
         
             const pacienteData = {
-                no_expediente,
                 fecha_hospitalizacion,
                 motivo_hospitalizacion,
             };
@@ -915,13 +981,13 @@
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
 
             // Define el valor de no_expediente
-            const no_expediente = nuevoId;
+            const formData = {};
 
          // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
-            const checkboxes = document.querySelectorAll('.checkAntecedentes');
+            const checkboxes = document.querySelectorAll('.checkAntecedentesHF');
 
             // Crea un objeto para almacenar los datos
-            const formData = { no_expediente };
+            
 
             checkboxes.forEach(checkbox => {
                 // Usa el nombre del atributo de la casilla de verificación como clave y
@@ -942,10 +1008,10 @@
             })
             .then(response => console.log(response))
             .then(data => {
-                console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
+                console.log(    ); // Aquí puedes manejar la respuesta de la API si es necesario
             })
             .catch(error => console.error(error));
-            window.location.href = 'listado.html';
+            //window.location.href = 'listado.html';
         });
         
     </script>
@@ -962,7 +1028,6 @@
             alert("ECC")
             // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
             
-            const no_expediente=nuevoId;
             const cabeza = document.getElementById('cabeza_ecc').value;
             const cara = document.getElementById('cara_ecc').value;
             const craneo = document.getElementById('craneo_ecc').value;
@@ -973,7 +1038,7 @@
             const otros = document.getElementById('otros_ecc').value;
           
             const exploracioncc = {
-                no_expediente,
+               
                 cabeza,
                 cara,
                 craneo,
@@ -1021,37 +1086,41 @@
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
             
             // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
-            const no_expediente =   nuevoId;
-            const Ruidos = document.getElementById('Ruidos').value;
-            const Lateralidad = document.getElementById('Lateralidad').value;
-            const Chasquido = document.getElementById('Chasquido').value;
-            const Crepitacion = document.getElementById('Crepitacion').value;
-            const AbrirBoca = document.getElementById('AbrirBoca').value;
-            const AbrirLateralidad = document.getElementById('AbrirLateralidad').value;
-            const FatigaMuscular = document.getElementById('FatigaMuscular').value;
-            const DisminucionAbertura = document.getElementById('DisminucionAbertura').value;
-            const Abertura = document.getElementById('Abertura').value;
+            const ruidos = document.getElementById('Ruidos').value;
+            const lateralidad = document.getElementById('Lateralidad').value;
+            const chasquido = document.getElementById('Chasquido').value;
+            const crepitacion = document.getElementById('Crepitacion').value;
+            const abrir_boca = document.getElementById('AbrirBoca').value;
+            const abrir_lateralidad = document.getElementById('AbrirLateralidad').value;
+            const fatiga_muscular = document.getElementById('FatigaMuscular').value;
+            const disminucion_abertura = document.getElementById('DisminucionAbertura').value;
+            const abertura = document.getElementById('Abertura').value;
             const cierre = document.getElementById('cierre').value;
-            const tejidosBlandos = document.getElementById('tejidosBlandos').value;
-            const Ganglios = document.getElementById('Ganglios').value;
-            const GlandulasS = document.getElementById('GlandulasS').value;
+            const tejidos_blandos = document.getElementById('tejidosBlandos').value;
+            const ganglios = document.getElementById('Ganglios').value;
+            const glandulas_s = document.getElementById('GlandulasS').value;
             const labios = document.getElementById('labios').value;
             const cigarrillos = document.getElementById('cigarrillos').value;
             const lengua = document.getElementById('lengua').value;
             const frenillos = document.getElementById('frenillos').value;
             const paladar = document.getElementById('paladar').value;
-            const pisoBoca = document.getElementById('pisoBoca').value;
-            const Dientes = document.getElementById('Dientes').value;
-            const Encia = document.getElementById('Encia').value;
+            const piso_boca = document.getElementById('pisoBoca').value;
+            const dientes = document.getElementById('Dientes').value;
+            const encia = document.getElementById('Encia').value;
+
+            //ver en console.log
             
 
             const aparatoEstomag = {
-                no_expediente
-               
+                ruidos, 
+                lateralidad, chasquido, crepitacion, abrir_boca, abrir_lateralidad, 
+                fatiga_muscular, disminucion_abertura, abertura, cierre, tejidos_blandos, 
+                ganglios, glandulas_s, labios, cigarrillos, lengua, frenillos, paladar, 
+                piso_boca, dientes, encia
+
             };
 
-            alert(aparatoEstomag.no_expediente)
-            //ver en console.log
+
             console.log(JSON.stringify(aparatoEstomag, null, 2));
 
             // Realiza la solicitud POST a tu API con los datos

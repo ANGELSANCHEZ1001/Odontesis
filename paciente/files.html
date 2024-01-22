@@ -53,7 +53,7 @@
   <a href="../paciente/listado.html">Pacientes</a>
   <a href="../usuarios/usuarios2.html">Usuarios</a>
   <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
-  <a href="agregar_nota_evolucion.html?nombre=" class="agregar-btn" id="agregarLink">Agregar</a>
+  <a href="subir_files.html?nombre=" class="agregar-btn" id="agregarLink">Agregar</a>
 </div>
 
 <div class="titulo_paciente">
@@ -71,11 +71,9 @@
 <table>
   <thead>
   <tr class="renglones">
-    <th>Fecha</th>
-    <th>Etapa del Tratamiento</th>
-    <th>Procedimiento Realizado</th>
-    <th>Objetivo de la Próxima Fecha</th>
-    <th>Doctor que atendio</th>
+    <th>Nombre del archivo</th>
+    <th>Descargar</th>
+    
   </tr>
   </thead>
   <tbody id="data"></tbody>
@@ -119,27 +117,29 @@
   }
 
 
-  const url2 = 'http://64.227.5.83:8080/odontesis/notadeevolucion';
+    
+        
+</script>
+<script>
   
-        const table = document.querySelector('table');
-        fetch(url2)
-            .then(response => response.json())
-            .then(data => {
-                mostrardata2(data); //  aquí
-            })
-            .catch(error => console.error("Error al realizar la solicitud:", error));
-        console.log(data);
-        const mostrardata2 = (data) => {
-            let body = '';
-            for (let i = 0; i < data.length; i++) {
-              
-              if (data[i].nombreDePaciente == nombrePaciente) {
-                body += `<tr><td>${data[i].fechaDeNotaDeEvolucion}</td><td>${data[i].etapaDeTratamiento}</td><td>${data[i].procedimientoRealizado}</td><td>${data[i].objetivoProximaFecha}</td><td>${data[i].nombreDelDoctorQueAtendio}</td></tr>`;
-            }
-            }
-            document.getElementById('data').innerHTML = body;
-            console.log(data);
-        }
+    let url2 = 'http://64.227.5.83:8080/api/fileManager/files';
+
+    fetch(url2, {
+        credentials: 'include', // O 'same-origin' si tu aplicación y servidor están en el mismo dominio
+    })
+    .then(response => response.json())
+    .then(data => {
+        mostrardata2(data);
+    })
+    .catch(error => console.error("Error al realizar la solicitud:", error));
+    console.log(data);
+    const mostrardata2 = (data) => {
+    let body = '';
+    for (let i = 0; i < data.length; i++) {
+        body += `<tr><td>${data[i].name}</td><td><a href="${data[i].url}" target="_blank">Descargar</a></td></tr>`;
+    }
+    document.getElementById('data').innerHTML = body;
+}
 </script>
 </body>
 </html>

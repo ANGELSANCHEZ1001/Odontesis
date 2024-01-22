@@ -8,81 +8,150 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#">Inicio</a>
-        <a href="#">Pacientes</a>
-        <a href="#">Usuarios</a>
-        <a href="#" class="cerrarsesion">Cerrar Sesión</a>
+        <a href="../usuarios/welcome.html">Inicio</a>
+        <a href="../paciente/listado.html">Pacientes</a>
+        <a href="../usuarios/usuarios2.html">Usuarios</a>
+        <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
     </div>
+    
     <br><br>
+    
+    
+    
     <form class="form">
-        <h2 class="form_title">Nuevo paciente</h2><br>
+        <h2 class="form_title">Historia clinica de ortodoncia</h2><br>
         <div class="form_containers">
-            <div class="form_group">
-                <h2 class="form_antec">Antecedentes personales patológicos</h2><br>
-
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="no_expediente" name="no_expediente" value="88" />
-                </div>
-                <label class="check">numero exp</label>
-                
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="sida" name="sida" value="0" />
-                </div>
-                <label class="check">Sida</label>
-                
-
-                <div class ="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="diabetes" name="diabetes" value="0" />
-                </div>
-                <label class="check">Diabetes</label>
-
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="prediabetes" name="prediabetes" value="0" />
-                </div>
-                <label class="check">Prediabetes</label>
-
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="carebrovasculares" name="carebrovasculares" value="0" />
-                </div>
-                <label class="check">Cardiovasculares</label>
-
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="hepatitis" name="hepatitis" value="0" />
-                </div>
-                <label class="check">Hepatitis</label>
-
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="osteoartritis" name="osteoartritis" value="0" />
-                </div>
-                <label class ="check">Osteoartritis</label>
-
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="osteorporosis" name="osteorporosis" value="0" />
-                </div>
-                <label class="check">Osteoporosis</label>
-
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="herpes" name="herpes" value="0" />
-                </div>
-                <label class="check">Herpes</label>
-
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="cardiopatias" name="cardiopatias" value="0" />
-                </div>
-                <label class="check">Cardiopatias</label>
-                
-                <div class="checkbox_label">
-                    <input type="checkbox" class="checkAntecedentes" id="cancer" name="cancer" value="0" />
-                </div>
-                <label class="check">Cancer</label>
-                <br>
-                <br>    
-                <div class="form_group">
-                    <button class="form_submit" id="submitButton">Siguiente</button>
-                </div>
+            <div class="form_group">  
+                <input type="text" class="form_input" id="nombre_paciente" name="nombre_paciente" placeholder="Nombre " />
+                <input type="text" class="form_input" id="folio" name="folio" placeholder="Folio" />
+                <input type="date" class="form_input" id="inicio_tratamiento" name="inicio_tratamiento" />
+                <input type="text" class="form_input" id="edad_paciente" name="edad_paciente" placeholder="Edad" />
             </div>
         </div>
     </form>
+
+    <form class="form">
+        <h2 class="form_title">Historia del paciente</h2><br>
+        <div class="form_containers">
+            <div class="form_group">  
+                
+                <input type="text" class="form_input" id="queja" name="queja" placeholder="Queja " />
+                <input type="text" class="form_input" id="Habitos" name="Habitos" placeholder="Habitos" />
+                <input type="text" class="form_input" id="historial_medico" name="historial_medico" placeholder="Historial medico" />
+                <input type="text" class="form_input" id="historial_dental" name="historial_dental" placeholder="Historial dental" />
+                
+                
+                
+            </div>
+        </div>
+    </form>
+
+    <form class="form">
+        <h2 class="form_title">Motivacion</h2><br>
+        <div class="form_containers">
+            <div class="form_group">  
+                
+                <input type="text" class="form_input" id="actitud_frente_al_tx" name="actitud_frente_al_tx" placeholder="Actitud frente al tx " />
+                <input type="text" class="form_input" id="comportamiento_social" name="comportamiento_social" placeholder="Comportamiento social" />
+            </div>
+        </div>
+    </form>
+
+
+    <form class="form">
+        <h2 class="form_title">Analisis facial</h2><br>
+        <div class="form_containers">
+            <div class="form_group">  
+                
+                <input type="text" class="form_input" id="actitud_frente_al_tx" name="actitud_frente_al_tx" placeholder="Actitud frente al tx " />
+                <input type="text" class="form_input" id="comportamiento_social" name="comportamiento_social" placeholder="Comportamiento social" />
+                
+                <br><br>
+                <h2 class="form_label">Biotipo facial</h2> <br>
+                <select id="biotipo_facial" class="form_input">
+                    <option value="1">Braqui</option>
+                    <option value="2">Meso</option>
+                    <option value="3">Dolico</option>
+                </select><br><br>
+
+                <h2 class="form_label">Perfil</h2> <br>
+                <select id="perfil" class="form_input">
+                    <option value="1">concavo</option>
+                    <option value="2">recto</option>
+                    <option value="3">convexo</option>
+                </select><br><br>
+
+                <h2 class="form_label">Altura facial</h2> <br>
+                <select id="altura_facial" class="form_input">
+                    <option value="1">Equilibrada</option>
+                    <option value="2">Aumentada</option>
+                    <option value="3">Disminuida</option>
+                </select><br><br>
+
+
+                <h2 class="form_label">Tercios faciales</h2> <br>
+                <label>Superior</label>
+                <select id="tf_superior" class="form_input">
+                    <option value="1">Aumentado</option>
+                    <option value="2">Disminuido</option>
+                </select><br>
+                <label>Medio</label>
+                <select id="tf_medio" class="form_input">
+                    <option value="1">Aumentado</option>
+                    <option value="2">Disminuido</option>
+                </select><br>
+                <label>Inferior</label>
+                <select id="tf_inferior" class="form_input">
+                    <option value="1">Aumentado</option>
+                    <option value="2">Disminuido</option>
+                </select><br><br>
+
+                <h2 class="form_label">Incompetencia labial</h2> <br>
+                <select id="incompetencia_labial" class="form_input">
+                    <option value="1">Presenta</option>
+                    <option value="2">No presenta</option>
+                </select><br><br>
+
+                <h2 class="form_label">Labios</h2> <br>
+                <label>Superior</label><br>
+                <select id="labios_superior" class="form_input">
+                    <option value="1">Protusivo</option>
+                    <option value="2">Retrusivo </option>
+                </select><br><br>
+                <label>Inferior</label><br>
+                <select id="labios_inferior" class="form_input">
+                    <option value="1">Protusivo</option>
+                    <option value="2">Retrusivo </option>
+                </select><br><br>
+                <h2 class="form_label">Relación sagital de labios</h2> <br>
+                <select id="incompetencia_labial" class="form_input">
+                    <option value="1">Labio sup delante del labio inferior </option>
+                    <option value="2">Labio superior e inferior en la misma línea </option>
+                    <option value="3">Labio inferior delante del labio superior </option>
+                </select><br><br><br>
+                <h2 class="form_label">Simetría facial en reposo</h2> <br>
+                <label>Derecho</label><br>
+                <select id="simetria_facial_derecho" class="form_input">
+                    <option value="1">Presenta</option>
+                    <option value="2">No presenta </option>
+                </select><br><br>
+                <label>Izquierdo</label><br>
+                <select id="simetria_facial_Izquierdo" class="form_input">
+                    <option value="1">Presenta</option>
+                    <option value="2">No presenta </option>
+                </select><br><br>
+                
+                <h2 class="form_label">Ángulo nasolabial</h2> <br>
+                <select id="incompetencia_labial" class="form_input">
+                    <option value="1">Abierto </option>
+                    <option value="2">Normal </option>
+                    <option value="3">Cerrado </option>
+                </select><br><br><br>
+
+            </div>
+        </div>
+    </form>
+
 
     <script>
         document.getElementById('submitButton').addEventListener('click', function(event) {

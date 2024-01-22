@@ -50,7 +50,7 @@
     .form_input
     {
         width: 100%;
-
+        text-align: center;
         color: #706c6c ;
         font-size: 1rem;
         padding: .6em .3em;
@@ -500,4 +500,18 @@
 /* Ajusta otros estilos según tus necesidades */
 .tabla_dientes{
     margin: auto;
+}
+
+
+.button_files{
+    background-color: #bccbc9;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100%;
+    font-size: 1rem;
+    padding: .8em 0;
+    margin-top: 20px;
+    border: none;
+    border-radius: .5em;
+    width: 100%;
 }

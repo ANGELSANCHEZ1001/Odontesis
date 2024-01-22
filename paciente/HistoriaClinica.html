@@ -30,7 +30,7 @@
         </div>
         
         <div class="form_group">
-            <h2 class="form_antec">Datos de salud</h2><br>
+            <h2 class="form_antec">Antecedentes personales patologicos</h2><br>
 
             <table class="form_table_health">
                 <!-- Cabecera de la tabla -->
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form_group">
-            <h2 class="form_antec">Antecedentes patológicos personales</h2><br>
+            <h2 class="form_antec">Antecedentes personales no patologicos</h2><br>
 
             <table class="form_table_antecedentes">
                 <!-- Cabecera de la tabla -->
@@ -59,7 +59,7 @@
             <table class="form_table_hospitalizaciones">
                 <!-- Cabecera de la tabla -->
                 <tr>
-                    <th class="form_label">Fecha</th>
+                    <th class=" ">Fecha</th>
                     <th class="form_label">Motivo</th>
                 </tr>
             </table>
@@ -221,29 +221,32 @@
                 });
             })
             .catch(error => console.error(error));
-
+            alert(idFromURL)
         // Hospitalizaciones
         const apiUrlHospitalizaciones = `http://64.227.5.83:8080/odontesis/hospitalizaciones/${idFromURL}`;
-        // Obtener las hospitalizaciones del paciente de la API
+
         fetch(apiUrlHospitalizaciones)
             .then(response => response.json())
             .then(data => {
-                // Crear una tabla para mostrar las hospitalizaciones del paciente
-                const tableHospitalizaciones = document.querySelector('.form_table_hospitalizaciones');
+                // Crear una tabla para mostrar la exploracion fisica del paciente
+                const tableHospi = document.querySelector('.form_table_hospitalizaciones');
 
-                data.forEach(hospitalizacion => {
+                const vHospi = [
+                    'fecha_hospitalizacion',
+                    'motivo_hospitalizacion',
+                    
+                ];
+
+                vHospi.forEach(variable => {
                     const row = document.createElement('tr');
-                    const fecha = hospitalizacion.fecha_hospitalizacion;
-                    const motivo = hospitalizacion.motivo_hospitalizacion ;
                     row.innerHTML = `
-                        <td class="form_input">${fecha}</td>
-                        <td class="form_input">${motivo}</td>
+                    <td class="form_input">${data[variable]}</td>
+                    <td class="form_input">${data[variable]}</td>
                     `;
-                    tableHospitalizaciones.appendChild(row);
+                    tableHospi.appendChild(row);
                 });
             })
             .catch(error => console.error(error));
-
         // Antecedentes heredofamiliares
         const apiUrlAntecedentesHeredofamiliares = `http://64.227.5.83:8080/odontesis/AHF/${idFromURL}`;
         // Obtener los antecedentes heredofamiliares del paciente de la API
@@ -257,10 +260,10 @@
                     'anemia_falciforme',
                     'cancer',
                     'diabetes',
-                    'fibrosis_quistica',
-                    'hemofila',
+                    'fibrosis_quisitica',
+                    'hemofilia',
                     'hipercolesterolemia',
-                    'hipertension'
+                    'hipertencion'
                 ];
 
                 variablesAntecedentesHeredofamiliaresMostrar.forEach(variable => {
@@ -292,7 +295,7 @@
                     'piel',
                     'musculos',
                     'cuello',
-                    'otros'
+                    'otro'
                 ];
 
                 variablesExploracionCabezaCuelloMostrar.forEach(variable => {
@@ -349,12 +352,16 @@
                     const tableAparatoE = document.querySelector('.form_table_aparato_ae');
 
                     const variablesExploracionFisicaMostrar = [
-                        'frecuenciaCardiaca',
-                        'frecuencia_respiratoria',
-                        'peso',
-                        'presion_arterial',
-                        'talla',
-                        'temperatura'
+                        'dolorAbirirLateralidad',
+                        'fdm',
+                        'da',
+                        'desvicacion',
+                        'aeo',
+                        'ruido',
+                        'dificultadBoca',
+                        'crepitacion',
+                        'lateralidad',
+                        'chasquido'
                     ];
 
                     variablesExploracionFisicaMostrar.forEach(variable => {

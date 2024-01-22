@@ -23,7 +23,6 @@
                 <input type="text" id="procedimientoRealizado" class="form_input" placeholder="Procedimiento realizado"><br><br>
                 <input type="text" id="objetivoProximaFecha" class="form_input" placeholder="Objetivo proxima fecha"><br><br> 
                 <input type="text" id="doctor_atendio" class="form_input" placeholder="Doctor que atendio"><br><br> 
-                
             </div>
             <br>
             <br>    
@@ -35,6 +34,26 @@
 
 
     <script>
+        const apiUrl = 'http://64.227.5.83:8080/odontesis/notadeevolucion';
+    
+        let nuevoNumeroNotaEvolucion; // Declarar la variable fuera del bloque then
+    
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (Array.isArray(data) && data.length > 0) {
+                    nuevoNumeroNotaEvolucion= data.length+1;
+                } else {
+                    nuevoNumeroNotaEvolucion = 1;
+                }
+                
+               
+            })
+            .catch(error => console.error('Error al realizar la solicitud:', error));
+    </script>
+
+    <script>
         document.getElementById('submitButton').addEventListener('click', function (event) {
             event.preventDefault();
 
@@ -43,14 +62,14 @@
             const procedimientoRealizado = document.getElementById('procedimientoRealizado').value;
             const objetivoProximaFecha = document.getElementById('objetivoProximaFecha').value;
             const nombreDelDoctorQueAtendio = document.getElementById('doctor_atendio').value;
-            const noNotaDeEvolucion = 2;
+            const noNotaDeEvolucion = nuevoNumeroNotaEvolucion;
 
             const urlParams = new URLSearchParams(window.location.search);
-            const nombre_de_paciente = urlParams.get('nombre');
-            document.getElementById('nombre_paciente').innerText = nombre_de_paciente;
+            const nombreDePaciente = urlParams.get('nombre');
+            document.getElementById('nombre_paciente').innerText = nombreDePaciente;
 
             const userData = {
-                nombre_de_paciente,
+                nombreDePaciente,
                 noNotaDeEvolucion,
                 fechaDeNotaDeEvolucion,
                 etapaDeTratamiento,
@@ -68,13 +87,18 @@
                 },
                 body: JSON.stringify(userData)
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 console.log(data);
-                window.location.href = 'https://www.facebook.com/';
-})
+                
             })
-            .catch(error => console.error(error));
+            window.location.href = 'listado.html';   
+        });
         
     </script>
 </body>

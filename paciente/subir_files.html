@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css">
+    <title>Nuevo Paciente</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../usuarios/welcome.html">Inicio</a>
+        <a href="../paciente/listado.html">Pacientes</a>
+        <a href="../usuarios/usuarios2.html">Usuarios</a>
+        <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
+    </div>
+    
+    <br><br><br>
+    <form class="form">
+        <h2 class="form_title">Subir archivo <span id="nombre_paciente"></span></h2><br>
+        <div class="form_containers">
+            <div class="form_group">
+                <input type="file" id="archivo" class="" accept=".pdf, .doc, .docx"><br><br>
+            </div>
+            
+            <div class="form_group">
+                <button onclick="enviarArchivo()">Subir Archivo</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function enviarArchivo() {
+          const archivoInput = document.getElementById('archivo');
+          const archivo = archivoInput.files[0];
+    
+          const formData = new FormData();
+          formData.append('file', archivo);
+    
+          const url = 'http://64.227.5.83:8080/api/fileManager/upload';  // Reemplaza con la URL correcta
+    
+          fetch(url, {
+            method: 'POST',
+            body: formData,
+          })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        }
+      </script>
+</body>
+</html>
