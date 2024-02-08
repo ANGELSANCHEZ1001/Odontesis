@@ -84,9 +84,60 @@ function general(noExpediente) {
 
 function eliminar(noExpediente) {
     // Redirigir a la página usuarios2.html en el sitio Odontesis
-    window.location.href = `HistoriaClinica.html?no_expediente=${noExpediente}`;
+
+    const confirmMessage = `¿Estás seguro de que deseas eliminar los datos generales con ID ${noExpediente}?`;
+
+    if (confirm(confirmMessage)) {
+        const baseUrl = 'http://64.227.5.83:8080/odontesis';
+        const endpoints = [
+            `/datosgenerales/${noExpediente}`,
+            `/APP/${noExpediente}`,
+            `/APNP/${noExpediente}`,
+            `/EF/${noExpediente}`,
+            `/hospitalizaciones/${noExpediente}`,
+            `/AHF/${noExpediente}`,
+            `/ecc/${noExpediente}`,
+            `/ae/${noExpediente}`
+        ];
+
+        const deletePromises = endpoints.map(endpoint => {
+            const apiUrl = baseUrl + endpoint;
+
+            return fetch(apiUrl, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                    // Puedes agregar otras cabeceras si es necesario
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error al intentar eliminar datos. Código de estado: ${response.status}`);
+                }
+                console.log(`Datos eliminados exitosamente en ${apiUrl}`);
+                // Puedes hacer algo adicional después de eliminar, si es necesario
+            })
+            .catch(error => console.error(error));
+        });
+
+        // Esperar a que se completen todas las solicitudes de eliminación
+        Promise.all(deletePromises)
+            .then(() => {
+                console.log('Operación de eliminación completada.');
+                // Puedes hacer algo adicional después de completar todas las eliminaciones
+            })
+            .catch(error => console.error(error));
+    } else {
+        console.log('Operación de eliminación cancelada.');
+    }
+    window.location.href = `listado.html`;
+
 }
 
+function editar(noExpediente) {
+    // Redirigir a la página usuarios2.html en el sitio Odontesis
+    window.location.href = `editar_paciente.html?no_expediente=${noExpediente}`;
+}
 function ortodoncia(noExpediente) {
     // Redirigir a la página usuarios2.html en el sitio Odontesis
     window.location.href = `ortodoncia.html?no_expediente=${noExpediente}`;

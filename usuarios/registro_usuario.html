@@ -65,9 +65,16 @@
     
         const mostrardata = (data) => {
             console.log(data);
-    
+            if (Array.isArray(data) && data.length > 0) {
+                    const ultimoRegistro = data[data.length - 1]; // Obtener el último elemento del arreglo
+                    const ultimoNoExpediente = ultimoRegistro.id_usuario; // Obtener el valor de 'no_expediente'
+                    nuevoID = parseInt(ultimoNoExpediente) + 1; // Incrementar el valor en uno
+                    //alert(nuevoID)
+                } else {
+                    nuevoID = 1;
+                }
             // Verifica si la respuesta de la API está vacía
-            nuevoID = data.length > 0 ? data[data.length - 1].id_usuario +1: 1;
+            //nuevoID = data.length > 0 ? data[data.length - 1].id_usuario +1: 1;
     
             // Resto de tu código aquí usando nuevoID
             console.log("Nuevo ID:", nuevoID);
@@ -116,7 +123,7 @@
                 console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
             })
             .catch(error => console.error(error));
-            //window.location.href = 'usuarios2.html';
+            window.location.href = 'usuarios2.html';
         });
     </script>
 </body>

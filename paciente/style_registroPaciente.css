@@ -515,3 +515,57 @@
     border-radius: .5em;
     width: 100%;
 }
+
+.form_container {
+    position: relative;
+}
+
+.form_image {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: 60px;
+    
+    margin-top: 60px;
+    width: 380px; /* Ajusta el ancho según sea necesario */
+    /* Puedes ajustar otras propiedades según tus necesidades */
+}
+.form_image2 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: 100px;
+    
+    margin-top: 420px;
+    width: 300px; /* Ajusta el ancho según sea necesario */
+    /* Puedes ajustar otras propiedades según tus necesidades */
+}
+.form_image3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: 100px;
+    
+    margin-top: 320px;
+    width: 300px; /* Ajusta el ancho según sea necesario */
+    /* Puedes ajustar otras propiedades según tus necesidades */
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.form_label_HCP
+{
+    width: 100%;
+    background: none;
+    text-align: center;
+    color: #3ce7d4 ;
+    font-size: 1.5rem;    
+    border: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+
+}

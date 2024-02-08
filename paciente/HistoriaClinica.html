@@ -113,6 +113,19 @@
                 </tr>
             </table>
         </div>
+
+
+        <div class="form_group">
+            <h2 class="form_antec">Odontograma</h2><br>
+
+            <table class="form_table_odontograma">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label">Diente</th>
+                    <th class="form_input">Ponderacion</th>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <script>
@@ -209,10 +222,21 @@
                     'meses_embarazo',
                     'primera_mestruacion'
                 ];
+                console.log(data)
 
                 variablesAntecedentesMostrar.forEach(variable => {
                     const row = document.createElement('tr');
-                    const value = (data[variable] === '1' || data[variable] === 1) ? 'Sí' : 'No'; // Conversión
+                    let value;
+
+                    if (data[variable] === '1' || data[variable] == 1 ) {
+                        value = 'Sí';
+                    } else if (data[variable] === '0' || data[variable] == 0) {
+                        value = 'No';
+                    } else {
+                        value = data[variable];
+                    }
+
+// Ahora 'value' contiene el resultado deseado
                     row.innerHTML = `
                         <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
                         <td class="form_input">${value}</td>
@@ -350,7 +374,7 @@
                 .then(data => {
                     // Crear una tabla para mostrar la exploracion fisica del paciente
                     const tableAparatoE = document.querySelector('.form_table_aparato_ae');
-
+                    console.log(data)
                     const variablesExploracionFisicaMostrar = [
                         'dolorAbirirLateralidad',
                         'fdm',
@@ -377,6 +401,84 @@
 
 
 
+
+            const apiUrlOdontogram = `http://64.227.5.83:8080/odontesis/dientes/${idFromURL}`;
+        // Obtener la exploracion fisica del paciente de la API
+            fetch(apiUrlOdontogram)
+                .then(response => response.json())
+                .then(data => {
+                    // Crear una tabla para mostrar la exploracion fisica del paciente
+                    const tableODO = document.querySelector('.form_table_odontograma');
+                    console.log(data)
+                    const variablesodo = [
+                                        
+                    'once',
+                    'doce',
+                    'trece',
+                    'catorce',
+                    'quince',
+                    'dieciseis',
+                    'diecisiete',
+                    'dieciocho',
+                    'veintiuno',
+                    'veintidos',
+                    'veintitres',
+                    'veinticuatro',
+                    'veinticinco',
+                    'veintiseis',
+                    'veintisiete',
+                    'veintiocho',
+                    'treintaYUno',
+                    'treintaYDos',
+                    'treintaYTres',
+                    'treintaYCuatro',
+                    'treintaYCinco',
+                    'treintaYSeis',
+                    'treintaYSiete',
+                    'treintaYOcho',
+                    'cuarentaYUno',
+                    'cuarentaYDos',
+                    'cuarentaYTres',
+                    'cuarentaYCuatro',
+                    'cuarentaYCinco',
+                    'cuarentaYSeis',
+                    'cuarentaYSiete',
+                    'cuarentaYOcho',
+                    'cincuentaYUno',
+                    'cincuentaYDos',
+                    'cincuentaYTres',
+                    'cincuentaYCuatro',
+                    'cincuentaYCinco',
+                    'sesentaYUno',
+                    'sesentaYDos',
+                    'sesentaYTres',
+                    'sesentaYCuatro',
+                    'sesentaYCinco',
+                    'setentaYUno',
+                    'setentaYDos',
+                    'setentaYTres',
+                    'setentaYCuatro',
+                    'setentaYCinco',
+                    'ochentaYUno',
+                    'ochentaYDos',
+                    'ochentaYTres',
+                    'ochentaYCuatro',
+                    'ochentaYCinco'
+                ];
+
+// Puedes utilizar estas constantes según tus necesidades en el código.
+
+
+                    variablesodo.forEach(variable => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td class="form_label">${variable.replace(/_/g, ' ').toUpperCase()}</td>
+                            <td class="form_input">${data[variable]}</td>
+                        `;
+                        tableODO.appendChild(row);
+                    });
+            })
+            .catch(error => console.error(error));
 
     </script>
 </body>

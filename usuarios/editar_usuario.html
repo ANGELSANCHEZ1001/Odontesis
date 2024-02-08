@@ -156,14 +156,13 @@
             console.log(JSON.stringify(userData, null, 2));
 
             // Realiza la solicitud POST a tu API
-            fetch('http://64.227.5.83:8080/odontesis/editarUsu', {
-                method: 'POST',
+            fetch(`http://64.227.5.83:8080/odontesis/usuarios/${id_usuario}`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(userData)
             })
-            .then(response => response.json())
             .then(data => {
                 console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
             })

@@ -423,13 +423,15 @@
                 <input type="text" id="paladar" name="paladar" class="form_input" placeholder="Paladar"><br><br>
                 <input type="text" id="pisoBoca" name="pisoBoca" class="form_input" placeholder="Piso de la boca"><br><br>
                 <input type="text" id="Dientes" name="Dientes" class="form_input" placeholder="Dientes"><br><br>
-                <input type="text" id="Encia" name="Encia" class="form_input" placeholder="Encía"><br><br>
+                <input type="text" id="Encia" name="Encia" class="form_input" placeholder="Encía" onblur="mostrarImagenes()"><br><br>
+                <textarea name="aeo" id="aeo" class="form_input" placeholder="otros" cols="30" rows="10"></textarea>
                 <div class="form_group">
                 </div>
             </div>
 
         </div>
     </form>
+
     <br>
 
 
@@ -444,33 +446,15 @@
 
    
 
-    <form class="form" action="#">
-
+    <form class="form" action="#" id="odontogramaForm">        <!-- Contenido del formulario -->    
         <h1 >Odontograma</h1><br><br>
 
         <div>
             
             <h2 class="form_antec">Estado dental</h2><br>
-            <table class="tabla_dientes">
-                <tr><th class="column1Table">0:</th> <th class="column2Table">Sano</th></tr>
-                <tr><th class="column1Table">1:</th> <th class="column2Table">Caries</th></tr>
-                <tr><th class="column1Table">2:</th> <th class="column2Table">Obturado</th></tr>
-                <tr><th class="column1Table">3:</th> <th class="column2Table">Perdido</th></tr>
-                <tr><th class="column1Table">4:</th> <th class="column2Table">Prótesis Fija</th></tr>
-                <tr><th class="column1Table">8:</th> <th class="column2Table">Impactado</th></tr>
-                <tr><th class="column1Table">9:</th> <th class="column2Table">Fracturado</th></tr>
-                <tr><th class="columna1Tale">10:</th> <th class="column2Table">Recesión</th></tr>
-                <tr><th class="columna1Tale">11:</th> <th class="column2Table">Endodoncia</th></tr>
-                <tr><th class="columna1Tale">12:</th> <th class="column2Table">Lesión Endoperiodontal</th></tr>
-                <tr><th class="columna1Tale">13:</th> <th class="column2Table">Diente no erupcionado</th></tr>
-                <tr><th class="columna1Tale">14:</th> <th class="column2Table">Alteraciones de forma, número, tamaño</th></tr>
-            </table>
-            <br><br>
-
+            
         </div>
-        <div>
-            <img src="dientes1.png" alt="Imagen de Dientes" class="form_image">
-        </div>
+        
         <br>
 
         <div>
@@ -481,229 +465,223 @@
                 </tr>
                 <tr>
                     <td>11</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_11" /></td>
+                    <td><input type="number" class="form_input tableinput"   name="once" /></td>
                 </tr>
                 <tr>
                     <td>12</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_12" /></td>
+                    <td><input type="number" class="form_input tableinput" name="doce" /></td>
                 </tr>
                 <tr>
                     <td>13</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_13" /></td>
+                    <td><input type="number" class="form_input tableinput" name="trece" /></td>
                 </tr>
                 <tr>
                     <td>14</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_14" /></td>
+                    <td><input type="number" class="form_input tableinput" name="catorce" /></td>
                 </tr>
                 <tr>
                     <td>15</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_15" /></td>
+                    <td><input type="number" class="form_input tableinput" name="quince" /></td>
                 </tr>
                 <tr>
                     <td>16</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_16" /></td>
+                    <td><input type="number" class="form_input tableinput" name="dieciseis" /></td>
                 </tr>
                 <tr>
                     <td>17</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_17" /></td>
+                    <td><input type="number" class="form_input tableinput" name="diecisiete" /></td>
                 </tr>
                 <tr>
                     <td>18</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_18" /></td>
+                    <td><input type="number" class="form_input tableinput" name="dieciocho" /></td>
                 </tr>
                 <tr>
                     <td>21</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_21" /></td>
+                    <td><input type="number" class="form_input tableinput" name="veintiuno" /></td>
                 </tr>
                 <tr>
                     <td>22</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_22" /></td>
+                    <td><input type="number" class="form_input tableinput" name="veintidos" /></td>
                 </tr>
                 <tr>
                     <td>23</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_23" /></td>
+                    <td><input type="number" class="form_input tableinput" name="veintitres" /></td>
                 </tr>
                 <tr>
                     <td>24</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_24" /></td>
+                    <td><input type="number" class="form_input tableinput" name="veinticuatro" /></td>
                 </tr>
                 <tr>
                     <td>25</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_25" /></td>
+                    <td><input type="number" class="form_input tableinput" name="veinticinco" /></td>
                 </tr>
                 <tr>
                     <td>26</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_26" /></td>
+                    <td><input type="number" class="form_input tableinput" name="veintiseis" /></td>
                 </tr>
                 <tr>
                     <td>27</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_27" /></td>
+                    <td><input type="number" class="form_input tableinput" name="veintisiete" /></td>
                 </tr>
                 <tr>
                     <td>28</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_28" /></td>
+                    <td><input type="number" class="form_input tableinput" name="veintiocho" /></td>
                 </tr>
 
 
                 <tr>
                     <td>31</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_31" /></td>
+                    <td><input type="number" class="form_input tableinput" name="treintaYUno" /></td>
                 </tr>
                 <tr>
                     <td>33</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_33" /></td>
+                    <td><input type="number" class="form_input tableinput" name="treintaYDos" /></td>
                 </tr>
                 <tr>
                     <td>33</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_33" /></td>
+                    <td><input type="number" class="form_input tableinput" name="treintaYTres" /></td>
                 </tr>
                 <tr>
                     <td>34</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_34" /></td>
+                    <td><input type="number" class="form_input tableinput" name="treintaYCuatro" /></td>
                 </tr>
                 <tr>
                     <td>35</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_35" /></td>
+                    <td><input type="number" class="form_input tableinput" name="treintaYCinco" /></td>
                 </tr>
                 <tr>
                     <td>36</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_36" /></td>
+                    <td><input type="number" class="form_input tableinput" name="treintaYSeis" /></td>
                 </tr>
                 <tr>
                     <td>37</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_37" /></td>
+                    <td><input type="number" class="form_input tableinput" name="treintaYSiete" /></td>
                 </tr>
                 <tr>
                     <td>38</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_38" /></td>
+                    <td><input type="number" class="form_input tableinput" name="treintaYOcho" /></td>
                 </tr>
 
 
                 <tr>
                     <td>41</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_41" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cuarentaYUno" /></td>
                 </tr>
                 <tr>
                     <td>44</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_44" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cuarentaYDos" /></td>
                 </tr>
                 <tr>
                     <td>43</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_43" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cuarentaYTres" /></td>
                 </tr>
                 <tr>
                     <td>44</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_44" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cuarentaYCuatro" /></td>
                 </tr>
                 <tr>
                     <td>45</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_45" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cuarentaYCinco" /></td>
                 </tr>
                 <tr>
                     <td>46</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_46" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cuarentaYSeis" /></td>
                 </tr>
                 <tr>
                     <td>47</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_47" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cuarentaYSiete" /></td>
                 </tr>
                 <tr>
                     <td>48</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_48" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cuarentaYOcho" /></td>
                 </tr>
                 <!-- Repite lo anterior para los demás números -->
                
             </table>
 
-
-            <div>
-                 <img src="dientes2.png" alt="Imagen 2" clase="form_image">
-            </div>
-
-
             <table class="tabla_dientes">
                 <tr>
                     <td>51</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_51" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cincuentaYUno" /></td>
                 </tr>
                 <tr>
                     <td>52</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_52" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cincuentaYDos" /></td>
                 </tr>
                 <tr>
                     <td>53</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_53" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cincuentaYTres" /></td>
                 </tr>
                 <tr>
                     <td>54</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_54" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cincuentaYCuatro" /></td>
                 </tr>
                 <tr>
                     <td>55</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_55" /></td>
+                    <td><input type="number" class="form_input tableinput" name="cincuentaYCinco" /></td>
                 </tr>
 
                 <tr>
                     <td>61</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_61" /></td>
+                    <td><input type="number" class="form_input tableinput" name="sesentaYUno" /></td>
                 </tr>
                 <tr>
                     <td>62</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_62" /></td>
+                    <td><input type="number" class="form_input tableinput" name="sesentaYDos" /></td>
                 </tr>
                 <tr>
                     <td>63</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_63" /></td>
+                    <td><input type="number" class="form_input tableinput" name="sesentaYTres" /></td>
                 </tr>
                 <tr>
                     <td>64</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_64" /></td>
+                    <td><input type="number" class="form_input tableinput" name="sesentaYCuatro" /></td>
                 </tr>
                 <tr>
                     <td>65</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_65" /></td>
+                    <td><input type="number" class="form_input tableinput" name="sesentaYCinco" /></td>
                 </tr>
 
                 <tr>
                     <td>71</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_71" /></td>
+                    <td><input type="number" class="form_input tableinput" name="setentaYUno" /></td>
                 </tr>
                 <tr>
                     <td>72</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_72" /></td>
+                    <td><input type="number" class="form_input tableinput" name="setentaYDos" /></td>
                 </tr>
                 <tr>
                     <td>73</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_73" /></td>
+                    <td><input type="number" class="form_input tableinput" name="setentaYTres" /></td>
                 </tr>
                 <tr>
                     <td>74</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_74" /></td>
+                    <td><input type="number" class="form_input tableinput" name="setentaYCuatro" /></td>
                 </tr>
                 <tr>
                     <td>75</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_75" /></td>
+                    <td><input type="number" class="form_input tableinput" name="setentaYCinco" /></td>
                 </tr>
 
                 <tr>
                     <td>81</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_81" /></td>
+                    <td><input type="number" class="form_input tableinput" name="ochentaYUno" /></td>
                 </tr>
                 <tr>
                     <td>82</td> 
-                    <td><input type="number" class="form_input tableinput" name="diente_82" /></td>
+                    <td><input type="number" class="form_input tableinput" name="ochentaYDos" /></td>
                 </tr>
                 <tr>
                     <td>83</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_83" /></td>
+                    <td><input type="number" class="form_input tableinput" name="ochentaYTres" /></td>
                 </tr>
                 <tr>
                     <td>84</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_84" /></td>
+                    <td><input type="number" class="form_input tableinput" name="ochentaYCuatro" /></td>
                 </tr>
                 <tr>
                     <td>85</td>
-                    <td><input type="number" class="form_input tableinput" name="diente_85" /></td>
+                    <td><input type="number" class="form_input tableinput" name="ochentaYCinco" /></td>
                 </tr>
             </table>
 
@@ -715,9 +693,31 @@
     </form>
 
 
-    
+  <!-- Imágenes ocultas inicialmente -->
+  <img src="dientes1.png" alt="Imagen de Dientes" class="form_image hidden">
+  <img src="dientes2.png" alt="Imagen 2" class="form_image2 hidden">
+  <img src="Dientes3.png" alt="Imagen 3" class="form_image3 hidden">
 
 <br><br><br>
+<script>
+  function mostrarImagenes() {
+      // Obtener todas las imágenes por su clase
+      var imagenes = document.querySelectorAll('.form_image');
+      var imagenes2 = document.querySelectorAll('.form_image2');
+      var imagenes3 = document.querySelectorAll('.form_image3');
+      // Iterar sobre las imágenes y quitar la clase 'hidden' para mostrarlas
+      imagenes.forEach(function(imagen) {
+          imagen.classList.remove('hidden');
+      });
+      imagenes2.forEach(function(imagen) {
+          imagen.classList.remove('hidden');
+      });
+      imagenes3.forEach(function(imagen) {
+          imagen.classList.remove('hidden');
+      });
+  }
+</script>
+
 
 
 
@@ -729,26 +729,26 @@
 
 
     <script>
-        /*
         const apiUrl = 'http://64.227.5.83:8080/odontesis/datosgenerales';
     
-        let  nuevoId ; // Declarar la variable fuera del bloque then
+        let nuevoId; // Declarar la variable fuera del bloque then
     
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 if (Array.isArray(data) && data.length > 0) {
-                         nuevoId= data.length+1;
+                    const ultimoRegistro = data[data.length - 1]; // Obtener el último elemento del arreglo
+                    const ultimoNoExpediente = ultimoRegistro.no_expediente; // Obtener el valor de 'no_expediente'
+                    nuevoId = parseInt(ultimoNoExpediente) + 1; // Incrementar el valor en uno
                 } else {
                     nuevoId = 1;
                 }
-            alert("nuevoid "+nuevoId)
-               
+                
             })
             .catch(error => console.error('Error al realizar la solicitud:', error));
-            */
     </script>
+    
     
     <!--
         scripts APP
@@ -768,6 +768,7 @@
                 // el valor de 1 o 0 según si está marcada o no
                 formData[checkbox.name] = checkbox.checked ? 1 : 0;
             });
+            formData['no_expediente'] = nuevoId;
             
             // Muestra los datos en la consola (puedes eliminar esto en producción)
             console.log(JSON.stringify(formData));
@@ -807,8 +808,10 @@
             const ocupacion = document.getElementById('ocupacion').value;
             const fecha_ultima_consulta = document.getElementById('fecha_ultima_consulta').value;
             const motivo_de_consulta = document.getElementById('motivo_de_consulta').value;
+            const no_expediente = nuevoId;
 
             const pacienteData = {
+                no_expediente,
                 nombre,
                 fecha_de_nacimiento,
                 lugar_de_nacimiento,
@@ -868,7 +871,7 @@
             formData["alergias_cuales"] = document.getElementById('alergias_cuales').value;
             formData["meses_embarazo"] = document.getElementById('meses_embarazo').value;
             formData["primera_mestruacion"] = document.getElementById('primera_mestruacion').value;
-
+            formData['no_expediente'] = nuevoId;
             // Muestra los datos en la consola (puedes eliminar esto en producción)
             console.log(JSON.stringify(formData));
 
@@ -906,8 +909,10 @@
             const presion_arterial = document.getElementById('presion_arterial').value;
             const talla = document.getElementById('talla').value;
             const temperatura = document.getElementById('temperatura').value;
-          
+            
+            const no_expediente=nuevoId;
             const exploracionF = {
+                no_expediente,
                 frecuenciaCardiaca,
                 frecuencia_respiratoria,
                 peso,
@@ -944,8 +949,10 @@
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
             const fecha_hospitalizacion = document.getElementById('fecha_hospitalizacion').value;
             const motivo_hospitalizacion = document.getElementById('motivo_hospitalizacion').value;
-        
+            const no_expediente=nuevoId;
+
             const pacienteData = {
+                no_expediente,
                 fecha_hospitalizacion,
                 motivo_hospitalizacion,
             };
@@ -994,6 +1001,7 @@
                 // el valor de 1 o 0 según si está marcada o no
                 formData[checkbox.name] = checkbox.checked ? 1 : 0;
             });
+            formData['no_expediente'] = nuevoId;
 
             // Muestra los datos en la consola (puedes eliminar esto en producción)
             console.log(JSON.stringify(formData));
@@ -1011,7 +1019,7 @@
                 console.log(    ); // Aquí puedes manejar la respuesta de la API si es necesario
             })
             .catch(error => console.error(error));
-            //window.location.href = 'listado.html';
+            
         });
         
     </script>
@@ -1025,7 +1033,6 @@
     <script>
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-            alert("ECC")
             // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
             
             const cabeza = document.getElementById('cabeza_ecc').value;
@@ -1035,10 +1042,11 @@
             const piel = document.getElementById('piel_ecc').value;
             const musculos = document.getElementById('musculos_ecc').value;
             const cuello = document.getElementById('cuello_ecc').value;
-            const otros = document.getElementById('otros_ecc').value;
-          
+            const otro = document.getElementById('otros_ecc').value;
+            const no_expediente=nuevoId;
+
             const exploracioncc = {
-               
+                no_expediente,
                 cabeza,
                 cara,
                 craneo,
@@ -1046,7 +1054,7 @@
                 piel,
                 musculos,
                 cuello,
-                otros
+                otro
             };
 
 
@@ -1086,15 +1094,15 @@
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
             
             // Obtiene todas las casillas de verificación con la clase "checkAntecedentes"
-            const ruidos = document.getElementById('Ruidos').value;
+            const ruido = document.getElementById('Ruidos').value;
             const lateralidad = document.getElementById('Lateralidad').value;
             const chasquido = document.getElementById('Chasquido').value;
             const crepitacion = document.getElementById('Crepitacion').value;
-            const abrir_boca = document.getElementById('AbrirBoca').value;
-            const abrir_lateralidad = document.getElementById('AbrirLateralidad').value;
-            const fatiga_muscular = document.getElementById('FatigaMuscular').value;
-            const disminucion_abertura = document.getElementById('DisminucionAbertura').value;
-            const abertura = document.getElementById('Abertura').value;
+            const dificultadBoca = document.getElementById('AbrirBoca').value;
+            const dolorAbirirLateralidad = document.getElementById('AbrirLateralidad').value;
+            const fdm = document.getElementById('FatigaMuscular').value;
+            const da = document.getElementById('DisminucionAbertura').value;
+            const desvicacion = document.getElementById('Abertura').value;
             const cierre = document.getElementById('cierre').value;
             const tejidos_blandos = document.getElementById('tejidosBlandos').value;
             const ganglios = document.getElementById('Ganglios').value;
@@ -1107,14 +1115,16 @@
             const piso_boca = document.getElementById('pisoBoca').value;
             const dientes = document.getElementById('Dientes').value;
             const encia = document.getElementById('Encia').value;
-
+            const aeo = document.getElementById('aeo').value;
+            const no_expediente=nuevoId;
             //ver en console.log
             
 
             const aparatoEstomag = {
-                ruidos, 
-                lateralidad, chasquido, crepitacion, abrir_boca, abrir_lateralidad, 
-                fatiga_muscular, disminucion_abertura, abertura, cierre, tejidos_blandos, 
+                no_expediente,aeo,
+                ruido, 
+                lateralidad, chasquido, crepitacion, dificultadBoca, dolorAbirirLateralidad, 
+                fdm, da, desvicacion, cierre, tejidos_blandos, 
                 ganglios, glandulas_s, labios, cigarrillos, lengua, frenillos, paladar, 
                 piso_boca, dientes, encia
 
@@ -1139,6 +1149,47 @@
         });
     </script>
 
+
+    <script>
+       
+       document.getElementById('submitButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
+
+        // Obtiene todas las entradas con la clase "tableinput"
+        const inputs = document.querySelectorAll('.tableinput');
+
+        // Crea un objeto para almacenar los datos
+        const odontogramaData = {};
+
+        // Itera sobre cada entrada y agrega el valor al objeto
+        inputs.forEach(input => {
+            const nombreDiente = input.getAttribute('name');
+            const valor = input.value;
+
+            odontogramaData[nombreDiente] = valor;
+        });
+
+        // Agrega el elemento no_expediente
+        const no_expediente = nuevoId;
+        odontogramaData['no_expediente'] = no_expediente;
+
+        // Realiza la solicitud POST a tu API con los datos
+        fetch('http://64.227.5.83:8080/odontesis/dientes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(odontogramaData)
+        })
+        .then(response => console.log(response))
+        .then(data => {
+            console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
+            window.location.href = 'listado.html';
+        })
+        .catch(error => console.error(error));
+    });
+
+    </script>
 
 
 

@@ -55,17 +55,18 @@
         const baseUrl = 'http://64.227.5.83:8080/odontesis/usuarios';
 
         const eliminarUsuario = (id) => {
-            const url = `http://64.227.5.83:8080/odontesis/eliminar_usuarios/${id}`;
+            const url = `http://64.227.5.83:8080/odontesis/usuarios/${id}`;
 
             fetch(url, {
                 method: 'DELETE'
             })
-            alert("ELIM1")
+            alert("eliminando usuario "+id)
             .then(response => response.json())
             .then(data => {
                 console.log(data); // Puedes manejar la respuesta si es necesario
                 // Recargar la página o realizar otras acciones después de eliminar
                 cargarDatos();
+                window.location.href = 'usuarios2.html';
             })
             .catch(error => console.error('Error al realizar la solicitud:', error));
             
@@ -76,6 +77,7 @@
                 .then(response => response.json())
                 .then(data => {
                     mostrardata(data);
+                    
                 })
                 .catch(error => console.error('Error al realizar la solicitud:', error));
         };
