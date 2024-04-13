@@ -22,23 +22,23 @@
         <h2 class="form_title">Historia clinica de ortodoncia</h2><br>
         <div class="form_containers">
             <div class="form_group">  
-                <input type="text" class="form_input" id="nombre_paciente" name="nombre_paciente" placeholder="Nombre " />
+                <input type="text" class="form_input" id="paciente" name="paciente" placeholder="Nombre " />
                 <input type="text" class="form_input" id="folio" name="folio" placeholder="Folio" />
-                <input type="date" class="form_input" id="inicio_tratamiento" name="inicio_tratamiento" />
-                <input type="text" class="form_input" id="edad_paciente" name="edad_paciente" placeholder="Edad" />
+                <input type="date" class="form_input" id="inicioDeTratamiento" name="inicioDeTratamiento" />
+                <input type="text" class="form_input" id="edad" name="edad" placeholder="Edad" />
             </div>
         </div>
     </form>
 
     <form class="form">
-        <h2 class="form_title">Historia del paciente</h2><br>
+        <h2 class="form_title">Habitos del paciente</h2><br>
         <div class="form_containers">
             <div class="form_group">  
                 
                 <input type="text" class="form_input" id="queja" name="queja" placeholder="Queja " />
-                <input type="text" class="form_input" id="Habitos" name="Habitos" placeholder="Habitos" />
-                <input type="text" class="form_input" id="historial_medico" name="historial_medico" placeholder="Historial medico" />
-                <input type="text" class="form_input" id="historial_dental" name="historial_dental" placeholder="Historial dental" />
+                <input type="text" class="form_input" id="habitos" name="Habitos" placeholder="Habitos" />
+                <input type="text" class="form_input" id="historialMedico" name="historialMedico" placeholder="Historial medico" />
+                <input type="text" class="form_input" id="historialDental" name="historialDental" placeholder="Historial dental" />
                 
                 
                 
@@ -54,135 +54,140 @@
         <div class="form_containers">
             <div class="form_group">  
                 
-                <input type="text" class="form_input" id="actitud_frente_al_tx" name="actitud_frente_al_tx" placeholder="Actitud frente al tx " />
-                <input type="text" class="form_input" id="comportamiento_social" name="comportamiento_social" placeholder="Comportamiento social" />
+                <input type="text" class="form_input" id="actitudFrenteAlTx" name="actitud_frente_al_tx" placeholder="Actitud frente al tx " />
+                <input type="text" class="form_input" id="comportamientoSocial" name="comportamientoSocial" placeholder="Comportamiento social" />
                 
                 <br><br>
                 <h2 class="form_label_HCP">Biotipo facial</h2> <br>
-                <select id="biotipo_facial" class="form_input">
-                    <option value="1">Braqui</option>
-                    <option value="2">Meso</option>
-                    <option value="3">Dolico</option>
+                <select id="biotipoFacial" class="form_input">
+                    <option value="Braqui">Braqui</option>
+                    <option value="Meso">Meso</option>
+                    <option value="Dolico">Dolico</option>
                 </select><br><br>
 
                 <h2 class="form_label_HCP">Perfil</h2> <br>
                 <select id="perfil" class="form_input">
-                    <option value="1">concavo</option>
-                    <option value="2">recto</option>
-                    <option value="3">convexo</option>
+                    <option value="concavo">concavo</option>
+                    <option value="recto">recto</option>
+                    <option value="convexo">convexo</option>
                 </select><br><br>
 
                 <h2 class="form_label_HCP">Altura facial</h2> <br>
-                <select id="altura_facial" class="form_input">
-                    <option value="1">Equilibrada</option>
-                    <option value="2">Aumentada</option>
-                    <option value="3">Disminuida</option>
+                <select id="alturaFacial" class="form_input">
+                    <option value="Equilibrada">Equilibrada</option>
+                    <option value="Aumentada">Aumentada</option>
+                    <option value="Disminuida">Disminuida</option>
                 </select><br><br>
 
 
                 <h2 class="form_label_HCP">Tercios faciales</h2> <br>
                 <label>Superior</label>
-                <select id="tf_superior" class="form_input">
-                    <option value="1">Aumentado</option>
-                    <option value="2">Disminuido</option>
+                <select id="terciosFacialesSuperior" class="form_input">
+                    <option value="Aumentado">Aumentado</option>
+                    <option value="Disminuido">Disminuido</option>
                 </select><br>
                 <label>Medio</label>
-                <select id="tf_medio" class="form_input">
-                    <option value="1">Aumentado</option>
-                    <option value="2">Disminuido</option>
+                <select id="terciosFacialesMedio" class="form_input">
+                    <option value="Aumentado">Aumentado</option>
+                    <option value="Disminuido">Disminuido</option>
                 </select><br>
                 <label>Inferior</label>
-                <select id="tf_inferior" class="form_input">
-                    <option value="1">Aumentado</option>
-                    <option value="2">Disminuido</option>
+                <select id="terciosFacialesInterior" class="form_input">
+                    <option value="Aumentado">Aumentado</option>
+                    <option value="Disminuido">Disminuido</option>
                 </select><br><br>
 
                 <h2 class="form_label_HCP">Incompetencia labial</h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Presenta</option>
-                    <option value="2">No presenta</option>
+                <select id="incompetenciaLabial" class="form_input">
+                    <option value="Presenta">Presenta</option>
+                    <option value="No presenta">No presenta</option>
                 </select><br><br>
 
                 <h2 class="form_label_HCP">Labios</h2> <br>
                 <label>Superior</label><br>
-                <select id="labios_superior" class="form_input">
-                    <option value="1">Protusivo</option>
-                    <option value="2">Retrusivo </option>
+                <select id="labiosSuperior" class="form_input">
+                    <option value="Protusivo">Protusivo</option>
+                    <option value="Retrusivo">Retrusivo </option>
                 </select><br><br>
                 <label>Inferior</label><br>
-                <select id="labios_inferior" class="form_input">
-                    <option value="1">Protusivo</option>
-                    <option value="2">Retrusivo </option>
+                <select id="labiosInteror" class="form_input">
+                    <option value="Protusivo">Protusivo</option>
+                    <option value="Retrusivo">Retrusivo </option>
                 </select><br><br>
                 <h2 class="form_label_HCP">Relación sagital de labios</h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Labio sup delante del labio inferior </option>
-                    <option value="2">Labio superior e inferior en la misma línea </option>
-                    <option value="3">Labio inferior delante del labio superior </option>
+                <select id="relacionSagitalDeLabios" class="form_input">
+                    <option value="superior  delante del inferior">Labio sup delante del labio inferior </option>
+                    <option value="misma linea">Labio superior e inferior en la misma línea </option>
+                    <option value="inferior delantedel  superior">Labio inferior delante del labio superior </option>
                 </select><br><br><br>
                 <h2 class="form_label_HCP">Simetría facial en reposo</h2> <br>
                 <label>Derecho</label><br>
-                <select id="simetria_facial_derecho" class="form_input">
-                    <option value="1">Presenta</option>
-                    <option value="2">No presenta </option>
+                <select id="simetriaFacialReposoDerecho" class="form_input">
+                    <option value="Presenta">Presenta</option>
+                    <option value="No presenta">No presenta </option>
                 </select><br><br>
                 <label>Izquierdo</label><br>
-                <select id="simetria_facial_Izquierdo" class="form_input">
-                    <option value="1">Presenta</option>
-                    <option value="2">No presenta </option>
+                <select id="simetriaFacialReposoIzquierdo" class="form_input">
+                    <option value="Presenta">Presenta</option>
+                    <option value="No presenta">No presenta </option>
                 </select><br><br>
                 
                 <h2 class="form_label_HCP">Ángulo nasolabial</h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Abierto </option>
-                    <option value="2">Normal </option>
-                    <option value="3">Cerrado </option>
+                <select id="angulonasolabial" class="form_input">
+                    <option value="Abierto">Abierto </option>
+                    <option value="Normal">Normal </option>
+                    <option value="Cerrado">Cerrado </option>
                 </select><br><br><br>
 
                 <h2 class="form_label_HCP">Surco mentolabial</h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Normal </option>
-                    <option value="2">Aumentado </option>
-                    <option value="3">Disminuido </option>
+                <select id="surcoMentolabial" class="form_input">
+                    <option value="Normal">Normal </option>
+                    <option value="Aumentado">Aumentado </option>
+                    <option value="Disminuido">Disminuido </option>
                 </select><br><br><br>
 
                 <h2 class="form_label_HCP">Proyección cigomática </h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Normal </option>
-                    <option value="2">Aumentado </option>
-                    <option value="3">Disminuido </option>
+                <select id="proyeccionCigomatica" class="form_input">
+                    <option value="Normal">Normal </option>
+                    <option value="Aumentado">Aumentado </option>
+                    <option value="Disminuido">Disminuido </option>
                 </select><br><br><br>
 
                 <h2 class="form_label_HCP">Linea menton-cuello</h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Normal </option>
-                    <option value="2">Aumentado </option>
-                    <option value="3">Disminuido </option>
+                <select id="lineaMentonCuello" class="form_input">
+                    <option value="Normal">Normal </option>
+                    <option value="Aumentado">Aumentado </option>
+                    <option value="Disminuido">Disminuido </option>
                 </select><br><br><br>
 
                 <label>Patron facial</label><br>
                 <h2 class="form_label_HCP">Patron I</h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Retrusión  mandibular </option>
-                    <option value="2">Protusión maxilar </option>
+                <select id="patronFacialUno" class="form_input">
+                    <option value="Retrusión  mandibular">Retrusión  mandibular </option>
+                    <option value="Protusión maxilar">Protusión maxilar </option>
                 </select><br><br><br>
 
                 <h2 class="form_label_HCP">AFAI</h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Aumentada </option>
-                    <option value="2">Disminuida </option>
+                <select id="afaiUno" class="form_input">
+                    <option value="Aumentada">Aumentada </option>
+                    <option value="Disminuida">Disminuida </option>
                 </select><br><br><br>
 
 
                 <h2 class="form_label_HCP">Patron II</h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Protusión mandibular </option>
-                    <option value="2">Retrusión  maxilar </option>
+                <select id="patronFacialDos" class="form_input">
+                    <option value="Protusión mandibular">Protusión mandibular </option>
+                    <option value="Retrusión  maxilar">Retrusión  maxilar </option>
                 </select><br><br><br>
                 <h2 class="form_label_HCP">AFAI</h2> <br>
-                <select id="incompetencia_labial" class="form_input">
-                    <option value="1">Aumentada </option>
-                    <option value="2">Disminuida </option>
+                <select id="afaiDos" class="form_input">
+                    <option value="Aumentada">Aumentada </option>
+                    <option value="Disminuida">Disminuida </option>
+                </select><br><br><br>
+                <h2 class="form_label_HCP">Patron III</h2> <br>
+                <select id="patronFacialTres" class="form_input">
+                    <option value="Protusión mandibular">Protusión mandibular </option>
+                    <option value="Retrusión  maxilar">Retrusión  maxilar </option>
                 </select><br><br><br>
             </div>
         </div>
@@ -194,29 +199,29 @@
             <div class="form_group">  
                 <h2 class="form_label_HCP">Respiracion</h2> <br>
                 <select id="respiracion" class="form_input">
-                    <option value="1">Bucal </option>
-                    <option value="2">Nasal </option>
-                    <option value="3">Mixta </option>
+                    <option value="Bucal">Bucal </option>
+                    <option value="Nasal">Nasal </option>
+                    <option value="Mixta">Mixta </option>
                 </select><br><br><br>
                 <h2 class="form_label_HCP">Deglucion    </h2> <br>
                 <select id="deglucion" class="form_input">
-                    <option value="1">Normal </option>
-                    <option value="2">Atipica </option>
+                    <option value="Normal">Normal </option>
+                    <option value="Atipica">Atipica </option>
                 </select><br><br><br>
                 <h2 class="form_label_HCP">Actividad lingual</h2> <br>
-                <select id="actividad_lingual" class="form_input">
-                    <option value="1">Normal </option>
-                    <option value="2">Interposición anterior  </option>
-                    <option value="3">Interposición lateral  </option>
+                <select id="actividadLingual" class="form_input">
+                    <option value="Normal">Normal </option>
+                    <option value="Interposición anterior">Interposición anterior  </option>
+                    <option value="Interposición lateral">Interposición lateral  </option>
                 </select><br><br><br>
                 
                 <h2 class="form_label_HCP">Habitos</h2> <br>
-                <select id="habitos" class="form_input">
-                    <option value="1">Dedo </option>
-                    <option value="2">Lengua  </option>
-                    <option value="3">Labio   </option>
-                    <option value="4">Onicofagia  </option>
-                    <option value="5">Chupon  </option>
+                <select id="habitosAnalisisFuncional" class="form_input">
+                    <option value="Dedo">Dedo </option>
+                    <option value="Lengua">Lengua  </option>
+                    <option value="Labio">Labio   </option>
+                    <option value="Onicofagia">Onicofagia  </option>
+                    <option value="Chupon">Chupon  </option>
                 </select><br><br><br>
                 
             </div>
@@ -229,85 +234,68 @@
         <div class="form_containers">
             <div class="form_group">  
                 <h2 class="form_label_HCP">linea media</h2> <br>
-                <select id="respiracion" class="form_input">
-                    <option value="1">Facial </option>
-                    <option value="2">Desviada </option>
-                    <option value="3">superior </option>
-                    <option value="4">Dental  </option>
-                    <option value="5">Inferior  </option>
+                <select id="lineaMedia" class="form_input">
+                    <option value="Facial">Facial </option>
+                    <option value="Desviada">Desviada </option>
+                    <option value="superior">superior </option>
+                    <option value="Dental">Dental  </option>
+                    <option value="Inferior">Inferior  </option>
                 </select><br><br><br>
                 <h2 class="form_label_HCP">Tipo de sonrisa    </h2> <br>
-                <select id="tipo_sonrisa" class="form_input">
-                    <option value="1">Alta </option>
-                    <option value="2">Media </option>
-                    <option value="3">Baja </option>
+                <select id="tipoSonrisa" class="form_input">
+                    <option value="Alta">Alta </option>
+                    <option value="Media">Media </option>
+                    <option value="Baja">Baja </option>
 
                 </select><br><br><br>
                 <h2 class="form_label_HCP">Exposicion dental </h2> <br>
-                <input type="number" class="form_input" id="exposicion_alta" name="exposicion_alta" placeholder="Superior" />
-                <input type="number" class="form_input" id="exposicion_baja" name="exposicion_alta" placeholder="Inferior" />
+                <input type="number" class="form_input" id="esposicionDentalSuperior" name="exposicion_alta" placeholder="Superior" />
+                <input type="number" class="form_input" id="exposicionDentalInferior" name="exposicion_alta" placeholder="Inferior" />
                 
 
                 <h2 class="form_label_HCP">Sonrisa gingival</h2> <br>
-                <select id="sonrisa_gingival" class="form_input">
-                    <option value="1">Presenta </option>
-                    <option value="2">No presenta  </option>
+                <select id="sonrisaGingival" class="form_input">
+                    <option value="Presenta">Presenta </option>
+                    <option value="No presenta">No presenta  </option>
                 </select><br><br><br>
                 
                 
                 <h2 class="form_label_HCP">Corredor bucal</h2> <br>
-                <select id="corredor_bucal" class="form_input">
-                    <option value="1">Amplio </option>
-                    <option value="2">Medio  </option>
-                    <option value="3">Estrecho  </option>
-                </select><br><br><br>
-                
-
-                
-
-                <h2 class="form_label_HCP">Arco de sonrisa</h2> <br>
-                <select id="arco_sonrisa" class="form_input">
-                    <option value="1">Paralelo al labio </option>
-                    <option value="2">Inferior  </option>
-                    <option value="3">Plano </option>
-                    <option value="4">Concavo  </option>
-                </select><br><br><br>
-                
-                
-                <h2 class="form_label_HCP">Corredor bucal</h2> <br>
-                <select id="habitos" class="form_input">
+                <select id="corredorBucal" class="form_input">
                     <option value="Amplio">Amplio </option>
                     <option value="Medio">Medio  </option>
                     <option value="Estrecho">Estrecho  </option>
                 </select><br><br><br>
+                
 
+                
 
                 <h2 class="form_label_HCP">Arco de sonrisa</h2> <br>
-                <select id="habitos" class="form_input">
-                    <option value="1">Paralelo al labio  </option>
-                    <option value="2">Inferior  </option>
-                    <option value="3">Plano  </option>
-                    <option value="4">Concavo  </option>
+                <select id="arcoSonrisa" class="form_input">
+                    <option value="Paralelo al labio">Paralelo al labio </option>
+                    <option value="Inferior">Inferior  </option>
+                    <option value="Plano">Plano </option>
+                    <option value="Concavo">Concavo  </option>
                 </select><br><br><br>
-
+              
 
                 <h2 class="form_label_HCP">Analisis dental</h2> <br><br><br>
                 <h2 class="form_label_HCP">Detencion</h2> <br>
-                <select id="habitos" class="form_input">
-                    <option value="1">Temporal  </option>
-                    <option value="2">Mixta  </option>
-                    <option value="3">Permanente  </option>
+                <select id="analisisDetnal" class="form_input">
+                    <option value="Temporal">Temporal  </option>
+                    <option value="Mixta">Mixta</option>
+                    <option value="Permanente">Permanente  </option>
                 </select><br><br><br>
 
 
                 <h2 class="form_label_HCP">Periodo de la detencion</h2> <br>
-                <select id="habitos" class="form_input">
-                    <option value="1">1 2 Transitorio  </option>
-                    <option value="2">Intertransitorio  </option>
+                <select id="periodoDenticion" class="form_input">
+                    <option value="Transitorio">Transitorio  </option>
+                    <option value="Intertransitorio">Intertransitorio  </option>
                 </select><br><br><br>
 
                 <h2 class="form_label_HCP">Forma de arco</h2> <br>
-                <select id="habitos" class="form_input">
+                <select id="formatoArco" class="form_input">
                     <option value="Ovoide ">Ovoide </option>
                     <option value="Cuadrado">Cuadrado </option>
                     <option value="Triangular">Triangular </option>
@@ -330,7 +318,7 @@
 
 
                 <h2 class="form_label_HCP">Apiñamiento</h2> <br>
-                <select id="molar" class="form_input">
+                <select id="apinamiento" class="form_input">
                     <option value="leve ">leve </option>
                     <option value="Moderado">Moderado</option>
                     <option value="Severo">Severo </option>
@@ -338,52 +326,37 @@
 
 
                 <h2 class="form_label_HCP">Biotipo periodontal</h2> <br>
-                <select id="molar" class="form_input">
+                <select id="biotipoPeriontal" class="form_input">
                     <option value="Delgado ">Delgado </option>
                     <option value="Grueso">Grueso </option>
                 </select><br><br><br>
 
                 <h2 class="form_label_HCP">Overjet</h2> <br>
-                <select id="molar" class="form_input">
+                <select id="overjet" class="form_input">
                     <option value="Normal">Normal</option>
                     <option value="Aumentado">Aumentado</option>
                     <option value="Disminuido">Disminuido</option>
                 </select><br><br><br>
 
                 <h2 class="form_label_HCP">Overbite</h2> <br>
-                <select id="molar" class="form_input">
+                <select id="overbite" class="form_input">
                     <option value="Normal">Normal</option>
                     <option value="Aumentado">Aumentado</option>
                     <option value="Disminuido">Disminuido</option>
                 </select><br><br><br>
-
-
-
-
-                <h2 class="form_label_HCP">Overbite</h2> <br>
-                <select id="molar" class="form_input">
-                    <option value="Normal">Normal</option>
-                    <option value="Aumentado">Aumentado</option>
-                    <option value="Disminuido">Disminuido</option>
-                </select><br><br><br>
-
-
-                <h2 class="form_label_HCP">Overbite</h2> <br>
-                <select id="molar" class="form_input">
-                    <option value="Normal">Normal</option>
-                    <option value="Aumentado">Aumentado</option>
-                    <option value="Disminuido">Disminuido</option>
-                </select><br><br><br>
-
 
                 <h2 class="form_label_HCP">Discrepancia</h2> <br>
-                <input type="number" class="form_input" id="Oseodentaria" name="Oseodentaria" placeholder="Oseodentaria" />
-                <input type="number" class="form_input" id="Bolton" name="Bolton" placeholder="Bolton" />
+                <input type="number" class="form_input" id="discrepaniaOseodentaria" name="Oseodentaria" placeholder="Oseodentaria" />
+                <input type="number" class="form_input" id="discrepanciaBolton" name="Bolton" placeholder="Bolton" />
                 <br><br><br>
 
                 <h2 class="form_label_HCP">Oclusion</h2> <br>
+                <input type="number" class="form_input" id="oclusion" name="Oclusion" placeholder="Oclusion" />
+                <br><br><br>
+
+                <h2 class="form_label_HCP">Mordida</h2> <br>
                 <label> Normal</label><br> <br>
-                <select id="Oclusion_normal" class="form_input">
+                <select id="mordidaNormal" class="form_input">
                     <option value="Anterior">Anterior</option>
                     <option value="Posterior">Posterior </option>
                     <option value="Lateral ">Lateral </option>
@@ -391,7 +364,7 @@
                 </select><br><br><br>
 
                 <label> Abierta</label><br> <br>
-                <select id="Oclusion_Abierta" class="form_input">
+                <select id="mordida" class="form_input">
                     <option value="Anterior">Anterior</option>
                     <option value="Posterior">Posterior </option>
                     <option value="Lateral ">Lateral </option>
@@ -399,7 +372,7 @@
                 </select><br><br><br>
 
                 <label> Cruzada</label><br> <br>
-                <select id="Oclusion_Cruzada" class="form_input">
+                <select id="mordidaCruzada" class="form_input">
                     <option value="Anterior">Anterior</option>
                     <option value="Posterior">Posterior </option>
                     <option value="Lateral ">Lateral</option>
@@ -407,7 +380,7 @@
                 </select><br><br><br>
 
                 <label> Profunda</label><br> <br>
-                <select id="Oclusion_profunda" class="form_input">
+                <select id="mordidaProfunda" class="form_input">
                     <option value="Anterior">Anterior</option>
                     <option value="Posterior">Posterior </option>
                     <option value="Lateral ">Lateral</option>
@@ -420,19 +393,41 @@
     </form>
     
 
-    <form class="form">
+    <form class="form" id="formCefalometrico">
         <h2 class="form_title">Análisis cefalométrico</h2><br>
-        <div class="form_containers">
+        <div class="form_parte2">
             <div class="form_group">  
                 <label for="">Anteroposterior</label>
-                <input type="text" class="form_input" id="actitud_frente_al_tx" name="actitud_frente_al_tx" placeholder="Actitud frente al tx " />
-                <input type="text" class="form_input" id="comportamiento_social" name="comportamiento_social" placeholder="Comportamiento social" />
+
+                <input type="text" class="form_input_cefalo" id="anteroposterior" name="anteroposterior" placeholder="Anteroposterior " />
+                <input type="text" class="form_input_cefalo" id="steiner" name="steiner" placeholder="Steiner" />
+                <input type="text" class="form_input_cefalo" id="mcNamara" name="mcNamara" placeholder="mcNamara " />
+                <input type="text" class="form_input_cefalo" id="rickets" name="rickets" placeholder="Rickets" />
+                <input type="text" class="form_input_cefalo" id="vertical" name="vertical" placeholder="Vertical" />
+                <input type="text" class="form_input_cefalo" id="inclinacionDentaria" name="inclinacionDentaria" placeholder="InclinacionDentaria" />
+                <input type="text" class="form_input_cefalo" id="analisisTranversal" name="analisisTranversal" placeholder="AnalisisTranversal " />
+                <input type="text" class="form_input_cefalo" id="analisisRadiografico" name="analisisRadiografico" placeholder="AnalisisRadiografico" />
+                <input type="text" class="form_input_cefalo" id="listaProblemas" name="listaProblemas" placeholder="listaProblemas" />
+                <input type="text" class="form_input_cefalo" id="diagnostico" name="diagnostico" placeholder="diagnostico" />
+                <input type="text" class="form_input_cefalo" id="objetivos" name="objetivos" placeholder="objetivos" />
+                <input type="text" class="form_input_cefalo" id="planTratamiento" name="planTratamiento" placeholder="planTratamiento " />
+                <input type="text" class="form_input_cefalo" id="apatologiaSeleccionada" name="apatologiaSeleccionada" placeholder="apatologiaSeleccionada" />
             </div>
         </div>
     </form>
 
+    <div class="form_group">
+        <button class="form_submit" id="submitButton">Finalizar</button>
+    </div>
     
+
+
+<!--
     <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const no_expediente = urlParams.get('no_expediente');
+        const apiUrlDatosPersonales = `http://64.227.5.83:8080/odontesis/historiaclinicadeortodoncia`;
+        alert(no_expediente)
         document.getElementById('submitButton').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
 
@@ -447,7 +442,7 @@
                 // el valor de 1 o 0 según si está marcada o no
                 formData[checkbox.name] = checkbox.checked ? 1 : 0;
             });
-            formData["no_expediente"] = 23;
+            
             // Muestra los datos en la consola (puedes eliminar esto en producción)
             console.log(JSON.stringify(formData));
 
@@ -466,5 +461,132 @@
             .catch(error => console.error(error));
         });
     </script>
+-->
+
+
+
+
+<!--
+
+<script>
+    document.getElementById('formCefalometrico').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
+
+        // Obtiene todos los campos del formulario
+        const form = document.getElementById('formCefalometrico');
+        const formData = new FormData(form);
+
+        // Muestra los datos en la consola (puedes eliminar esto en producción)
+        for (let pair of formData.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
+
+        // Realiza la solicitud POST a tu API con los datos
+        fetch('http://64.227.5.83:8080/odontesis/historiaclinicadeortodonciaP2', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => console.log(response))
+        .then(data => {
+            console.log(data); // Aquí puedes manejar la respuesta de la API si es necesario
+        })
+        .catch(error => console.error(error));
+    });
+</script>
+
+-->
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('submitButton').addEventListener('click', function() {
+            // Obtener el valor de 'no_expediente' de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const no_expediente = urlParams.get('no_expediente');
+            
+            // Crear un objeto para almacenar los datos del formulario
+            const formData = {};
+            
+            // Obtener todos los campos del formulario por su ID y agregarlos al objeto formData
+            const formInputs = document.querySelectorAll('.form_input_cefalo');
+            formInputs.forEach(function(input) {
+                formData[input.id] = input.value;
+            });
+            
+            // Agregar 'no_expediente' al objeto formData
+            formData['noExpediente'] = no_expediente;
+            console.log(formData);
+            
+            // Enviar los datos al servidor mediante una solicitud POST
+            fetch('http://64.227.5.83:8080/odontesis/historiaclinicadeortodonciaP2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Si la respuesta es exitosa, puedes mostrar un mensaje de éxito o redirigir a otra página
+                    console.log('Datos de la P2 enviados correctamente');
+                } else {
+                    // Si hay un error en la respuesta del servidor, puedes manejarlo aquí
+                    console.error('Error al enviar los datos P2');
+                }
+
+                
+            })
+            .catch(error => {
+                // Si hay un error en la solicitud, puedes manejarlo aquí
+                console.error('Error al enviar la solicitud:', error);
+            });
+
+
+
+
+
+            //P1
+
+
+
+            const formData1 = {};
+            
+            // Obtener todos los campos del formulario por su ID y agregarlos al objeto formData1
+            const formInputs1 = document.querySelectorAll('.form_input');
+            formInputs1.forEach(function(input) {
+                formData1[input.id] = input.value;
+            });
+            
+            // Agregar 'no_expediente' al objeto formData1
+            formData1['noExpediente'] = no_expediente;
+            console.log(formData1);
+            
+            // Enviar los datos al servidor mediante una solicitud POST
+            fetch('http://64.227.5.83:8080/odontesis/historiaclinicadeortodoncia', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData1)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Si la respuesta es exitosa, puedes mostrar un mensaje de éxito o redirigir a otra página
+                    console.log('Datos de la P1 enviados correctamente');
+                } else {
+                    // Si hay un error en la respuesta del servidor, puedes manejarlo aquí
+                    console.error('Error al enviar los datos P1');
+                }
+
+                
+            })
+            .catch(error => {
+                // Si hay un error en la solicitud, puedes manejarlo aquí
+                console.error('Error al enviar la solicitud:', error);
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
