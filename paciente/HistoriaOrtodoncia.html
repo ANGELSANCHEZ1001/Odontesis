@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_registroPaciente.css">
+    <title>Detalles del Paciente</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../usuarios/welcome.html">Inicio</a>
+        <a href="../paciente/listado.html">Pacientes</a>
+        <a href="../usuarios/usuarios2.html">Usuarios</a>
+        <a href="logout.php" class="cerrarsesion">Cerrar Sesión</a>
+        <a href="#" class="agregar-btn">Agregar</a> 
+        
+    </div>
+    
+    <br><br><br><br><br>
+
+    <div class="form_containersShowOrto">
+        <div class="form_group">
+            <h2 class="form_antec">Historia clinica de ortodoncia</h2><br>
+
+            <table class="form_table_HCO">
+                <!-- Cabecera de la tabla -->
+                <tr >
+                    <th class="form_label_orto">Campo</th>
+                    <th class="form_input_orto">Valor</th>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="form_group">
+            <h2 class="form_antec">Historia del paciente</h2><br>
+
+            <table class="Historia_del_paciente">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label_orto">Campo</th>
+                    <th class="form_input_orto">Valor</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form_group">
+            <h2 class="form_antec">Analisis facial</h2><br>
+
+            <table class="analisis_facial">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label_orto">Campo</th>
+                    <th class="form_input_orto">Valor</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form_group">
+            <h2 class="form_antec">Analisis funcional</h2><br>
+
+            <table class="form_table_Analisis_funcional">
+                <!-- Cabecera de la tabla -->
+               
+                <tr>
+                    <th class="form_label_orto">Campo</th>
+                    <th class="form_input_orto">Valor</th>
+                </tr>
+               
+            </table>
+        </div>
+        <div class="form_group">
+            <h2 class="form_antec">Analisis de la sonrisa</h2><br>
+            <table class="form_table_analisis_de_la_sonrisa">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label_orto">Campo</th>
+                    <th class="form_input_orto">Valor</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form_group">
+            <h2 class="form_antec">Analisis cefalometrico</h2><br>
+
+            <table class="form_table_cefalometrico">
+                <!-- Cabecera de la tabla -->
+                <tr>
+                    <th class="form_label_orto">Campo</th>
+                    <th class="form_input_orto">Valor</th>
+                </tr>
+            </table>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const idFromURL = urlParams.get('no_expediente');
+        const apiUrlDatosPersonales = `http://64.227.5.83:8080/odontesis/historiaclinicadeortodoncia/${idFromURL}`;
+
+
+        function agregarBtnClick() {
+        // Obtener el valor de idFromURL
+        // Realizar alguna acción con idFromURL
+        window.location.href = `ortodoncia.html?no_expediente=${idFromURL}`;
+            // Puedes agregar aquí cualquier lógica adicional que desees ejecutar al hacer clic en el enlace.
+        }
+
+        // Agregar un evento de clic al enlace y llamar a la función agregarBtnClick
+        document.querySelector('.agregar-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // Esto evita que el enlace siga su URL href
+            agregarBtnClick(); // Llamar a la función agregarBtnClick
+        });
+
+
+        // Datos personales
+        // Obtener los datos personales del paciente de la API
+        fetch(apiUrlDatosPersonales)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los detalles personales del paciente
+                const table = document.querySelector('.form_table_HCO');
+
+                const variablesMostrar = [
+                    
+                    "paciente",
+                    "folio",
+                    "inicioDeTratamiento",
+                    "edad"
+                ]
+
+                const variablesTransformadas = [
+                    "Paciente",
+                    "Folio",
+                    "Inicio de tratamiento",
+                    "Edad"
+                ];
+
+
+                let i=0;
+                console.log(data);
+                variablesMostrar.forEach((variable, index) => {
+                    
+                    if(index>0){
+                        i++;
+                        const row = document.createElement('tr');
+                        row.classList.add('form_table_HCOT');
+                        row.innerHTML = `
+                            <td class="form_label_orto">${variablesTransformadas[i]}</td>
+                            <td class="form_input_orto">${data[variable]}</td>
+                        `;
+                        table.appendChild(row);
+                    }});
+            })
+            .catch(error => console.error(error));
+
+
+
+
+            fetch(apiUrlDatosPersonales)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los detalles personales del paciente
+                const table = document.querySelector('.Historia_del_paciente');
+
+                const variablesMostrar = [
+                    "queja",
+                    "habitos",
+                    "historialMedico",
+                    "historialDental",
+                ]
+                const variablesTransformadas = [
+                    "Queja",
+                    "Habitos",
+                    "Historial medico",
+                    "Historial dental"
+                ];
+
+
+                let i=0;
+                console.log(data);
+                variablesMostrar.forEach(variable => {
+                    
+                    
+                        const row = document.createElement('tr');
+                        row.classList.add('form_table_HCOT');
+                        row.innerHTML = `
+                            <td class="form_label_orto">${variablesTransformadas[i]}</td>
+                            <td class="form_input_orto">${data[variable]}</td>
+                        `;
+                        table.appendChild(row);
+                        i++;
+                    });
+            })
+            .catch(error => console.error(error));
+
+
+
+            fetch(apiUrlDatosPersonales)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los detalles personales del paciente
+                const table = document.querySelector('.analisis_facial');
+
+                const variablesMostrar = [
+                    "actitudFrenteAlTx",
+                    "comportamientoSocial",
+                    "biotipoFacial",
+                    "perfil",
+                    "alturaFacial",
+                    "terciosFacialesInterior",
+                    "terciosFacialesMedio",
+                    "terciosFacialesSuperior",
+                    "incompetenciaLabial",
+                    "labiosSuperior",
+                    "labiosInteror",
+                    "relacionSagitalDeLabios",
+                    "simetriaFacialReposoIzquierdo",
+                    "simetriaFacialReposoDerecho", 
+                    "angulonasolabial",
+                    "surcoMentolabial",
+                    "proyeccionCigomatica",
+                    "lineaMentonCuello",  
+                    "patronFacialUno", //AFAI
+                    "patronFacialDos", //AFAI
+                    "patronFacialTres" //NO hay patron3
+                ]
+
+                const variablesTransformadas = [
+                    "Actitud frente al tx",
+                    "Comportamiento social",
+                    "Biotipo facial",
+                    "Perfil",
+                    "Altura facial",
+                    "Tercios inferior",
+                    "Tercios medio",
+                    "Tercios superior", 
+                    "Incompetencia labial",
+                    "Labio superior",
+                    "Labio inferior",
+                    "Relacion sagital de labios",
+                    "Simetria facial Izq", 
+                    "Simetria facial der", 
+                    "Angulonasolabial",
+                    "Surco mentolabial",
+                    "Proyeccion cigomatica",
+                    "Linea menton cuello",
+                    "Patron facial uno", //AFAI
+                    "Patron facial dos", //AFAI
+                    "Patron facial tres" //NO hay patron3
+                ];
+
+
+
+                let i =0;
+                variablesMostrar.forEach(variable => {
+                    
+                        const row = document.createElement('tr');
+                        row.classList.add('form_table_HCOT');
+                        row.innerHTML = `
+                        <td class="form_label_orto">${variablesTransformadas[i]}</td>
+                        <td class="form_input_orto">${data[variable]}</td>
+                    `;
+                    table.appendChild(row);
+                    i++;
+                    }
+                   
+                );
+            })
+            .catch(error => console.error(error));
+
+
+
+
+            fetch(apiUrlDatosPersonales)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los detalles personales del paciente
+                const table = document.querySelector('.form_table_Analisis_funcional');
+
+                const variablesMostrar = [
+                    "respiracion",
+                    "deglucion",
+                    "actividadLingual",
+                    "habitosAnalisisFuncional"
+                ]
+
+                const variablesTransformadas = [
+                    "Respiracion",
+                    "Deglucion",
+                    "Actividad lingual",
+                    "Habitos analisis funcional"
+                ];
+
+
+
+                let i =0;
+                variablesMostrar.forEach(variable => {
+                    
+                    
+                        const row = document.createElement('tr');
+                        row.classList.add('form_table_HCOT');
+                        row.innerHTML = `
+                        <td class="form_label_orto">${variablesTransformadas[i]}</td>
+                        <td class="form_input_orto">${data[variable]}</td>
+                    `;
+                    table.appendChild(row);
+                    i++;    
+                }
+                    
+                   
+                );
+            })
+            .catch(error => console.error(error));
+
+
+
+
+            fetch(apiUrlDatosPersonales)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los detalles personales del paciente
+                const table = document.querySelector('.form_table_analisis_de_la_sonrisa');
+
+                const variablesMostrar = [
+                    "lineaMedia",
+                    "tipoSonrisa",
+                    "exposicionDentalInferior", //inferior superior
+                    "esposicionDentalSuperior",
+                    "sonrisaGingival",
+                    "corredorBucal",
+                    "arcoSonrisa",
+                    "analisisDetnal",
+                    "periodoDenticion",
+                    "formatoArco",
+                    "molar",
+                    "canina",
+                    "apinamiento",
+                    "biotipoPeriontal",
+                    "overjet",
+                    "overbite",//falta discrepancia oseaoentaria y bolton
+                    "oclusion", //Normal abierta cruzada profunda
+                  
+                ]
+
+
+
+                const variablesTransformadas = [
+                    "Linea media",
+                    "Tipo sonrisa",
+                    "Exposicion dental infe", 
+                    "Exposicion dental super", 
+                    "Sonrisa gingival",
+                    "Corredor bucal",
+                    "Arco sonrisa",
+                    "Analisis detnal",
+                    "Periodo denticion",
+                    "Formato arco",
+                    "Molar",
+                    "Canina",
+                    "Apinamiento",
+                    "Biotipo periontal",
+                    "Overjet",
+                    "Overbite", //falta discrepancia oseaoentaria y bolton
+                    "Oclusion" //Normal abierta cruzada profunda
+                ];
+
+
+                let i =0;
+                variablesMostrar.forEach(variable => {
+                    
+                    
+                        
+                        const row = document.createElement('tr');
+                        row.classList.add('form_table_HCOT');
+                        row.innerHTML = `
+                        <td class="form_label_orto">${variablesTransformadas[i]}</td>
+                        <td class="form_input_orto">${data[variable]}</td>
+                    `;
+                    table.appendChild(row);
+                    i++;
+                    }
+                   
+                );
+            })
+            .catch(error => console.error(error));
+
+
+
+
+
+            apiUrlDatosPersonales2=`http://64.227.5.83:8080/odontesis/historiaclinicadeortodonciaP2/${idFromURL}`;
+            fetch(apiUrlDatosPersonales2)
+            .then(response => response.json())
+            .then(data => {
+                // Crear una tabla para mostrar los detalles personales del paciente
+                const table = document.querySelector('.form_table_cefalometrico');
+
+                const variablesMostrar = [
+                "noExpediente",
+                    "anteroposterior",
+                    "steiner",
+                    "rickets",
+                    "mcNamara",
+                    "vertical",
+                    "inclinacionDentaria",
+                    "analisisTranversal",
+                    "analisisRadiografico",
+                    "listaProblemas",
+                    "diagnostico",
+                    "objetivos",
+                    "planTratamiento",
+                    "apatologiaSeleccionada"
+                ];
+
+                const Atributo = [
+                "noExpediente",
+                    "Anteroposterior",
+                    "Steiner",
+                    "Rickets",
+                    "mcNamara",
+                    "Vertical",
+                    "Inclinacion dentaria",
+                    "Analisis tranversal",
+                    "Analisis radiografico",
+                    "Lista problemas",
+                    "Diagnostico",
+                    "Objetivos",
+                    "Plan tratamiento",
+                    "Apatologia seleccionada"
+                ];
+
+                let i=0;
+                console.log(data);
+                variablesMostrar.forEach((variable, index) => {
+                    
+                    if(index>0){
+                        
+                        const row = document.createElement('tr');
+                        row.classList.add('form_table_HCOT');
+                        row.innerHTML = `
+                            <td class="form_label_orto">${Atributo[i]}</td>
+                            <td class="form_input_orto">${data[variable]}</td>
+                        `;
+                        table.appendChild(row);
+                    }i++;
+                    
+                });
+            })
+            .catch(error => console.error(error));
+    </script>
+</body>
+</html>

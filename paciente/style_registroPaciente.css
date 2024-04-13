@@ -45,9 +45,14 @@
         position: relative;
         --color: #5757577e
     }
+
+
+    .form_containersShowOrto{
+        width: 1000px;
+    }
     
 
-    .form_input
+    .form_input, .form_input_cefalo
     {
         width: 100%;
         text-align: center;
@@ -61,6 +66,37 @@
 
     }
 
+
+    .form_input_orto{
+        width: 500px;
+        text-align: left;
+        font-size: 1rem;
+        padding: .6em .3em;
+        border: none;
+        outline: none;
+        font-family: 'Roboto', sans-serif;
+    }
+
+
+
+    .form_label_orto
+    {
+        width: 500px;
+        background: none;
+        text-align: left;
+        color: #706c6c ;
+        font-size: 1rem;    
+        border: none;
+        outline: none;
+        font-family: 'Roboto', sans-serif;
+
+        
+    }
+
+    .form_table_HCOT:hover {
+        background-color: #AFD4D5;
+        color: white;
+    }
 
     .tableinput{
         border-bottom: solid 1px #3ce7d4;
