@@ -111,35 +111,34 @@
     // Mostrar la información del usuario en la página de edición
     document.getElementById('nombre_paciente').innerText = nombrePaciente;
 
-
     // Actualizar el enlace del navbar con el nombre del paciente
     const agregarLink = document.getElementById('agregarLink');
     agregarLink.href += nombrePaciente;
-    
+    mostrardata2(nombrePaciente);
   }
 
+  const mostrardata2 = () => {
+    const url2 = 'http://64.227.5.83:8080/odontesis/notadeevolucion';
+    fetch(url2)
+      .then(response => response.json())
+      .then(datos => {
+        mostrardata2EnTabla(datos,nombrePaciente); // Aquí mostramos los datos en la tabla
+      })
+      .catch(error => console.error("Error al realizar la solicitud:", error));
+  }
 
-  const url2 = 'http://64.227.5.83:8080/odontesis/notadeevolucion';
-  
-        const table = document.querySelector('table');
-        fetch(url2)
-            .then(response => response.json())
-            .then(data => {
-                mostrardata2(data); //  aquí
-            })
-            .catch(error => console.error("Error al realizar la solicitud:", error));
-        console.log(data);
-        const mostrardata2 = (data) => {
-            let body = '';
-            for (let i = 0; i < data.length; i++) {
-              
-              if (data[i].nombreDePaciente == nombrePaciente) {
-                body += `<tr><td>${data[i].fechaDeNotaDeEvolucion}</td><td>${data[i].etapaDeTratamiento}</td><td>${data[i].procedimientoRealizado}</td><td>${data[i].objetivoProximaFecha}</td><td>${data[i].nombreDelDoctorQueAtendio}</td></tr>`;
-            }
-            }
-            document.getElementById('data').innerHTML = body;
-            console.log(data);
-        }
+  const mostrardata2EnTabla = (data, nombrePaciente) => {
+    let body = '';
+    for (let i = 0; i < data.length; i++) {
+      //alert("DATOS GEN "+nombrePaciente)
+      //alert("NOTA "+data[i].nombreDePaciente)
+      if (data[i].nombreDePaciente.trim() === nombrePaciente.trim()) {
+        body += `<tr><td>${data[i].fechaDeNotaDeEvolucion}</td><td>${data[i].etapaDeTratamiento}</td><td>${data[i].procedimientoRealizado}</td><td>${data[i].objetivoProximaFecha}</td><td>${data[i].nombreDelDoctorQueAtendio}</td></tr>`;
+      }else{
+      }
+    }
+    document.getElementById('data').innerHTML = body;
+  }
 </script>
 </body>
 </html>
